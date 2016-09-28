@@ -57,10 +57,10 @@ public class HomeController {
 		System.out.println("page: " + page);
 
 		System.out.println("lat: " + lat);
-		System.out.println("lng: " + lng);		
+		System.out.println("lng: " + lng);
 		Map<String, Object> result = new HashMap<>();
 		PositionVO vo = new PositionVO();
-		
+
 		int distanceLength = service.gradeLength(vo);
 		if (page > distanceLength) {
 			return null;
@@ -68,18 +68,19 @@ public class HomeController {
 		result.put("grade", service.orderByGrade(vo));
 		return result;
 	}
-	
-	/*
-	  @CrossOrigin
-	  
-	  @ResponseBody
-	  
-	  @RequestMapping(value = "/home/review/{page}", method =
-	  RequestMethod.GET) public Map<String, Object> reviewList(@PathVariable
-	  Integer page, double lat, double lng) throws Exception { Map<String,
-	  Object> result = new HashMap<>(); PositionVO vo = new PositionVO(); int
-	  distanceLength = service.reviewLength(vo); if(page>distanceLength){
-	  return null; } result.put("grade", service.orderByReview(vo)); return
-	  result; }
-	 */
+
+	@CrossOrigin
+	@ResponseBody
+	@RequestMapping(value = "/home/review/{page}", method = RequestMethod.GET)
+	public Map<String, Object> reviewList(@PathVariable Integer page, double lat, double lng) throws Exception {
+		logger.info("review connected....");
+		Map<String, Object> result = new HashMap<>();
+		PositionVO vo = new PositionVO();
+		int distanceLength = service.reviewLength(vo);
+		if (page > distanceLength) {
+			return null;
+		}
+		result.put("review", service.orderByReview(vo));
+		return result;
+	}
 }

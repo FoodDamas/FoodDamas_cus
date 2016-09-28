@@ -140,23 +140,26 @@
 
 		<div class="slider-container popular_restaurant_container" id="listCont" style="border:1px solid red">
 			<ul class="list-restaurants type-main" id="list">
-
 			</ul>
-			<button class="more_btn" id="moreList">더보기</button>
+			<button class="more_btn" id="disMore">더보기</button>
 		</div>
 		
 		<div class="slider-container popular_restaurant_container" id="graCont" style="border:1px solid blue; display:none">
 			<ul class="list-restaurants type-main" id="gradeList">
-
 			</ul>
-			<button class="more_btn" id="moreList">더보기</button>
+			<button class="more_btn" id="graMore">더보기</button>
 		</div>
 		
 		<div class="slider-container popular_restaurant_container" id="revCont" style="border:1px solid yellow; display:none">
 			<ul class="list-restaurants type-main" id="reviewList">
-
 			</ul>
-			<button class="more_btn" id="moreList">더보기</button>
+			<button class="more_btn" id="revMore">더보기</button>
+		</div>
+		
+		<div class="slider-container popular_restaurant_container" id="menCont" style="border:1px solid green; display:none">
+			<ul class="list-restaurants type-main" id="menuList">
+			</ul>
+			<button class="more_btn" id="menMore">더보기</button>
 		</div>
 	</article>
 	</main>
@@ -205,55 +208,148 @@
         
         // List & Map Create
         var orderBy = new Object();
-        orderBy.page=0;
+        var dP = 0;
+        var gP = 0;
+        var rP = 0;
+        var mP = 0;
+        orderBy.page=dP;
         orderBy.orderBy="distance";
         homeManager.getPosition(orderBy);
         
+        // 생성자 써야될것 같음
+       	function getList(data, callback){
+        	
+        }
         
         // 더보기
-        
-		$("#moreList").on("click", function(){			
-			orderBy.page = orderBy.page+8;
+		$("#disMore").on("click", function(){
+			console.log("disMore more data");
+			orderBy.orderBy = "distance";
+			dP += 8;
+			orderBy.page = dP;
+			homeManager.getPosition(orderBy);
+		});
+		
+		$("#graMore").on("click", function(){
+			console.log("graMore more data");
+			orderBy.orderBy = "grade";
+			gP += 8;
+			orderBy.page = gP;
+			homeManager.getPosition(orderBy.page);
+		});
+		
+		$("#revMore").on("click", function(){
+			console.log("revMore more data");
+			orderBy.orderBy = "review";
+			rP += 8;
+			orderBy.page = rP;
+			homeManager.getPosition(orderBy.page);
+		});
+		
+		$("#menMore").on("click", function(){
+			console.log("menMore more data");
+			orderBy.orderBy = "menu";
+			mP += 8;
+			orderBy.page = mP;
 			homeManager.getPosition(orderBy.page);
 		});
 		
 		
-		// Btn List
+		// Btn List		1 able 0 disable
+		var d = 0;
+		var g = 1;
+		var r = 1;
+		var m = 1;
 		
-		
-					
 		$("#disBtn").on("click", function(){
-			console.log("dis click");
+			// console.log("dis click");
+			// 중복 방지
+			if(d==0){
+				console.log("중복 방지");
+				return;
+			}
+			if(d==1){
+		    d = 0;
+	        g = 1;
+	        r = 1;
+	        m = 1;
 			orderBy.orderBy="distance";
-	        homeManager.getPosition(orderBy);
-	        
+	        homeManager.getPosition(orderBy);	    
 	        
 			document.getElementById("listCont").style.display = "block";
 			document.getElementById("graCont").style.display = "none";
 			document.getElementById("revCont").style.display = "none";
+			document.getElementById("menCont").style.display = "none";			
+			}
 			
 		});
+		
 		$("#graBtn").on("click", function(){
-			console.log("graBtn click");
+			//console.log("graBtn click");
+			// 중복 방지
+			if(g==0){
+				console.log("중복 방지");
+				return;
+			}
+			if(g==1){
+		    d = 1;
+	        g = 0;
+	        r = 1;
+	        m = 1;
+	        
 			orderBy.orderBy="grade";
 	        homeManager.getPosition(orderBy);
+	        
 	         
 			document.getElementById("listCont").style.display = "none";
 			document.getElementById("graCont").style.display = "block";
 			document.getElementById("revCont").style.display = "none";
-			
+			document.getElementById("menCont").style.display = "none";
+			}
 		});
 		$("#revBtn").on("click", function(){
+			// 중복 방지
+			if(r==0){
+				console.log("중복 방지");
+				return;
+			}
+			if(r==1){
+		    d = 1;
+	        g = 1;
+	        r = 0;
+	        m = 1;
 			console.log("revBtn click");
 			orderBy.orderBy="review";
 	        homeManager.getPosition(orderBy);
-	        /* 
 			document.getElementById("listCont").style.display = "none";
 			document.getElementById("graCont").style.display = "none";
 			document.getElementById("revCont").style.display = "block";
-			 */
+			document.getElementById("menCont").style.display = "none";
+			}
 		});
-				
+		
+		$("#menBtn").on("click", function(){
+			// 중복 방지
+			if(m==0){
+				console.log("중복 방지");
+				return;
+			}
+			if(r==1){
+		    d = 1;
+	        g = 1;
+	        r = 1;
+	        m = 0;
+			console.log("menBtn click");
+			orderBy.orderBy="menu";
+	        homeManager.getPosition(orderBy);
+			document.getElementById("listCont").style.display = "none";
+			document.getElementById("graCont").style.display = "none";
+			document.getElementById("revCont").style.display = "none";
+			document.getElementById("menCont").style.display = "block";
+			}
+		});
+	
+		
 		
 		
 		

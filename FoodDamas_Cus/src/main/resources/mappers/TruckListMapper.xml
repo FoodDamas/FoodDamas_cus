@@ -5,32 +5,27 @@
 
 	<select id="review" resultType="hashmap">
 		select review_num, location,
-		distance, b.u_id, co_name
+		distance, b.u_id, co_name, grade, sales_state,
+		u_profile_img
 		from(
 		select
-		location,
-		SQRT(pow(sales.lat -
-		#{lat}, 2) + pow(sales.lng - #{lng}, 2))
-		as
-		distance, sales.u_id,
-		co_name, u_profile_img
+		location, SQRT(pow(sales.lat - #{lat}, 2) + pow(sales.lng -
+		#{lat}, 2)) as
+		distance, sales.u_id, co_name, grade, sales_state,
+		u_profile_img
 		from (
-		select * from
-		tbl_ft_sales where
-		sales_state = 1
+		select * from tbl_ft_sales
 		) as sales
-		inner join tbl_ft_info as
-		info on info.u_id =
-		sales.u_id
+		inner join
+		tbl_ft_info as info on info.u_id = sales.u_id
 		) as b
-		inner join (SELECT COUNT(*)
-		review_num ,u_id FROM
-		tbl_ft_review group BY
-		u_id) as review on
-		review.u_id = b.u_id
-		order by
-		review_num desc
+		inner join (SELECT
+		COUNT(*) review_num ,u_id FROM tbl_ft_review group BY
+		u_id) as review
+		on review.u_id = b.u_id
+		order by review_num desc
 		limit #{page},8
+
 
 	</select>
 	<select id="reviewLength" resultType="Integer">
@@ -58,7 +53,8 @@
 
 	<select id="grade" resultType="hashmap">
 		select
-		info.co_name, grade, sales.u_id,
+		info.co_name, grade,
+		sales.u_id,
 		location, SQRT(pow(sales.lat - #{lat}, 2) +
 		pow(sales.lng -
 		#{lng}, 2))
@@ -75,7 +71,8 @@
 		info on sales.u_id=info.u_id
 		order by grade
 		desc
-		limit #{page},8
+		limit
+		#{page},8
 	</select>
 
 	<select id="gradeLength" resultType="Integer">
@@ -107,33 +104,32 @@
 	</select>
 
 	<select id="distance" resultType="hashmap">
-		select sales.u_id, location,
-		distance,
-		sales_state,
-		u_profile_img, co_name,
-		work_date, grade, lat, lng
+		select b.u_id, location,
+		distance, sales_state, u_profile_img, co_name,
+		grade, review_num
 		from
 		(
-		select
-		lat, lng,
-		tbl_ft_sales.u_id,
-		location,
+		select sales.u_id, location, distance, sales_state, u_profile_img,
+		co_name,
+		grade
+		from
+		(
+		select tbl_ft_sales.u_id, location,
 		SQRT(pow(tbl_ft_sales.lat - #{lat},
-		2) +
-		pow(tbl_ft_sales.lng - #{lng},
+		2) + pow(tbl_ft_sales.lng - #{lng},
 		2)) as distance, sales_state,
 		work_date
-		from tbl_ft_sales where
-		sales_state="1" and date(work_date) =
-		date(now()) order by distance
-		) as
-		sales
+		from tbl_ft_sales
+		) as sales
 
-		inner join tbl_ft_info as info
-		on sales.u_id = info.u_id
-		order by
-		distance
+		inner join tbl_ft_info as info on sales.u_id = info.u_id
+		) as b
+		inner
+		join (SELECT COUNT(*) review_num ,u_id FROM tbl_ft_review group BY
+		u_id) as review on review.u_id = b.u_id
+		order by distance
 		limit #{page},8
+
 	</select>
 
 	<select id="distanceLength" resultType="Integer">
