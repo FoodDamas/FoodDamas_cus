@@ -21,7 +21,7 @@
 		<div class="leer">우리청년컵밥</div>
 	</div>
 
-	<div class="container-fluid ng-scope">
+	<div class="container-fluid">
 
 		<div class="restaurant-detail">
 			<ul class="nav nav-tabs">

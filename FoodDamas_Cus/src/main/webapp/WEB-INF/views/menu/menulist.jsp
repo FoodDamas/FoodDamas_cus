@@ -140,14 +140,7 @@ $(document).ready(function(){
 		<div class="inner" style="font-size: 16px;">
 
 			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-			<nav class="links-external">
-				<ul class="list-links">
-					<li><a href="/">회사소개</a></li>
-					<li><a href="/">직원내용</a></li>
-					<li><a href="/">이용약관</a></li>
-					<li><a class="only-desktop" href="/">브랜드</a></li>
-				</ul>
-			</nav>
+
 			<div class="language-copyrights">
 				<p class="select-language">
 					<a href="/" class="selected">한국어</a> <a href="/">English</a>
