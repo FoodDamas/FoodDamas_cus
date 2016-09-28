@@ -1,4 +1,4 @@
-package org.food.controller;
+/*package org.food.controller;
 
 import static org.junit.Assert.*;
 
@@ -31,4 +31,4 @@ public class TruckListTest {
 	
 
 
-}
+}*/

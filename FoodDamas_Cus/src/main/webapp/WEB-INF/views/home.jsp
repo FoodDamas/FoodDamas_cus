@@ -5,23 +5,29 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
+<base href="resources/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>나만의 맛집 검색</title>
 <script src="http://s.codepen.io/assets/libs/modernizr.js"
 	type="text/javascript"></script>
+		<!-- 911ffa91ef92e4018ca8e381432dccea -->
+		<!-- d76d3b667738eb709c0fdad4f29b259e -->
+		<!-- 07803719751f68ea187b3847f10d30e8 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8"></script>
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=LIBRARY"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=LIBRARY"></script>
 <!-- services 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services"></script>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=services,clusterer,drawing"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services,clusterer,drawing"></script>
+
 
 
 <base href="resources/">
+
 
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" href="css/dropbox.css">
@@ -53,7 +59,9 @@
 					</figure>
 				</button>
 			</div>
-	
+			<button class="btn-menu-open"
+				onclick="common_ga(get_now_page_code(), &#39;CLICK_MENU&#39;);toggle_menu_layer();">메뉴
+				열기</button>
 		</nav>
 	</header>
 
@@ -78,17 +86,13 @@
 	width: 100%;
 }
 </style>
-
-
 		<!--이가영-->
+		<!-- 		
 		<div style="width: 100%">
-<script>
-</script>
+
 			<div class="sitenavigation" style="width: 50%; float: left">
 				<ul>
-
-					<li class="nav-dropdown" style="width: 100%;">
-					<a href="#"
+					<li class="nav-dropdown" style="width: 100%;"><a href="#"
 						class="type">분류 별</a>
 						<ul class="typeSelect" style="width: 100%; z-index: 200;">
 							<li><a href="#">거리순</a></li>
@@ -98,11 +102,11 @@
 						</ul></li>
 				</ul>
 			</div>
+
 			<div class="sitenavigation" style="width: 50%; float: right">
 				<ul>
-
-					<li class="nav-dropdown" style="width: 100%;">
-					<a class="typeFood" href="#">음식 종류별</a>
+					<li class="nav-dropdown" style="width: 100%;"><a
+						class="typeFood" href="#">음식 종류별</a>
 						<ul class="typeFoodSelect" style="width: 100%; z-index: 200;">
 							<li><a href="#">한식</a></li>
 							<li><a href="#">중식</a></li>
@@ -115,7 +119,9 @@
 				</ul>
 			</div>
 		</div>
-		<script	src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+ -->
+		<script
+			src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 
 		<!--이가영-->
@@ -124,19 +130,33 @@
 
 		<div class="slider-container" style="margin-left: 10px;">
 			<p class="tags">
-				<button href="#" class="tag-item selected">거리순</button>
-				<button href="#" class="tag-item ng-binding ng-scope">평점순</button>
-				<button href="#" class="tag-item ng-binding ng-scope">리뷰순</button>
-				<button href="#" class="tag-item tag-item selected">종료순</button>
-
+				<button href="#" class="tag-item tag-item selected" id="disBtn">거리순</button>
+				<button href="#" class="tag-item tag-item selected" id="graBtn">평점순</button>
+				<button href="#" class="tag-item tag-item selected" id="revBtn">리뷰순</button>
+				<button href="#" class="tag-item tag-item selected" id="menuBtn">메뉴순</button>
 			</p>
 		</div>
 
-		<div class="slider-container popular_restaurant_container">
-			<ul class="list-restaurants type-main" id="list">				
+
+		<div class="slider-container popular_restaurant_container" id="listCont" style="border:1px solid red">
+			<ul class="list-restaurants type-main" id="list">
 
 			</ul>
-			<button class="more_btn" id="more">더보기</button>
+			<button class="more_btn" id="moreList">더보기</button>
+		</div>
+		
+		<div class="slider-container popular_restaurant_container" id="graCont" style="border:1px solid blue; display:none">
+			<ul class="list-restaurants type-main" id="gradeList">
+
+			</ul>
+			<button class="more_btn" id="moreList">더보기</button>
+		</div>
+		
+		<div class="slider-container popular_restaurant_container" id="revCont" style="border:1px solid yellow; display:none">
+			<ul class="list-restaurants type-main" id="reviewList">
+
+			</ul>
+			<button class="more_btn" id="moreList">더보기</button>
 		</div>
 	</article>
 	</main>
@@ -176,97 +196,80 @@
 	<script>
     // on document ready
     $(document).ready(function () {
-        /*성현*/
-                
-        /////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////*다음맵*////////////////////////////////////////////////
-        /////////////////////////////////////////////////////////////////////////////////////////////
-        
-        var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
-        var options = { //지도를 생성할 때 필요한 기본 옵션
-            center: new daum.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
-            level: 3 //지도의 레벨(확대, 축소 정도)
-        };
-
-        var map = new daum.maps.Map(container, options); //지도 생성 및 객체 리턴
-
-        // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
-        if (navigator.geolocation) {
-
-            // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-            navigator.geolocation.getCurrentPosition(function(position) {
-
-                var lat = position.coords.latitude, // 위도
-                        lon = position.coords.longitude; // 경도
-
-                var locPosition = new daum.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                        message = '<div style="padding:5px;">My Position</div>'; // 인포윈도우에 표시될 내용입니다
-
-                // 마커와 인포윈도우를 표시합니다
-                displayMarker(locPosition, message);
-                        
-                
-                
-
-            });
-
-        } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-
-            var locPosition = new daum.maps.LatLng(33.450701, 126.570667),
-                    message = 'geolocation을 사용할수 없어요..'
-
-            displayMarker(locPosition, message);
-        }
-
-		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-        function displayMarker(locPosition, message) {
-
-            // 마커를 생성합니다
-            var marker = new daum.maps.Marker({
-                map: map,
-                position: locPosition
-            });
-
-            var iwContent = message, // 인포윈도우에 표시할 내용
-                    iwRemoveable = true;
-
-            // 인포윈도우를 생성합니다
-            var infowindow = new daum.maps.InfoWindow({
-                content : iwContent,
-                removable : iwRemoveable
-            });
-
-            // 인포윈도우를 마커위에 표시합니다
-            infowindow.open(map, marker);
-
-            // 지도 중심좌표를 접속위치로 변경합니다
-            map.setCenter(locPosition);
-        }
         
         /////////////////////////////////////////////////////////////////////////////////////////////
-        ///////////////////////////////////////*푸드트럭*/////////////////////////////////////////////////
+        ///////////////////////////////////////*성현*//////////////////////////////////////////////////
         /////////////////////////////////////////////////////////////////////////////////////////////
         
-        // List        
-        homeManager.list();
+        //map
+        
+        // List & Map Create
+        var orderBy = new Object();
+        orderBy.page=0;
+        orderBy.orderBy="distance";
+        homeManager.getPosition(orderBy);
+        
         
         // 더보기
-        var page=0;
-		$("#more").on("click", function(){
-			console.log("more clicked...");
-			page = page+8;
-			homeManager.moreList(page);
+        
+		$("#moreList").on("click", function(){			
+			orderBy.page = orderBy.page+8;
+			homeManager.getPosition(orderBy.page);
 		});
-        /*성현*/
-
-
+		
+		
+		// Btn List
+		
+		
+					
+		$("#disBtn").on("click", function(){
+			console.log("dis click");
+			orderBy.orderBy="distance";
+	        homeManager.getPosition(orderBy);
+	        
+	        
+			document.getElementById("listCont").style.display = "block";
+			document.getElementById("graCont").style.display = "none";
+			document.getElementById("revCont").style.display = "none";
+			
+		});
+		$("#graBtn").on("click", function(){
+			console.log("graBtn click");
+			orderBy.orderBy="grade";
+	        homeManager.getPosition(orderBy);
+	         
+			document.getElementById("listCont").style.display = "none";
+			document.getElementById("graCont").style.display = "block";
+			document.getElementById("revCont").style.display = "none";
+			
+		});
+		$("#revBtn").on("click", function(){
+			console.log("revBtn click");
+			orderBy.orderBy="review";
+	        homeManager.getPosition(orderBy);
+	        /* 
+			document.getElementById("listCont").style.display = "none";
+			document.getElementById("graCont").style.display = "none";
+			document.getElementById("revCont").style.display = "block";
+			 */
+		});
+				
+		
+		
+		
+		
+		
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////*성현*//////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////
+  	        	
         var typeSelect = 0;
-        $('.nav-dropdown > .type').on("click", function (e) {//종류별
-            e.preventDefault();   
-
+        $('.nav-dropdown > .type').on("click", function (e) {//분류별
+        	e.preventDefault();
             if (typeSelect == 0) {
                 typeSelect++;
                 $(".typeSelect").show(100);
+                $(".typeFoodSelect").hide(100);
             } else {
                 typeSelect--;
                 $(".typeSelect").hide(100);
@@ -274,11 +277,11 @@
         });
         var typeFoodSelect = 0;
         $('.nav-dropdown > .typeFood').on("click", function (e) {//종류별
-            e.preventDefault();   
-
+        	e.preventDefault();
             if (typeFoodSelect == 0) {
                 typeFoodSelect++;
                 $(".typeFoodSelect").show(100);
+                $(".typeSelect").hide(100);
             } else {
                 typeFoodSelect--;
                 $(".typeFoodSelect").hide(100);
@@ -288,6 +291,7 @@
     });
 </script>
 	<!--이가영-->
+
 	<script src="js/home.js"></script>
 </body>
 </html>

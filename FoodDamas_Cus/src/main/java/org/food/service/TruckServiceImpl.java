@@ -16,8 +16,9 @@ public class TruckServiceImpl implements TruckService {
 	TruckDAO dao;
 
 	@Override
-	public List<Object> distance(PositionVO vo) {
-		return dao.distance(vo);
+	public List<Object> orderByDistance(PositionVO vo) {
+		// TODO Auto-generated method stub
+		return dao.orderByDistance(vo);
 	}
 
 	@Override
@@ -26,6 +27,28 @@ public class TruckServiceImpl implements TruckService {
 		return dao.distanceLength(vo);
 	}
 
+	@Override
+	public List<Object> orderByGrade(PositionVO vo) {
+		// TODO Auto-generated method stub
+		return dao.orderByGrade(vo);
+	}
 
+	@Override
+	public Integer gradeLength(PositionVO vo) {
+		// TODO Auto-generated method stub
+		return dao.gradeLength(vo);
+	}
+
+	@Override
+	public List<Object> orderByReview(PositionVO vo) {
+		// TODO Auto-generated method stub
+		return dao.orderByReview(vo);
+	}
+
+	@Override
+	public Integer reviewLength(PositionVO vo) {
+		// TODO Auto-generated method stub
+		return dao.reviewLength(vo);
+	}
 
 }

@@ -7,6 +7,15 @@ import org.food.domain.PositionVO;
 import org.springframework.stereotype.Repository;
 
 public interface TruckDAO {
-	public List<Object> distance(PositionVO vo);
+	public List<Object> orderByDistance(PositionVO vo);
+
 	public Integer distanceLength(PositionVO vo);
+
+	public List<Object> orderByGrade(PositionVO vo);
+
+	public Integer gradeLength(PositionVO vo);
+
+	public List<Object> orderByReview(PositionVO vo);
+
+	public Integer reviewLength(PositionVO vo);
 }

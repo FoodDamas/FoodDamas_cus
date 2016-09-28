@@ -1,9 +1,6 @@
 package org.food.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.inject.Inject;
@@ -24,23 +21,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * Handles requests for the application home page.
  */
 @Controller
-@RequestMapping("/")
 public class HomeController {
 	@Inject
 	TruckService service;
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
-
-	@RequestMapping(value = "/menu", method = RequestMethod.GET)
-	public void menu(Model model) {
-		logger.info("home connected....");
- 
-	}
-
-	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public void cart(Model model) {
-		logger.info("home connected....");
- 
-	}
 
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public String home(Model model) {
@@ -48,57 +32,54 @@ public class HomeController {
 		return "home";
 	}
 
-	@RequestMapping(value = "/review", method = RequestMethod.GET)
-	public void review(Model model) {
-		logger.info("home connected....");
- 
-	}
-
-	@RequestMapping(value = "/qna", method = RequestMethod.GET)
-	public void qna(Model model) {
-		logger.info("home connected....");
- 
-	}
-	@RequestMapping(value = "/charge", method = RequestMethod.GET)
-	public  void charge(Model model) {
-		logger.info("home connected....");
- 
-	}
-	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public void info(Model model) {
-		logger.info("home connected....");
-		
-	}
-	@RequestMapping(value = "/order", method = RequestMethod.GET)
-	public void order(Model model) {
-		logger.info("home connected....");
-		//return "order";
-		
-	}
-	
-	
-	
 	@CrossOrigin
 	@ResponseBody
 	@RequestMapping(value = "/home/list/{page}", method = RequestMethod.GET)
 	public Map<String, Object> listGET(@PathVariable Integer page, double lat, double lng) throws Exception {
-		System.out.println("page: " + page);
-		System.out.println("lat: " + lat);
-		System.out.println("lng: " + lng);
 		Map<String, Object> result = new HashMap<>();
 		PositionVO vo = new PositionVO();
-		vo.setLat(37.493488);
-		vo.setLng(127.028148);
+		vo.setLat(lat);
+		vo.setLng(lng);
 		vo.setPage(page);
-		System.out.println(service.distance(vo));
-		System.out.println(service.distanceLength(vo));
 		int distanceLength = service.distanceLength(vo);
-		if(page>distanceLength){
+		if (page > distanceLength) {
 			return null;
 		}
-		result.put("distance", service.distance(vo));
+		result.put("distance", service.orderByDistance(vo));
 		return result;
 
 	}
 
+	@CrossOrigin
+	@ResponseBody
+	@RequestMapping(value = "/home/grade/{page}", method = RequestMethod.GET)
+	public Map<String, Object> gradeList(@PathVariable Integer page, double lat, double lng) throws Exception {
+		System.out.println("page: " + page);
+
+		System.out.println("lat: " + lat);
+		System.out.println("lng: " + lng);		
+		Map<String, Object> result = new HashMap<>();
+		PositionVO vo = new PositionVO();
+		
+		int distanceLength = service.gradeLength(vo);
+		if (page > distanceLength) {
+			return null;
+		}
+		result.put("grade", service.orderByGrade(vo));
+		return result;
+	}
+	
+	/*
+	  @CrossOrigin
+	  
+	  @ResponseBody
+	  
+	  @RequestMapping(value = "/home/review/{page}", method =
+	  RequestMethod.GET) public Map<String, Object> reviewList(@PathVariable
+	  Integer page, double lat, double lng) throws Exception { Map<String,
+	  Object> result = new HashMap<>(); PositionVO vo = new PositionVO(); int
+	  distanceLength = service.reviewLength(vo); if(page>distanceLength){
+	  return null; } result.put("grade", service.orderByReview(vo)); return
+	  result; }
+	 */
 }
