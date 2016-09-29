@@ -128,7 +128,8 @@
 		join (SELECT COUNT(*) review_num ,u_id FROM tbl_ft_review group BY
 		u_id) as review on review.u_id = b.u_id
 		order by distance
-		limit #{page},8
+		limit
+		#{page},8
 
 	</select>
 

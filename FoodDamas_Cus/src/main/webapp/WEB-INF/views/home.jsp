@@ -59,9 +59,6 @@
 					</figure>
 				</button>
 			</div>
-			<button class="btn-menu-open"
-				onclick="common_ga(get_now_page_code(), &#39;CLICK_MENU&#39;);toggle_menu_layer();">메뉴
-				열기</button>
 		</nav>
 	</header>
 
@@ -275,6 +272,7 @@
 	        m = 1;
 			orderBy.orderBy="distance";
 	        homeManager.getPosition(orderBy);	    
+	        
 	        
 			document.getElementById("listCont").style.display = "block";
 			document.getElementById("graCont").style.display = "none";

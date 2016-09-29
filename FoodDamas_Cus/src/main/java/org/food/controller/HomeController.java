@@ -34,8 +34,9 @@ public class HomeController {
 
 	@CrossOrigin
 	@ResponseBody
-	@RequestMapping(value = "/home/list/{page}", method = RequestMethod.GET)
-	public Map<String, Object> listGET(@PathVariable Integer page, double lat, double lng) throws Exception {
+	@RequestMapping(value = "/home/distance/{page}", method = RequestMethod.GET)
+	public Map<String, Object> listGET(@PathVariable Integer page, double lat, double lng, String orderBy) throws Exception {
+		System.out.println(orderBy);
 		Map<String, Object> result = new HashMap<>();
 		PositionVO vo = new PositionVO();
 		vo.setLat(lat);
@@ -45,7 +46,7 @@ public class HomeController {
 		if (page > distanceLength) {
 			return null;
 		}
-		result.put("distance", service.orderByDistance(vo));
+		result.put("result", service.orderByDistance(vo));
 		return result;
 
 	}
@@ -65,7 +66,7 @@ public class HomeController {
 		if (page > distanceLength) {
 			return null;
 		}
-		result.put("grade", service.orderByGrade(vo));
+		result.put("result", service.orderByGrade(vo));
 		return result;
 	}
 
@@ -80,7 +81,7 @@ public class HomeController {
 		if (page > distanceLength) {
 			return null;
 		}
-		result.put("review", service.orderByReview(vo));
+		result.put("result", service.orderByReview(vo));
 		return result;
 	}
 }
