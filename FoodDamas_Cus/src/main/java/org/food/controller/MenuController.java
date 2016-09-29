@@ -31,7 +31,6 @@ public class MenuController {
 
 	@RequestMapping(value = "/menulist", method = RequestMethod.GET)
 	public void menu()throws Exception{
-		logger.info("그냥 쀼려줘봤댜");
 	}
 	
 	@ResponseBody
@@ -48,7 +47,6 @@ public class MenuController {
 	
 	@RequestMapping(value = "/menudetail", method = RequestMethod.GET)
 	public void menudetail(Integer mno, Model model)throws Exception{
-		logger.info("그냥 쀼려줘봤댜");
 		model.addAttribute("view", service.view(mno));
 		
 	}
