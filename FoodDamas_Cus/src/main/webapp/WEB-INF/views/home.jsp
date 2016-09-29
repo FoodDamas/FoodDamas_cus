@@ -62,7 +62,6 @@
 		</nav>
 	</header>
 
-
 	<!-- 본문 영역 -->
 	<main class="pg-main">
 	<article class="contents main-padding">
