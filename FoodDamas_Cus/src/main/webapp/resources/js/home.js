@@ -21,7 +21,8 @@ var homeManager = (function() {
 				var positionData = new Object();
 				positionData.lat = lat;
 				positionData.lng = lng;
-				positionData.page = data.page;						
+				positionData.page = data.page;		
+				positionData.orderBy = data.orderBy; 
 				
 				switch(data.orderBy){
 				case "distance":
@@ -51,13 +52,14 @@ var homeManager = (function() {
 	function getList(data, callback) {
 		// console.log("------Get Data-------");
 		// console.log(data);
+		var orderBy = data.orderBy;
 		if (data.page == null) {
 			data.page = 0;
 		}
 
-		$.getJSON('http://localhost/home/list/' + data.page, data, function(data) {
-			// console.log("--------Get json Data-----");
-			//console.log(data);
+		$.getJSON('http://localhost/home/'+orderBy+'/' + data.page, data, function(data) {
+			console.log("--------Get json Data-----");
+			console.log(data);
 			map(data);
 
 			// 좌표값이 없는 경우
@@ -69,26 +71,45 @@ var homeManager = (function() {
 				data.lat = 127.028148;
 			}
 
+			
+
 			// list up
-			for (var i = 0; i < data.distance.length; i++) {
-				var distance = data.distance[i].distance * 10000;
+			for (var i = 0; i < data.result.length; i++) {
+				var distance = data.result[i].distance * 10000;
 				distance = distance.toFixed(1);
 				reviewList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' style='background-image: url(img/1.jpg)'></div>"
 						+ "<div class='info'><span class='title'>"
-						+ data.distance[i].co_name + " (" 
-						+ data.distance[i].review_num
+						+ data.result[i].co_name + " (" 
+						+ data.result[i].review_num
 						+ ")</span> <strong class='point search_point'>"
-						+ data.distance[i].grade
+						+ data.result[i].grade
 						+ "</strong><p class='etc'>"
-						+ data.distance[i].location
+						+ data.result[i].location
 						+ "</p><p class='etc'>"
 						+ distance
 						+ "m</p></div></figure></div></li>"
 			}
-			$("#list").html(reviewList);
+			console.log("order BY-----------");
+			console.log(orderBy);
+			switch(data.orderBy){
+			case "distance":
+				$("#list").html(reviewList);
+				break;
+				
+			case "grade":
+				$("#gradeList").html(gradeList);
+				break;
+				
+			case "review":
+				break;
+				
+			case "menu":
+				break;
+			}
+
 		});
 	}
-	
+	/*
 	function getGradeList(data, callback) {
 		// console.log("------Get Data-------");
 		// console.log(data);
@@ -170,7 +191,7 @@ var homeManager = (function() {
 			$("#reviewList").html(truckList);
 		});
 	}
-	
+	*/
 	
 	function map(data, callback) {
 		 console.log("----map data-----");
