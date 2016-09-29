@@ -107,6 +107,8 @@
 
 	</footer>
 	<script type="text/javascript">
+	
+
 	$(document).ready(function(){
 		var c_id="1";
 		var sno=50;
@@ -145,6 +147,8 @@
 					return false;
 				}
 			}
+			
+		
 			obj={cno:cno ,quantity:cnt};
 			updateQuantity(obj)
 //			$(this, "#quantity").text(cnt);
@@ -168,16 +172,30 @@
 		
 		$("#orderCart").on("click", function () {
 			var total=$("#total").val();
-			obj={
-					total_price:total,
-					c_msg: $(".c_msg").val(),
-					sno: sno,
-					c_id:c_id
-					
+			if (navigator.geolocation) {
+				// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var lat = position.coords.latitude;// 위도
+					var lng = position.coords.longitude; // 경도
+					order(lng,lat);
+							
+				});
+
+			} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+				console.log("Geolocation 사용 불가");
 			}
-			cartManager.insertOrder(obj, function() {
-				console.log("주문됨");
-			});
+			function order(lng,lat) {
+				obj={
+						total_price:total,
+						c_msg: $(".c_msg").val(),
+						sno: sno,
+						c_id:c_id,
+					lat:lat,
+						lng:lng 
+				}
+			 	 cartManager.insertOrder(obj);
+			}
+			
 			
 		});
 		

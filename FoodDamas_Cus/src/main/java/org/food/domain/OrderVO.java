@@ -13,6 +13,8 @@ public class OrderVO {
 	private String c_id;
 	private Integer state_code;
 	private Integer reviewstate;
+	private double lat;
+	private double lng;
 	public Integer getOno() {
 		return ono;
 	}
@@ -67,14 +69,24 @@ public class OrderVO {
 	public void setReviewstate(Integer reviewstate) {
 		this.reviewstate = reviewstate;
 	}
+	public double getLat() {
+		return lat;
+	}
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+	public double getLng() {
+		return lng;
+	}
+	public void setLng(double lng) {
+		this.lng = lng;
+	}
 	@Override
 	public String toString() {
 		return "OrderVO [ono=" + ono + ", total_price=" + total_price + ", regdate=" + regdate + ", pickup_time="
 				+ pickup_time + ", c_msg=" + c_msg + ", sno=" + sno + ", c_id=" + c_id + ", state_code=" + state_code
-				+ ", reviewstate=" + reviewstate + "]";
+				+ ", reviewstate=" + reviewstate + ", lat=" + lat + ", lng=" + lng + "]";
 	}
-	
-	
 	
 	
 	

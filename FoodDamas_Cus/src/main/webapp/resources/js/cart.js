@@ -32,13 +32,14 @@ var cartManager= function(){
 		});
 	}
 	
-	function insertOrder(obj, callback){
+	function insertOrder(obj){
 		console.log("---------------------");
 		console.log(obj);
 		$.ajax({
 			url: 'http://localhost/order/insertOrder',
 			type:"post",
-			data:obj,
+			data:JSON.stringify(obj),
+			 contentType: 'application/json',
 			success: function(data) {
 				console.log(data);
 				if(data=='fail'){

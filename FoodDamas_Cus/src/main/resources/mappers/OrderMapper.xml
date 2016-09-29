@@ -7,8 +7,13 @@
   	<insert id="insertOrder">
 		insert tbl_ft_order (total_price, 
 		<if test="c_msg!=null">c_msg,</if>
+		<if test="lat!=null">lat,</if>
+		<if test="lng!=null">lng,</if>
+		
 		sno, c_id) value (#{total_price}, 
 		<if test="c_msg!=null">#{c_msg},</if>
+		<if test="lat!=null">#{lat},</if>
+		<if test="lng!=null">#{lng},</if>
 		#{sno}, #{c_id})
 	</insert>
 	<insert id="insertOrderDetail">
