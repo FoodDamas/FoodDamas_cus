@@ -89,27 +89,28 @@ var homeManager = (function() {
 						+ distance
 						+ "m</p></div></figure></div></li>"
 			}
+			$("#list").html(reviewList);
 			console.log("order BY-----------");
 			console.log(orderBy);
-			switch(data.orderBy){
-			case "distance":
-				$("#list").html(reviewList);
-				break;
-				
-			case "grade":
-				$("#gradeList").html(gradeList);
-				break;
-				
-			case "review":
-				break;
-				
-			case "menu":
-				break;
-			}
+			/*switch(data.orderBy){
+				case "distance":
+					$("#list").html(reviewList);
+					break;
+					
+				case "grade":
+					//$("#gradeList").html(gradeList);
+					break;
+					
+				case "review":
+					break;
+					
+				case "menu":
+					break;
+		}*/
 
 		});
 	}
-	/*
+	
 	function getGradeList(data, callback) {
 		// console.log("------Get Data-------");
 		// console.log(data);
@@ -191,7 +192,6 @@ var homeManager = (function() {
 			$("#reviewList").html(truckList);
 		});
 	}
-	*/
 	
 	function map(data, callback) {
 		 console.log("----map data-----");

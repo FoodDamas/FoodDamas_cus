@@ -105,16 +105,16 @@
 
 	<select id="distance" resultType="hashmap">
 		select b.u_id, location,
-		distance, sales_state, u_profile_img, co_name,
+		distance, sales_state, u_profile_img, co_name, sno,
 		grade, review_num
 		from
 		(
-		select sales.u_id, location, distance, sales_state, u_profile_img,
+		select sales.u_id, location, distance, sales_state, u_profile_img, sno, 
 		co_name,
 		grade
 		from
 		(
-		select tbl_ft_sales.u_id, location,
+		select tbl_ft_sales.u_id, location, sno,
 		SQRT(pow(tbl_ft_sales.lat - #{lat},
 		2) + pow(tbl_ft_sales.lng - #{lng},
 		2)) as distance, sales_state,
