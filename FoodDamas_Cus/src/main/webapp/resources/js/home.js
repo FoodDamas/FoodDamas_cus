@@ -23,7 +23,8 @@ var homeManager = (function() {
 				positionData.lng = lng;
 				positionData.page = data.page;		
 				positionData.orderBy = data.orderBy; 
-				
+				getList(positionData);
+				/*
 				switch(data.orderBy){
 				case "distance":
 					getList(positionData);
@@ -41,7 +42,7 @@ var homeManager = (function() {
 					break;
 				}
 				
-				
+				*/
 			});
 
 		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
@@ -70,9 +71,9 @@ var homeManager = (function() {
 				data.lng = 37.493488;
 				data.lat = 127.028148;
 			}
-
-			
-
+			if(data.page=0){
+				reviewList = "";
+			}
 			// list up
 			for (var i = 0; i < data.result.length; i++) {
 				var distance = data.result[i].distance * 10000;
@@ -92,13 +93,13 @@ var homeManager = (function() {
 			$("#list").html(reviewList);
 			console.log("order BY-----------");
 			console.log(orderBy);
-			/*switch(data.orderBy){
+			switch(orderBy){
 				case "distance":
 					$("#list").html(reviewList);
 					break;
 					
 				case "grade":
-					//$("#gradeList").html(gradeList);
+					$("#gradeList").html(reviewList);
 					break;
 					
 				case "review":
@@ -106,7 +107,7 @@ var homeManager = (function() {
 					
 				case "menu":
 					break;
-		}*/
+		}
 
 		});
 	}
