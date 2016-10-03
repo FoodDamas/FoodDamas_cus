@@ -83,7 +83,8 @@ $(document).ready(function(){
       <div class="cart">
          <div class="restaurant-name">청년컵밥</div>
          <ul class="list-group">
-
+		<input value="${u_id}" class='u_id' hidden>
+		<input value="${sno}" calss= 'sno' hidden>
             <li class="list-group-item clearfix">
 			<!-- <a class="btn " style="float: right; font-size: 16px; font-weight: bold">X</a>  -->
                <div style="clear: both">

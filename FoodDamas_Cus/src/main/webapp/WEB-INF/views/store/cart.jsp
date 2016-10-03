@@ -76,7 +76,8 @@
 			</div>
 		</div>
 	</div>
-
+	<input value="${u_id}" class='u_id' hidden>
+	<input value="${sno}" calss= 'sno' hidden>
 
 	<!-- 하단 영역 -->
 	<footer class="footer">

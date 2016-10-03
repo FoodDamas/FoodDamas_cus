@@ -27,8 +27,12 @@ public class CartController {
 	private static final Logger logger = LoggerFactory.getLogger(CartController.class);
 
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public void cartGET(Model model) {
+	public void cartGET(Model model, String u_id, Integer sno) {
 		logger.info("cart connected....");
+		
+		model.addAttribute("u_id", u_id);
+		model.addAttribute("sno", sno);
+		
 
 	}
 	

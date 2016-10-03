@@ -22,8 +22,8 @@
 <script src="js/menu.js"></script>
 <script >
 $(document).ready(function(){
-	var u_id = "food1";
-	
+	var u_id = $(".u_id").val();
+	console.log(u_id);
 	menuManager.menuListAll(u_id, displayData);
 	
 	function displayData(data){
@@ -45,7 +45,6 @@ $(document).ready(function(){
 	
 });//end document
 	
-
 </script>
 <body>
 		<div class="nav-bar">
@@ -53,7 +52,8 @@ $(document).ready(function(){
 		<div class=" leer">우리청년컵밥</div>
 	</div>
 
-
+	<input value="${u_id}" class='u_id' hidden>
+	<input value="${sno}" calss= 'sno' hidden>
 	<div class="restaurant-detail row">
 
 		<div class="col-sm-8">
@@ -62,67 +62,15 @@ $(document).ready(function(){
 			 <strong class="rate-point"></strong></h1>
 		
 			<div id="menu" class="menu-list">
-				
-						<div class="panel-collapse collapse in">
-								<ul class="sub-list" id="menuList">
-									<!-- <li class="ng-scope">
-									here
-									<div class="menui"><img src=" img/1.JPG" width="80px; "></div>
-									<div class="menuu">
-										<div class="menu-name">놀부부대찌개（2인）</div>
-										<div class="menu-price ">15,000원</div>
-										<div class="menu-desc ">놀부부대찌개＋놀부사리＋음료1병</div>
-									</div>
-									</li> -->
-								   <!-- 
-								    <li>
-        								<img src="http://192.168.0.19/displayFile?fileName=/2016/09/21/9a3016d8-806a-422c-8f7d-ccead65561c0_4.png" >
-       								     <div class="imgtitle"><Strong>놀부세트</Strong></br></div>
-      									      <div class="radi-box imgtext">2인 \20,000</div></br>
-   									 </li> -->
-								    <!-- <li>
-								       <img src="img/hbooset.jpg"   >
-								            <div class="imgtitle"><Strong>흥부세트</Strong></br></div>
-								            <div class="radi-box imgtext" >2인 \20,000</div></br>
-								    </li>
-								    <li>
-								        <img src="img/YMset.jpg" >
-								        <div class="imgtitle"><Strong>양반세트</Strong></br></div>
-								        <div class="radi-box imgtext">2인 \20,000</div></br>
-								    </li>
-								    <li>
-								        <img src="img/44.jpg" >
-								        <div  class="imgtitle"><Strong>토토로세트</Strong></br></div>
-								        <div class="radi-box imgtext">2개 \40,000</div></br>
-								    </li>
-								    <li>
-								        <img src="img/44.jpg" >
-								        <div class="imgtitle"><Strong>fgfg</Strong></br></div>
-								        <div class="radi-box imgtext" >2개 \40,000</div></br>
-								    </li>
-								    <li>
-								        <img src="img/44.jpg" >
-								        <div  class="imgtitle"><Strong>fgfg</Strong></br></div>
-								        <div class="radi-box imgtext">2개 \40,000</div></br>
-								    </li> -->
-									<!-- <li class="ng-scope"><span class="menu-name ">놀부부대찌개SET</span>
-										<span class="menu-price ">20,000원</span>
-										<div class="menu-desc ">놀부부대찌개＋놀부사리＋음료1병</div></li>
-									<li class="ng-scope"><span class="menu-name ">옛맛부대찌개SET</span>
-										<span class="menu-price ">19,000원</span>
-										<div class="menu-desc ">옛맛부대찌개＋놀부사리＋음료1병</div></li>
-									<li class="ng-scope"><span class="menu-name ">햄
-											듬뿍</span> <span class="menu-price ">3,000원</span>
-										<div class="menu-desc "></div></li>
-									<li class="ng-scope"><span class="menu-name ">놀부사리</span>
-										<span class="menu-price ">5,000원</span>
-										<div class="menu-desc ">생라면사리＋만두＋햄4종＋조랭이떡＋감자수제비</div>
-									</li> -->
+					<div class="panel-collapse collapse in">
+							<ul class="sub-list" id="menuList">
 
-								</ul>
-						</div>
+							</ul>
 					</div>
-
+			</div>
+			<div style="clear: both; ">
+            </a> <a class="btn btn-lg btn-ygy1 btn-right" style="width: 100%" href="/store/cart?u_id=${u_id}&sno=${sno}">장바구니</a>
+			</div>
 				
 		</div>
 	</div>
