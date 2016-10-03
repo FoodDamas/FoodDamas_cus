@@ -43,7 +43,7 @@ public class LoginInterceptor extends HandlerInterceptorAdapter {
       // response.sendRedirect("/");
       Object dest = session.getAttribute("dest");
      
-      response.sendRedirect(dest != null ? (String) dest : "/member/register");
+      response.sendRedirect(dest != null ? (String) dest : "/");
     }else{
         response.sendRedirect("/member/login?result=fail");
 

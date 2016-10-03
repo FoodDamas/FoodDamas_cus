@@ -8,6 +8,11 @@
 <base href="resources/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>나만의 맛집 검색</title>
+<!-- 메뉴 -->
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/menuStyle.css">
+<!-- 메뉴 -->
+
 <script src="http://s.codepen.io/assets/libs/modernizr.js"
 	type="text/javascript"></script>
 		<!-- 911ffa91ef92e4018ca8e381432dccea -->
@@ -40,12 +45,35 @@
 	<header class="header ng-scope"
 		ng-controller="mp20_search_input_controller">
 		<!-- mode-scroll, searching -->
+		<div>
 		<a href="/" class="/"
-			style="line-height: 50px; margin-left: 10px; font-weight: bold;">푸드로고</a>
-
-		<nav class="nav-menus">
+			style="line-height: 50px; margin-left: 10px; font-weight: bold;"><img src="img/food.png" style="height: 100%"></a>
+			
+					<a class="fa fa-bars menu fa-2x" id="menu_toggle"></a>
+			</div>
+ <nav id="side-menu">
+        <a class="fa fa-close" id="close"></a>
+        <ul>
+          <li class="nav-one">
+        <a>Home</a><i class="fa fa-home"></i>
+      </li>
+      <li class="nav-two">
+        <a>Profile</a><i class="fa fa-user"></i>
+      </li>
+      <li class="nav-three">
+        <a>favourites</a><i class="fa fa-floppy-o"></i>
+      </li>
+      <li class="nav-four">
+        <a>disclaimer</a><i class="fa fa-exclamation-triangle"></i>
+      </li>
+      <li class="nav-five" >
+        <a href="/member/login">logout</a><i class="fa fa-sign-out"></i>
+      </li>
+    </ul>
+  </nav>
+		<!-- <nav class="nav-menus">
 			<div class="menus">
-				<!-- 로그인 후 -->
+				로그인 후
 				<button class="btn-user">
 					<figure class="user">
 						<span class="badge"><em class="count">1</em><span
@@ -60,7 +88,7 @@
 				</button>
 			</div>
 
-		</nav>
+		</nav> -->
 	</header>
 
 
@@ -349,7 +377,9 @@
 	
 		
 		
-		
+		 $(".nav-five").on("clcik", function () {
+				console.log("클릭");
+			});
 		
 		
 		
@@ -385,7 +415,9 @@
     });
 </script>
 	<!--이가영-->
-
-	<script src="js/home.js"></script>
+<script src="js/home.js"></script>
+<!-- 메뉴 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js'></script>
+<script src="js/menubar.js"></script>
 </body>
 </html>
