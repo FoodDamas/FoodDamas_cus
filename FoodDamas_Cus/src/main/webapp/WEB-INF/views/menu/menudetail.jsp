@@ -72,7 +72,7 @@ $(document).ready(function(){
 
 <body>
    <div class="nav-bar">
-      <div class="LeeBack">← 뒤로</div>
+      <div class="LeeBack"><a href="javascript:history.back()"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
       <div class=" leer">우리청년컵밥</div>
    </div>
 
@@ -118,7 +118,7 @@ $(document).ready(function(){
          </div>
 
          <div class="cart-btn clearfix">
-            <a class="btn btn-lg btn-ygy2 btn-left" id="order">메뉴추가</span>
+            <a class="btn btn-lg btn-ygy2 btn-left" id="order" href="javascript:history.back()">메뉴추가</span>
             </a> <a class="btn btn-lg btn-ygy1 btn-right"  href="/store/cart">장바구니</a>
          </div>
       </div>

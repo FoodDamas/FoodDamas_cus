@@ -48,9 +48,9 @@ $(document).ready(function(){
 </script>
 <body>
 		<div class="nav-bar">
-		<div class="LeeBack">← 뒤로</div>
+		<div class="LeeBack" style="clear:both;"><a href="http://localhost/home"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
 		<div class=" leer">우리청년컵밥</div>
-	</div>
+		</div>
 
 	<input value="${u_id}" class='u_id' hidden>
 	<input value="${sno}" calss= 'sno' hidden>
@@ -75,12 +75,6 @@ $(document).ready(function(){
 		</div>
 	</div>
 
-	<div class="btm-btn-set ng-scope">
-		<div class="cart-btn clearfix type-a">
-			<a class="btn btn-lg btn-ygy2 btn-left  touch-cart-btn-disabled">주문표(1)</a>
-			<a class="btn btn-lg btn-ygy1 btn-right touch-order-btn-disabled">바로주문하기</a>
-		</div>
-	</div>
 
 
 	<!-- 하단 영역 -->

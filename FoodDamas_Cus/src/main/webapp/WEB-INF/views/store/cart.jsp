@@ -40,8 +40,9 @@
 
 <body>
 	<div class="nav-bar">
-		<div class="LeeBack">← 뒤로</div>
-		<div class=" leer">우리청년컵밥</div>
+		<div class="LeeBack"><a href="javascript:history.back()"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
+		
+		<div class=" leer">${login.c_id}님의 장바구니</div>
 	</div>
 
 	<div class="cart-wrap">
@@ -71,13 +72,13 @@
 			</div>
 			
 			<div class="cart-btn clearfix" style="margin-top: 80px;">
-				<a class="btn btn-lg btn-ygy2 btn-left" href="/menu">메뉴추가</span></a> 
 				<a id='orderCart' class="btn btn-lg btn-ygy1 btn-right">주문하기</a>
 			</div>
 		</div>
 	</div>
 	<input value="${u_id}" class='u_id' hidden>
-	<input value="${sno}" calss= 'sno' hidden>
+	<input value="${sno}" id= 'sno' hidden>
+	<input value="${login.c_id}" id= 'c_id' hidden>
 
 	<!-- 하단 영역 -->
 	<footer class="footer">
@@ -113,8 +114,10 @@
 	
 
 	$(document).ready(function(){
-		var c_id="1";
-		var sno=50;
+		var c_id= $("#c_id").val();
+		
+		var sno=$("#sno").val();
+		console.log(sno);
 		cartManager.cartList(c_id,display);
 		
 		function display(data) {
