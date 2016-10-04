@@ -7,14 +7,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>푸드다마스</title>
-<!-- <base href="../resources/"> -->
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
 <base href="../resources/">
+
+
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
+<link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/menuStyle.css">
+
+
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel='stylesheet prefetch'	href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
+
 </head>
 <style>
 #menuList li IMG {width: 130px; height: 130px;text-align: center}
-    li {border: 1px solid #cccccc; list-style:none; width: 48%;float: left; margin: 2px; text-align: center}
+#menuList li {border: 1px solid #cccccc; list-style:none; width: 48%;float: left; margin: 2px; text-align: center}
     .imgtext {color: #00a7d0; text-align: center;}
     .imgtitle {color: black; text-align: center;}
 </style>
@@ -51,17 +62,23 @@ $(document).ready(function(){
 	
 </script>
 <body>
-		<div class="nav-bar">
-		<div class="LeeBack" style="clear:both;"><a href="http://localhost/home"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
-		<div class=" leer"></div>
-		</div>
+		<%@include file="../headersub.jsp"%>
 
+
+<div style="height: 51px"></div>
+	<div class="container-fluid ">
+
+		<div class="restaurant-detail">
+			<ul class="nav nav-tabs">
+				<li><a href="../../info">정 보</a></li>
+				<li  class="active"><a href="../..//menu/menulist">메 뉴</a></li>
+				<li><a href="../../review">리 뷰</a></li>
+				<li><a href="../../qna">QNA</a></li>
+			</ul>
+		</div>
 	<div class="restaurant-detail row">
 
 		<div class="col-sm-8">
-		<h1 class="title">
-			<span itemprop="name">메뉴</span>
-			 <strong class="rate-point"></strong></h1>
 		
 			<div id="menu" class="menu-list">
 					<div class="panel-collapse collapse in">

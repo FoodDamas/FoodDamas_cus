@@ -3222,8 +3222,6 @@ table.text-center, table.text-center td, table.text-center th {
 	-o-transform: translate(0, 0);
 	transform: translate(0, 0);
 	padding: 10px;
-	height: 250px;
-	overflow: auto
 }
 
 .direct-chat-msg, .direct-chat-text {
@@ -3258,7 +3256,8 @@ table.text-center, table.text-center td, table.text-center th {
 	background: #d2d6de;
 	border: 1px solid #d2d6de;
 	margin: 5px 0 0 50px;
-	color: #444
+	color: #444;
+	font-weight: normal;
 }
 
 .direct-chat-text:after, .direct-chat-text:before {
@@ -6735,7 +6734,8 @@ html {
 
 body {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 14px;
+	font-size: 12px;
+	font-weight:normal;
 	line-height: 1.42857143;
 	color: #333;
 	background-color: #fff
