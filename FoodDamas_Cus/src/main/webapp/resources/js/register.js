@@ -38,8 +38,15 @@ function idCheck() {
 }
 
 jQuery(document).ready(function() {
+	//등록
+	
+	
+	var local="http://localhost";
+	var obj="";
+
 
     $('.page-container form').submit(function(){
+    	console.log("클릭");
         var c_id=$(".c_id").val();
         var c_name=$(".c_name").val();
         var c_pw=$(".c_pw").val();
@@ -100,6 +107,39 @@ jQuery(document).ready(function() {
             return false;
 
         }
+         
+
+         obj={
+ 				c_id: c_id,
+ 				c_name:c_name,
+ 				c_pw: c_pw,
+ 				c_phone: c_phone,
+ 				c_mail:c_mail
+ 		}
+         registerMember(obj);
+         
+         
+         function registerMember(obj) {
+       		$.ajax({
+     			url: local+'/member/register',
+     			type:"POST",
+     			data:obj,
+     			success:function(data){
+     				if(data=="success")
+     					{
+    					window.location.replace("/member/login");
+
+     						alert("회원가입을 성공하였습니다.");
+     					}else {
+     	 					alert("회원가입을 실패하였습니다.");
+
+    					}
+     							
+     			}
+     			
+     		});
+		}
+
 
     });
 

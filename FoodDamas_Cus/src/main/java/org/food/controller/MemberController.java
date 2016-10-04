@@ -88,13 +88,23 @@ public class MemberController {
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerGET( Model model) {
+		
+		
 	}
-
+	
+	@ResponseBody
+	@CrossOrigin
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public void registerPOST( MemberVO vo ) {
+	public String registerPOST( MemberVO vo ) {
+		
+	
 		logger.info("register POST");
-		System.out.println(vo);
+		
+		logger.info(""+vo);
+		/*	System.out.println(vo);
 		service.insertMember(vo);
+	*/	
+		return "success";
 
 	}
 
