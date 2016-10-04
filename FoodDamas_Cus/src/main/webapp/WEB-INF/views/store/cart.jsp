@@ -115,11 +115,11 @@
 
 	$(document).ready(function(){
 		var c_id= $("#c_id").val();
-		
-		var sno=$("#sno").val();
-		console.log(sno);
+		//var sno=$("#sno").val();
 		cartManager.cartList(c_id,display);
-		
+		var sno= sessionStorage.getItem('sno');
+		console.log("-----------------sno");
+		console.log(sno);
 		function display(data) {
 			console.log(data);
 			var menuList="";

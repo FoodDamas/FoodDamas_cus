@@ -82,7 +82,8 @@ var homeManager = (function() {
          for (var i = 0; i < data.result.length; i++) {
             var distance = data.result[i].distance * 10000;
             distance = distance.toFixed(1);
-            reviewList += "<li class='restaurant-item' id='storeList' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' style='background-image: url(img/1.jpg)'></div>"
+            reviewList += "<li class='restaurant-item' id='storeList' " 
+            	  +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' style='background-image: url(img/1.jpg)'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.result[i].co_name + " (" 
                   + data.result[i].review_num
@@ -115,9 +116,9 @@ var homeManager = (function() {
 
       });
    }
-   
+
   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   ///////////////////////////////////////////이가영이가영이가영이가영이가영이가영///////////////////////////////////////////////////////
    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
  	$("#list").on("click","#storeList", function() {
@@ -125,13 +126,17 @@ var homeManager = (function() {
 		var $this=$(this);
 		var u_id=$this.attr("data-u_id");
 		var sno=$this.attr("data-sno");
-		console.log(u_id);
+		var co_name=$this.attr("data-co_name");
+		sessionStorage.setItem('sno', sno);
+		sessionStorage.setItem('co_name', co_name);
+
+		sessionStorage.setItem('u_id', u_id);//세션생성_Leeek
 		var obj={
 				u_id: u_id,
 				sno: sno
 		};
 		
-		window.location.replace("http://localhost/menu/menulist?u_id="+u_id+"&sno="+sno+"");
+		window.location.replace("http://localhost/menu/menulist");
 
 	});
    

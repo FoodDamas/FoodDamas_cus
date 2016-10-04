@@ -22,8 +22,12 @@
 <script src="js/menu.js"></script>
 <script >
 $(document).ready(function(){
-	var u_id = $(".u_id").val();
-	console.log(u_id);
+	var co_name=sessionStorage.getItem('co_name');
+
+	$(".leer").html(co_name);
+	var sno= sessionStorage.getItem('sno');
+	var u_id= sessionStorage.getItem('u_id');// session가져옴
+
 	menuManager.menuListAll(u_id, displayData);
 	
 	function displayData(data){
@@ -49,11 +53,9 @@ $(document).ready(function(){
 <body>
 		<div class="nav-bar">
 		<div class="LeeBack" style="clear:both;"><a href="http://localhost/home"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
-		<div class=" leer">우리청년컵밥</div>
+		<div class=" leer"></div>
 		</div>
 
-	<input value="${u_id}" class='u_id' hidden>
-	<input value="${sno}" calss= 'sno' hidden>
 	<div class="restaurant-detail row">
 
 		<div class="col-sm-8">
@@ -69,7 +71,7 @@ $(document).ready(function(){
 					</div>
 			</div>
 			<div style="clear: both; ">
-            </a> <a class="btn btn-lg btn-ygy1 btn-right" style="width: 100%" href="/store/cart?u_id=${u_id}&sno=${sno}">장바구니</a>
+            </a> <a class="btn btn-lg btn-ygy1 btn-right" style="width: 100%" href="/store/cart">장바구니</a>
 			</div>
 				
 		</div>

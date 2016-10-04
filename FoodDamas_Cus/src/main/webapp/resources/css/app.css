@@ -6998,6 +6998,12 @@ li.active .ico-ct10 {
 .menu-list .menu-name {
   padding-top:3px;
   padding-left: 0;
+  font: bold;
+}
+
+.menu-list .menu-info {
+  padding-top:3px;
+  padding-left: 0;
 }
 
 .menu-name { font-size: 15px !important }
@@ -7132,6 +7138,13 @@ li.active .ico-ct10 {
    padding:3px 0 0 0;
 }
 .cart .menu-name {
+   font-size:20px !important;
+   font-weight: bold  !important;
+   line-height: 18px;
+   padding: 5px 12px 8px 12px;
+}
+.cart .menu-info {
+   font-size:15px !important;
    line-height: 18px;
    padding: 5px 12px 8px 12px;
 }

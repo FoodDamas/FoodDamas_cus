@@ -33,11 +33,7 @@ public class MenuController {
 
 	@RequestMapping(value = "/menulist", method = RequestMethod.GET)
 	public void menu(String u_id, Integer sno, Model model)throws Exception{
-		System.out.println(u_id);
-		System.out.println(sno);
-		
-		model.addAttribute("u_id", u_id);
-		model.addAttribute("sno", sno);
+	
 		
 	}
 	
@@ -57,7 +53,7 @@ public class MenuController {
 		model.addAttribute("view", service.view(mno));
 		
 	}
-	
+
 
 
 
