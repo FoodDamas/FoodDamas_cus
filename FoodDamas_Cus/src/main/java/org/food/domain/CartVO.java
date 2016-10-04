@@ -12,7 +12,6 @@ public class CartVO {
 	private String m_name;
 	private Integer m_price;
 	
-	
 	public Integer getM_price() {
 		return m_price;
 	}
