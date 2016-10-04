@@ -260,8 +260,8 @@ console.log(total);
 				<li><a href="../../qna">QNA</a></li>
 			</ul>
 		</div>
-		<div class="pg-restaurant" style="padding: 0px;">
-			<section class="restaurant-detail" style="padding: 0px">
+		<div class="pg-restaurant" style="padding: 0px; clear: both ">
+			<section class="restaurant-detail" style="padding: 20px">
 				<header>
 					<div>
 						<div class="wannago_wrap">
@@ -281,7 +281,7 @@ console.log(total);
 			</section>
 		</div>
 		
-		
+		<div style="height: 74px;"></div>
 
 		<div style="padding: 5px 10px; border: 1px solid #cccccc; margin-bottom: 10px; display: none " id="write">
 
