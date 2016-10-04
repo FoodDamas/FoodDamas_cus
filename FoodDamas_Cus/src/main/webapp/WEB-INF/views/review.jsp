@@ -8,12 +8,17 @@
 <html>
 <head>
 <title>푸드다마스</title>
+
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
 <base href="../resources/">
 
 
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/menuStyle.css">
+
 
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
