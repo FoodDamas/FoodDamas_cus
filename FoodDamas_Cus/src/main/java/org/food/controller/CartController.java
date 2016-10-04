@@ -27,8 +27,12 @@ public class CartController {
 	private static final Logger logger = LoggerFactory.getLogger(CartController.class);
 
 	@RequestMapping(value = "/cart", method = RequestMethod.GET)
-	public void cartGET(Model model) {
+	public void cartGET(Model model, String u_id, Integer sno) {
 		logger.info("cart connected....");
+		
+		model.addAttribute("u_id", u_id);
+		model.addAttribute("sno", sno);
+		
 
 	}
 	
@@ -47,7 +51,6 @@ public class CartController {
 	public void cartPUT(Model model,@RequestBody CartVO vo) {
 		logger.info("quantity connected....");
 		service.updateQuantity(vo);
-	
 	}
 	@CrossOrigin
 	@ResponseBody
@@ -58,13 +61,11 @@ public class CartController {
 		service.deleteCart(cno);
 	}
 	
-	
-
     @CrossOrigin
 	@ResponseBody
 	@RequestMapping(value = "/menucart", method = RequestMethod.POST)
 	public void menucart(CartVO vo)throws Exception{
-		logger.info("tbl_cart에 내가 선택한거 올렸어요");
+		logger.info("menucart..............");
 		System.out.println(vo);
 		/*logger.info(""+Cservice.toString());*/
 		service.insertCart(vo);

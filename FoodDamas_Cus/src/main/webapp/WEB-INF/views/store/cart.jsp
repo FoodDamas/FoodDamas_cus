@@ -34,12 +34,15 @@
 </head>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://service.iamport.kr/js/iamport.payment-1.1.1.js"></script>
+
 <script src="js/cart.js"></script>
 
 <body>
 	<div class="nav-bar">
-		<div class="LeeBack">← 뒤로</div>
-		<div class=" leer">우리청년컵밥</div>
+		<div class="LeeBack"><a href="javascript:history.back()"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
+		
+		<div class=" leer">${login.c_id}님의 장바구니</div>
 	</div>
 
 	<div class="cart-wrap">
@@ -69,12 +72,13 @@
 			</div>
 			
 			<div class="cart-btn clearfix" style="margin-top: 80px;">
-				<a class="btn btn-lg btn-ygy2 btn-left" href="/menu">메뉴추가</span></a> 
 				<a id='orderCart' class="btn btn-lg btn-ygy1 btn-right">주문하기</a>
 			</div>
 		</div>
 	</div>
-
+	<input value="${u_id}" class='u_id' hidden>
+	<input value="${sno}" id= 'sno' hidden>
+	<input value="${login.c_id}" id= 'c_id' hidden>
 
 	<!-- 하단 영역 -->
 	<footer class="footer">
@@ -107,11 +111,15 @@
 
 	</footer>
 	<script type="text/javascript">
+	
+
 	$(document).ready(function(){
-		var c_id="1";
-		var sno=50;
+		var c_id= $("#c_id").val();
+		//var sno=$("#sno").val();
 		cartManager.cartList(c_id,display);
-		
+		var sno= sessionStorage.getItem('sno');
+		console.log("-----------------sno");
+		console.log(sno);
 		function display(data) {
 			console.log(data);
 			var menuList="";
@@ -145,6 +153,8 @@
 					return false;
 				}
 			}
+			
+		
 			obj={cno:cno ,quantity:cnt};
 			updateQuantity(obj)
 //			$(this, "#quantity").text(cnt);
@@ -168,16 +178,69 @@
 		
 		$("#orderCart").on("click", function () {
 			var total=$("#total").val();
-			obj={
-					total_price:total,
-					c_msg: $(".c_msg").val(),
-					sno: sno,
-					c_id:c_id
-					
+			if (navigator.geolocation) {
+				// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+				navigator.geolocation.getCurrentPosition(function(position) {
+					var lat = position.coords.latitude;// 위도
+					var lng = position.coords.longitude; // 경도
+					order(lng,lat);
+							
+				});
+
+			} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+				console.log("Geolocation 사용 불가");
 			}
-			cartManager.insertOrder(obj, function() {
-				console.log("주문됨");
-			});
+			
+			var pay;
+			 function pay(data) {	
+				 console.log(data);
+				 var IMP = window.IMP;
+				IMP.init('imp23562032'); //'iamport' 대신 부여받은 "가맹점 식별코드"를 사용.		
+				console.log(data);
+				  IMP.request_pay({
+				    pg : 'kakao', // version 1.1.0부터 지원.
+				    pay_method : 'card', // 'card' : 신용카드 | 'trans' : 실시간계좌이체 | 'vbank' : 가상계좌 | 'phone' : 휴대폰소액결제
+				    merchant_uid : 'merchant_' + new Date().getTime(),
+				    name : 'FoodDamas',
+				    amount : data.total_price,
+				 //   buyer_email : 'iamport@siot.do',
+				    buyer_name : data.c_id,
+				    /*  buyer_tel : '010-1234-5678',
+				    buyer_addr : '서울특별시 강남구 삼성동',
+				    buyer_postcode : '123-456',  */
+				    app_scheme : 'iamporttest' //in app browser결제에서만 사용 
+				}, function(rsp) {
+				    if ( rsp.success ) {
+				        var msg = '결제가 완료되었습니다.';
+				        msg += '고유ID : ' + rsp.imp_uid;
+				        msg += '상점 거래ID : ' + rsp.merchant_uid;
+				        msg += '결제 금액 : ' + rsp.paid_amount;
+				        msg += '카드 승인번호 : ' + rsp.apply_num;
+				        
+						cartManager.insertOrder(data);
+
+				    } else {
+				        var msg = '결제에 실패하였습니다.';
+				        msg += '에러내용 : ' + rsp.error_msg;
+				    }
+		            alert(msg);
+
+				});  
+			}
+	
+ 			function order(lng,lat) {
+				obj={
+						total_price:total,
+						c_msg: $(".c_msg").val(),
+						sno: sno,
+						c_id:c_id,
+						lat:lat,
+						lng:lng 
+				}
+				pay(obj);
+				
+			}
+			 
 			
 		});
 		

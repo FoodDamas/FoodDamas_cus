@@ -18,6 +18,9 @@
 <script src="js/menu.js"></script>
 <script >
 $(document).ready(function(){
+	var co_name=sessionStorage.getItem('co_name');
+
+	$(".leer").html(co_name);
 	var count=1; //수량
 	var obj=[];
 	var totalprice = $(".order-price").html();
@@ -72,8 +75,8 @@ $(document).ready(function(){
 
 <body>
    <div class="nav-bar">
-      <div class="LeeBack">← 뒤로</div>
-      <div class=" leer">우리청년컵밥</div>
+      <div class="LeeBack"><a href="javascript:history.back()"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
+      <div class=" leer"></div>
    </div>
 
    <div class="cart-wrap">
@@ -81,9 +84,9 @@ $(document).ready(function(){
          <span>주문표</span> </a>
       </div>
       <div class="cart">
-         <div class="restaurant-name">청년컵밥</div>
+         <div class="restaurant-name"></div>
          <ul class="list-group">
-
+		
             <li class="list-group-item clearfix">
 			<!-- <a class="btn " style="float: right; font-size: 16px; font-weight: bold">X</a>  -->
                <div style="clear: both">
@@ -92,7 +95,9 @@ $(document).ready(function(){
                </div>
                <div style="width: 78% ;float: right;">
                <div class="row" >
-                  <div class="menu-name">${view.m_name}</div>
+                  <div class="menu-name" >${view.m_name}</div>
+                   <div class="menu-info"> ${view.m_info}</div>                      
+                  
                   <div>
                      <div class="col-xs-5 pull-left">
                         <span class="order-price">${view.m_price}</span>
@@ -117,7 +122,7 @@ $(document).ready(function(){
          </div>
 
          <div class="cart-btn clearfix">
-            <a class="btn btn-lg btn-ygy2 btn-left" id="order">메뉴추가</span>
+            <a class="btn btn-lg btn-ygy2 btn-left" id="order" href="javascript:history.back()">메뉴추가</span>
             </a> <a class="btn btn-lg btn-ygy1 btn-right"  href="/store/cart">장바구니</a>
          </div>
       </div>

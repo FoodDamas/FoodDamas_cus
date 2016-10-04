@@ -37,8 +37,10 @@ public class OrderController {
 	@CrossOrigin
 	@ResponseBody
 	@RequestMapping(value = "/insertOrder", method = RequestMethod.POST)
-	public String insertOrderPOST( OrderVO vo) {
+	public String insertOrderPOST(@RequestBody OrderVO vo ) {
 		String result;
+		
+		logger.info(""+vo);
 		if(vo.getTotal_price()==0){
 			result="fail";
 		}else{
@@ -47,7 +49,7 @@ public class OrderController {
 			service.insertOrder(vo);
 			result="success";
 		}
-		return result;
+		return "result";
 		
 	}
 
