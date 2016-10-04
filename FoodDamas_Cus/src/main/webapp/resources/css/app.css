@@ -1,5 +1,76 @@
 @import url("http://fonts.googleapis.com/earlyaccess/nanumgothic.css");
 
+form .stars {
+  background: url("stars.png") repeat-x 0 0;
+  width: 150px;
+  margin: 0 auto;
+}
+ 
+form .stars input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+form .stars input[type="radio"].star-5:checked ~ span {
+  width: 100%;
+}
+form .stars input[type="radio"].star-4:checked ~ span {
+  width: 80%;
+}
+form .stars input[type="radio"].star-3:checked ~ span {
+  width: 60%;
+}
+form .stars input[type="radio"].star-2:checked ~ span {
+  width: 40%;
+}
+form .stars input[type="radio"].star-1:checked ~ span {
+  width: 20%;
+}
+form .stars label {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 0!important;
+  padding: 0!important;
+  text-indent: -999em;
+  float: left;
+  position: relative;
+  z-index: 10;
+  background: transparent!important;
+  cursor: pointer;
+}
+form .stars label:hover ~ span {
+  background-position: 0 -30px;
+}
+form .stars label.star-5:hover ~ span {
+  width: 100% !important;
+}
+form .stars label.star-4:hover ~ span {
+  width: 80% !important;
+}
+form .stars label.star-3:hover ~ span {
+  width: 60% !important;
+}
+form .stars label.star-2:hover ~ span {
+  width: 40% !important;
+}
+form .stars label.star-1:hover ~ span {
+  width: 20% !important;
+}
+form .stars span {
+  display: block;
+  width: 0;
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 30px;
+  background: url("stars.png") repeat-x 0 -60px;
+  -webkit-transition: -webkit-width 0.5s;
+  -moz-transition: -moz-width 0.5s;
+  -ms-transition: -ms-width 0.5s;
+  -o-transition: -o-width 0.5s;
+  transition: width 0.5s;
+}
 
 .LeeBack {  font-size: 16px; line-height: 50px; margin-left:20px; color: #ffffff;  position:absolute;}
 .leer {  font-size:18px;  line-height: 50px;  width: 300px; text-align:center; font-weight:bold; margin: 0 auto}
@@ -12,7 +83,6 @@ table {
 	font-family:'�굹�닎怨좊뵓', NanumGothic, 'Nanum Gothic'  !important;;
 	font-size: 14px;
 }
-
 
 * {font-family:'�굹�닎怨좊뵓', NanumGothic, 'Nanum Gothic'  !important;;}
 html {font-family:'�굹�닎怨좊뵓', NanumGothic, 'Nanum Gothic'  !important;;}
@@ -2859,7 +2929,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-left: -1px;
 }
 .nav {
-	clear:both;
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
@@ -2867,14 +2936,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li {
   position: relative;
   display: block;
-  width: 24% !important; margin-left:2px;
+  width: 24.5%; margin-left:2px;
   border:1px solid #cccccc;
   text-align: center;
 }
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 5px;
+  padding: 10px 15px;
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
@@ -6225,12 +6294,6 @@ li.active .ico-ct10 {
 .menu-list .menu-name {
   padding-top:3px;
   padding-left: 0;
-  font: bold;
-}
-
-.menu-list .menu-info {
-  padding-top:3px;
-  padding-left: 0;
 }
 
 .menu-name { font-size: 15px !important }
@@ -6365,13 +6428,6 @@ li.active .ico-ct10 {
    padding:3px 0 0 0;
 }
 .cart .menu-name {
-   font-size:20px !important;
-   font-weight: bold  !important;
-   line-height: 18px;
-   padding: 5px 12px 8px 12px;
-}
-.cart .menu-info {
-   font-size:15px !important;
    line-height: 18px;
    padding: 5px 12px 8px 12px;
 }
@@ -6487,8 +6543,8 @@ li.active .ico-ct10 {
 }
 .btn-ygy1 {
   color: #fff;
-  background-color: #ffcc00;
-  border-color: #ffcc00;
+  background-color: #DC1400;
+  border-color: #DC1400;
   border-radius: 0;
 }
 .btn-ygy1:hover,
@@ -6497,8 +6553,8 @@ li.active .ico-ct10 {
 .btn-ygy1.active,
 .open .dropdown-toggle.btn-ygy1 {
   color: #fff;
-  background-color: #e6ba0c;
-  border-color: #e6ba0c;
+  background-color: #DC1400;
+  border-color: #DC1400;
 }
 .btn-ygy1:active,
 .btn-ygy1.active,
@@ -6506,18 +6562,18 @@ li.active .ico-ct10 {
   background-image: none;
 }
 .btn-ygy2 {
-  color: #000000;
+  color: #DC1400;
   background-color: #fff;
-  border-color: #ffcc00;
+  border-color: #DC1400;
   border-radius: 0;
 }
 .btn-ygy2:hover,
 .btn-ygy2:focus,
 .btn-ygy2:active,
 .btn-ygy2.active {
-  color: #ffcc00;
+  color: #DC1400;
   background-color: #fff;
-  border-color: #ffcc00;
+  border-color: #DC1400;
 }
 .btn-ygy2:active,
 .btn-ygy2.active {
@@ -6542,7 +6598,7 @@ li.active .ico-ct10 {
   white-space:nowrap;
 }
 .modal-header {
-  background-color:#333;
+  background-color:rgb(255,204,000);
   padding: 8px 5px 8px;
   color: #fff;
   font-size: 16px;

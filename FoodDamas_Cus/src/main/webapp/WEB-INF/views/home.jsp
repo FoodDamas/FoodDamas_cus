@@ -17,60 +17,33 @@
 	type="text/javascript"></script>
 		<!-- 911ffa91ef92e4018ca8e381432dccea -->
 		<!-- d76d3b667738eb709c0fdad4f29b259e -->
-		<!-- 07803719751f68ea187b3847f10d30e8 -->
+		<!-- 967f127d01394f907f3c174f6d05730f -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=967f127d01394f907f3c174f6d05730f"></script>
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=LIBRARY"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=967f127d01394f907f3c174f6d05730f&libraries=LIBRARY"></script>
 <!-- services 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=967f127d01394f907f3c174f6d05730f&libraries=services"></script>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services,clusterer,drawing"></script>
-
-
-
-<base href="resources/">
+	src="//apis.daum.net/maps/maps3.js?apikey=967f127d01394f907f3c174f6d05730f&libraries=services,clusterer,drawing"></script>
 
 
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" href="css/dropbox.css">
 
 </head>
-<body class="home_page ng-scope" onunload="" ng-app="mp20App">
+<body class="home_page">
 
 
 	<!-- 상단 영역 -->
-	<header class="header ng-scope"
-		ng-controller="mp20_search_input_controller">
+	<header class="header">
 		<!-- mode-scroll, searching -->
-		<div>
-		<a href="/" class="/"
-			style="line-height: 50px; margin-left: 10px; font-weight: bold;"><img src="img/food.png" style="height: 100%"></a>
-			
-					<a class="fa fa-bars menu fa-2x" id="menu_toggle"></a>
-			</div>
- <nav id="side-menu">
-        <a class="fa fa-close" id="close"></a>
-        <ul>
-          <li class="nav-one">
-        <a>Home</a><i class="fa fa-home"></i>
-      </li>
-      <li class="nav-two">
-        <a>Profile</a><i class="fa fa-user"></i>
-      </li>
-      <li class="nav-three">
-        <a>favourites</a><i class="fa fa-floppy-o"></i>
-      </li>
-      <li class="nav-four">
-        <a>disclaimer</a><i class="fa fa-exclamation-triangle"></i>
-      </li>
-      <li class="nav-five" >
-        <a href="/member/login">logout</a><i class="fa fa-sign-out"></i>
-      </li>
-    </ul>
-  </nav>
+
+  <%@include file="header.jsp"%>
+  
+  
 		<!-- <nav class="nav-menus">
 			<div class="menus">
 				로그인 후
@@ -418,6 +391,5 @@
 <script src="js/home.js"></script>
 <!-- 메뉴 -->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js'></script>
-<script src="js/menubar.js"></script>
 </body>
 </html>
