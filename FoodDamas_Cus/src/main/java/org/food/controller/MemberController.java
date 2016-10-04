@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+
 
 @Controller
 @RequestMapping("/member")
@@ -110,6 +112,7 @@ public class MemberController {
 
 
 	@ResponseBody
+	@CrossOrigin
 	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
 	public String checkIdPOST(@RequestBody String c_id) {//requestBody�� vo���ƴҋ�
 		logger.info(""+service.checkId(c_id));
@@ -118,15 +121,16 @@ public class MemberController {
 	}
 
 
-
+	@ResponseBody
+	@CrossOrigin
 	@RequestMapping(value = "/registerKakao", method = RequestMethod.POST)
 	public void kakaoPOST(MemberVO vo, Model model, RedirectAttributes rttr) {
-		
 		logger.info(""+vo);
+		/*logger.info(""+vo);
 		String k_id=service.checkKakao(vo.getK_id());
 		model.addAttribute("checkId", k_id);
 		System.out.println("----------------------------------"+k_id);
-		model.addAttribute("member", vo);
+		model.addAttribute("member", vo);*/
 	}
 
 

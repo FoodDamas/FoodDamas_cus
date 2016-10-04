@@ -118,7 +118,7 @@
 		//var sno=$("#sno").val();
 		cartManager.cartList(c_id,display);
 		var sno= sessionStorage.getItem('sno');
-		console.log("-----------------sno");
+			console.log("-----------------sno");
 		console.log(sno);
 		function display(data) {
 			console.log(data);

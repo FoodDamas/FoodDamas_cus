@@ -45,19 +45,18 @@
 <div class="page-container">
     <h1>Register Kakao</h1>
 
-     <form action="/member/registerKakaomember" method="post">
-        <input type="text" name="c_id" class="c_id" placeholder="아이디" value='${member.k_id }' onkeyup="idCheck()" readonly="readonly">
-        <input type="text" name="c_pw" class="c_pw" placeholder="패스워드" value='${member.k_id }'  hidden>
-        <input type="text" name="k_id" class="k_id" placeholder="카카오톡닉네임" value='${member.k_id }'  hidden>
-        <input type="text" name="k_id" class="k_id" placeholder="카카오톡닉네임" value='${member.k_id }'  hidden>
-        <input type="text" name="thumb_img" class="thumb_img" placeholder="카카오톡 썸네일" value='${member.thumb_img }' hidden >
-        <input type="text" name="profile_img" class="profile_img" placeholder="카카오톡 프사" value='${member.profile_img }' hidden>
-        <input type="text" name="k_nick" class="k_nick" placeholder="카카오톡 닉네임" value='${member.k_nick}' readonly>
+     <form method="post">
+        <input type="text" name="c_id" class="c_id" placeholder="아이디" value='' onkeyup="idCheck()" readonly="readonly">
+        <input type="text" name="k_nick" class="k_nick" placeholder="카카오톡 닉네임" value='' readonly>
+        <input type="text" name="c_pw" class="c_pw" placeholder="패스워드" value='' hidden >
+        <input type="text" name="k_id" class="k_id" placeholder="카카오톡아이디" value='' hidden >
+        <input type="text" name="thumb_img" class="thumb_img" placeholder="카카오톡 썸네일" value='' hidden >
+        <input type="text" name="profile_img" class="profile_img" placeholder="카카오톡 프사" value='' hidden>
         <input type="text" name="c_name" class="c_name" placeholder="이름">
         <input type="text" name="c_phone" class="c_phone" placeholder="핸드폰">
         <input type="email" name="c_mail" class="c_mail" placeholder="메일">
 
-        <button type="submit">Sign me in</button>
+        <button class="registerKakao">Sign me in</button>
         <div class="error"><span>+</span></div>
     </form>
     <div class="connect">
@@ -73,8 +72,65 @@
 <script src="js/jquery-1.8.2.min.js"></script>
 <script src="js/supersized.3.2.7.min.js"></script>
 <script src="js/supersized-init.js"></script>
-<!-- <script src="js/scripts.js"></script>
- -->
+
+<script type="text/javascript">
+$(document).ready(function() {
+	var local="http://localhost";
+	var k_id= sessionStorage.getItem('k_id');
+	var k_nick= sessionStorage.getItem('k_nick');
+	var profile_img= sessionStorage.getItem('profile_img');
+	var thumb_img= sessionStorage.getItem('thumb_img');
+	$(".c_id").val(k_id);
+	$(".c_pw").val(k_id);
+	$(".k_id").val(k_id);
+	$(".profile_img").val(profile_img);
+	$(".thumb_img").val(thumb_img);
+	$(".k_nick").val(k_nick);
+	var obj='';
+	$(".registerKakao").on("click", function() {
+		obj={
+				c_id:$(".c_id").val(),
+				c_pw:$(".c_id").val(),
+				k_id:$(".c_id").val(),
+				k_nick:$(".k_nick").val(),
+				profile_img:$(".profile_img").val(),
+				thumb_img:$(".thumb_img").val(),
+				c_name:$(".c_name").val(),
+				c_phone:$(".c_phone").val(),
+				c_mail:$(".c_mail").val()
+		}
+
+	
+	});
+	function registerKakao(obj) {
+		
+   		$.ajax({
+ 			url: local+'/member/registerKakao',
+ 			type:"POST",
+ 			data:obj,/* 
+ 			success:function(data){
+ 				if(data=="success")
+ 					{
+					window.location.replace("/member/login");
+
+ 						alert("회원가입을 성공하였습니다.");
+ 					}else {
+ 	 					alert("회원가입을 실패하였습니다.");
+
+					}
+ 							
+ 			} */
+ 			
+ 		});
+		
+	}
+	
+});
+
+
+	
+
+</script>
 </body>
 
 </html>
