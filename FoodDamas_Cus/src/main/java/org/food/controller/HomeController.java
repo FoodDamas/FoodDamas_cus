@@ -32,6 +32,7 @@ public class HomeController {
 		return "home";
 	}
 
+	
 	@CrossOrigin
 	@ResponseBody
 	@RequestMapping(value = "/home/distance/{page}", method = RequestMethod.GET)
