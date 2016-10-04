@@ -163,7 +163,13 @@ px
                 			  profile_img:res.properties.profile_image,
                 			  thumb_img:res.properties.thumbnail_image
                 	  }
-                		console.log(obj);
+              		sessionStorage.setItem('k_id', res.id);
+              		sessionStorage.setItem('k_nick',res.properties.nickname);
+              		sessionStorage.setItem('profile_img', res.properties.profile_image);
+              		sessionStorage.setItem('thumb_img', res.properties.thumbnail_image);
+                	  
+
+                	  
 						reigsterKakao(obj);
 
                     
