@@ -1,24 +1,27 @@
+<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="UTF-8">
-
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
-<title>푸드다마스</title>
+<base href="resources/">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>나만의 맛집 검색</title>
+<!-- 메뉴 -->
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel="stylesheet" href="css/menuStyle.css">
+<!-- 메뉴 -->
+
 
 <base href="../resources/">
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
-<!-- 메뉴 -->
-<link rel="stylesheet" href="css/menuStyle.css">
-<!-- 메뉴 -->
 
 
+<link rel="stylesheet" media="screen" href="css/fooddamas.css">
+<link rel="stylesheet" href="css/dropbox.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script

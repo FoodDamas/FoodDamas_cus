@@ -6,7 +6,7 @@
 
 	<div class="nav-bar">
 		<div class="LeeBack"><a href="javascript:history.back()">← 뒤로</a></div>
-		<div class="leer">우리청년컵밥</div>
+		<div class="leer"><a href="../../home">우리청년컵밥</a></div>
 		
 		
 			<a class="fa fa-bars menu fa-2x" id="menu_toggle" style="top: 10px;"></a>

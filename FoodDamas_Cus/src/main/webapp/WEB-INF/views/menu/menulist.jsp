@@ -76,6 +76,19 @@ $(document).ready(function(){
 				<li><a href="../../qna">QNA</a></li>
 			</ul>
 		</div>
+		<div class="pg-restaurant" style="padding: 0px;">
+			<section class="restaurant-detail" style="padding: 0px">
+				<header style="min-height: 0px; padding-bottom: 0px">
+					<div>
+
+
+						<h1 class="title">
+							<span itemprop="name">MENU</span> <strong class="rate-point">
+						</h1>
+					</div>
+				</header>
+			</section>
+		</div>
 	<div class="restaurant-detail row">
 
 		<div class="col-sm-8">
