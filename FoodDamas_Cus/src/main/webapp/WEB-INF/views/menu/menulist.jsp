@@ -10,23 +10,22 @@
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
 <base href="../resources/">
+
+
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
-<!-- 메뉴 -->
 <link rel="stylesheet" href="css/menuStyle.css">
-<!-- 메뉴 -->
 
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel='stylesheet prefetch'	href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
 
 </head>
 <style>
 #menuList li IMG {width: 130px; height: 130px;text-align: center}
-    li {border: 1px solid #cccccc; list-style:none; width: 48%;float: left; margin: 2px; text-align: center}
+#menuList li {border: 1px solid #cccccc; list-style:none; width: 48%;float: left; margin: 2px; text-align: center}
     .imgtext {color: #00a7d0; text-align: center;}
     .imgtitle {color: black; text-align: center;}
 </style>
