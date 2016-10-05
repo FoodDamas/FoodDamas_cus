@@ -86,7 +86,8 @@ var homeManager = (function() {
                data.result[i].review_num=0;
             }
             distance = distance.toFixed(1);
-            reviewList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
+            reviewList +="<li class='restaurant-item' id='storeList' " 
+                +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
             	  +"<div class='thumb' style='background-image: url(http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.result[i].co_name + " (" 
@@ -99,7 +100,34 @@ var homeManager = (function() {
                   + distance
                   + "m</p></div></figure></div></li>"
          }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         ///////////////////////////////////////////이가영이가영이가영이가영이가영이가영///////////////////////////////////////////////////////
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
          
+          $("#list").on("click","#storeList", function() {
+            
+            var $this=$(this);
+            var u_id=$this.attr("data-u_id");
+            var sno=$this.attr("data-sno");
+            var co_name=$this.attr("data-co_name");
+            sessionStorage.setItem('sno', sno);
+            sessionStorage.setItem('co_name', co_name);
+
+            sessionStorage.setItem('u_id', u_id);//세션생성_Leeek
+            var obj={
+                  u_id: u_id,
+                  sno: sno
+            };
+            
+            window.location.replace("http://localhost/menu/menulist");
+
+         });
+         
+
+           ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+          
          $("#list").html(reviewList);
          console.log("order BY-----------");
          console.log(orderBy);
