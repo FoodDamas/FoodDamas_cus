@@ -1,15 +1,12 @@
-
-
-
-
 var homeManager = (function() {
    var truckList = "";
    var gradeList = "";
    var reviewList = "";
+   var menuList = "";
    function getPosition(data, callback) {
-      console.log("*********");
-      console.log(data);
-      console.log("*********");
+      //console.log("*********");
+      //console.log(data);
+      //console.log("*********");
       
       
       // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
@@ -55,15 +52,18 @@ var homeManager = (function() {
    }
 
    function getList(data, callback) {
-      // console.log("------Get Data-------");
-      // console.log(data);
+      console.log("------getList Data-------");
+      console.log(data);
       var orderBy = data.orderBy;
+      console.log(orderBy);
+      var page = data.page;
       if (data.page == null) {
          data.page = 0;
       }
 
       $.getJSON('http://localhost/home/'+orderBy+'/' + data.page, data, function(data) {
          console.log("--------Get json Data-----");
+         console.log(page)
          console.log(data);
          map(data);
 
@@ -75,18 +75,19 @@ var homeManager = (function() {
             data.lng = 37.493488;
             data.lat = 127.028148;
          }
-         if(data.page=0){
+         if(page==0){
+            console.log("page 0입니다");
             reviewList = "";
          }
          // list up
          for (var i = 0; i < data.result.length; i++) {
             var distance = data.result[i].distance * 10000;
+            if(data.result[i].review_num==null){
+               data.result[i].review_num=0;
+            }
             distance = distance.toFixed(1);
-            reviewList += "<li class='restaurant-item' id='storeList' " 
-            	  +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'>"
-            	  +"<div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
-            	  +"<div class='thumb' >"
-            	  +"<img src='http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+ "' style='width: 160px; height:100px;'></div>"
+            reviewList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
+            	  +"<div class='thumb' style='background-image: url(http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.result[i].co_name + " (" 
                   + data.result[i].review_num
@@ -98,6 +99,7 @@ var homeManager = (function() {
                   + distance
                   + "m</p></div></figure></div></li>"
          }
+         
          $("#list").html(reviewList);
          console.log("order BY-----------");
          console.log(orderBy);
@@ -111,51 +113,17 @@ var homeManager = (function() {
                break;
                
             case "review":
+               $("#reviewList").html(reviewList);
                break;
                
             case "menu":
+               $("#reviewList").html(reviewList);
                break;
       }
 
       });
    }
-
-  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-   ///////////////////////////////////////////이가영이가영이가영이가영이가영이가영///////////////////////////////////////////////////////
-   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
    
- 	$("#list").on("click","#storeList", function() {
-		
-		var $this=$(this);
-		var u_id=$this.attr("data-u_id");
-		var sno=$this.attr("data-sno");
-		var co_name=$this.attr("data-co_name");
-		sessionStorage.setItem('sno', sno);
-		sessionStorage.setItem('co_name', co_name);
-
-		sessionStorage.setItem('u_id', u_id);//세션생성_Leeek
-		var obj={
-				u_id: u_id,
-				sno: sno
-		};
-		
-		window.location.replace("http://localhost/menu/menulist");
-
-	});
-   
-
-	  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-	   ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 	
- 
    function getGradeList(data, callback) {
       // console.log("------Get Data-------");
       // console.log(data);
@@ -181,9 +149,7 @@ var homeManager = (function() {
          for (var i = 0; i < data.grade.length; i++) {
             var distance = data.grade[i].distance * 10000;
             distance = distance.toFixed(1);
-            gradeList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
-            	+"<div class='thumb' >" 
-            	+"<img src='http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+ "' style='width: 160px; height:100px;'></div>"
+            gradeList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' style='background-image: url(img/1.jpg)'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.grade[i].co_name + " (" 
                   + data.grade[i].review_num
@@ -224,9 +190,8 @@ var homeManager = (function() {
          for (var i = 0; i < data.review.length; i++) {
             var distance = data.review[i].distance * 10000;
             distance = distance.toFixed(1);
-            truckList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
-            	+"<div class='thumb' >" 
-            	+"<img src='http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+ "' style='width: 160px; height:100px;'></div>"
+            truckList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' "
+            	  +"style='background-image: url(http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.review[i].co_name + " (" 
                   + data.review[i].review_num
@@ -312,39 +277,13 @@ var homeManager = (function() {
 
       // 마커를 표시할 위치와 title 객체 배열입니다
       var positions = new Array;
-      switch(Object.getOwnPropertyNames(data)[0]){
-         case "distance":
-            console.log("distance map");
-            // 마커에 위치 값을 push 합니다
-            for (var i = 0; i < data.distance.length; i++) {
-               var lat = positions.push({
-                  title : data.distance[i].co_name,
-                  latlng : new daum.maps.LatLng(data.distance[i].lat,
-                        data.distance[i].lng)
-               });
-            }
-            break;
-            
-         case "grade":
-            console.log("grade map");
-            for (var i = 0; i < data.grade.length; i++) {
-               var lat = positions.push({
-                  title : data.grade[i].co_name,
-                  latlng : new daum.maps.LatLng(data.grade[i].lat,
-                        data.grade[i].lng)
-               });
-            }
-            break;
-            
-         case "review":
-            break;
-            
-         case "menu":
-            break;
+      for (var i = 0; i < data.result.length; i++) {
+         var lat = positions.push({
+            title : data.result[i].co_name,
+            latlng : new daum.maps.LatLng(data.result[i].lat,
+                  data.result[i].lng)
+         });
       }
-      
-      
-
       
       //truckMapList(positions);
 
