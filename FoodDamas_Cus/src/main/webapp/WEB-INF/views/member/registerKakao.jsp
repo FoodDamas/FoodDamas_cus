@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" session="false"%>
+<% request.setCharacterEncoding("utf-8"); %>
+<% response.setContentType("text/html; charset=utf-8"); %>
 <!DOCTYPE html>
 <html lang="UTF-8">
 
@@ -99,15 +101,16 @@ $(document).ready(function() {
 				c_phone:$(".c_phone").val(),
 				c_mail:$(".c_mail").val()
 		}
+		 registerKakao(obj);
 
-	
 	});
 	function registerKakao(obj) {
 		
    		$.ajax({
- 			url: local+'/member/registerKakao',
+ 			url: local+'/member/registerKakaomember',
  			type:"POST",
- 			data:obj,/* 
+ 		//	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+ 			data:obj/* ,
  			success:function(data){
  				if(data=="success")
  					{

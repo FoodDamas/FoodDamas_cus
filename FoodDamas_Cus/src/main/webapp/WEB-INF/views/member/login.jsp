@@ -148,6 +148,8 @@ px
 
 	<script type='text/javascript'>
 	var obj="";
+	var local="http://localhost";
+
 	Kakao.init('b05205951a5d98b44df1432dc785354e');
     function loginWithKakao() {
         // 로그인 창을 띄웁니다.
@@ -157,22 +159,39 @@ px
                 Kakao.API.request({
                   url: '/v1/user/me',
                   success: function(res) {
+                	  
+              		var k_id=res.id;
+            		$.ajax({
+            			url: local+'/member/registerKakao',
+            			type:"post",
+            			contentType : "application/json;charset=UTF-8",
+            			data:k_id,
+            			success:function(check){
+            				if(check==""){
+            			        $("#checkId").html("<li>사용가능한 아이디입니다.</li>");
+
+            				}else{
+            			        $("#checkId").html("<li>존재하는 아이디입니다.</li>");
+
+            				}
+            				
+            			}
+            		});
+                	  
                 	  obj={
                 			  k_id: res.id,
                 			  k_nick:res.properties.nickname,
                 			  profile_img:res.properties.profile_image,
                 			  thumb_img:res.properties.thumbnail_image
                 	  }
+                	  
+                	  
+					
               		sessionStorage.setItem('k_id', res.id);
               		sessionStorage.setItem('k_nick',res.properties.nickname);
               		sessionStorage.setItem('profile_img', res.properties.profile_image);
               		sessionStorage.setItem('thumb_img', res.properties.thumbnail_image);
-                	  
-
-                	  
-						reigsterKakao(obj);
-
-                    
+                	  window.location.replace("/member/registerKakao");
                   },
                   fail: function(error) {
                     alert(JSON.stringify(error));
@@ -184,22 +203,7 @@ px
               }
         });
         
-        function reigsterKakao(params) {//ajax로보냈을때 
-        	   // method = method || "post";
-        
-        	    var form = document.createElement("form");
-        	    form.setAttribute("method", "post");
-        	    form.setAttribute("action", "/member/registerKakao");
-        	    for(var key in params) {
-        	        var hiddenField = document.createElement("input");
-        	        hiddenField.setAttribute("type", "hidden");
-        	        hiddenField.setAttribute("name", key);
-        	        hiddenField.setAttribute("value", params[key]);
-        	        form.appendChild(hiddenField);
-        	    }
-        	    document.body.appendChild(form);
-        	    form.submit();			
-		}
+
     };
 	$(document).ready(function() {
 		$(".loginKakao").on("click", function() {

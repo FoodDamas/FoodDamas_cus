@@ -27,8 +27,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.util.WebUtils;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-
 
 @Controller
 @RequestMapping("/member")
@@ -112,7 +110,6 @@ public class MemberController {
 
 
 	@ResponseBody
-	@CrossOrigin
 	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
 	public String checkIdPOST(@RequestBody String c_id) {//requestBody�� vo���ƴҋ�
 		logger.info(""+service.checkId(c_id));
@@ -121,32 +118,34 @@ public class MemberController {
 	}
 
 
-	@ResponseBody
+//회원가입할때 있는아이디인지 체크하는부분
 	@CrossOrigin
+	@ResponseBody
 	@RequestMapping(value = "/registerKakao", method = RequestMethod.POST)
-	public void kakaoPOST(MemberVO vo, Model model, RedirectAttributes rttr) {
-		logger.info(""+vo);
-		/*logger.info(""+vo);
-		String k_id=service.checkKakao(vo.getK_id());
+	public void kakaoPOST(@RequestBody String k_id) {
+		System.out.println("------------------dddddddd---------------"+k_id);
+		
+	
+	/*	String k_id=service.checkKakao(vo.getK_id());
 		model.addAttribute("checkId", k_id);
 		System.out.println("----------------------------------"+k_id);
 		model.addAttribute("member", vo);*/
 	}
 
-
-	/*@ResponseBody
-	@RequestMapping(value = "/registerKakao/", method = RequestMethod.GET)
+	@CrossOrigin
+	@RequestMapping(value = "/registerKakao", method = RequestMethod.GET)
 	public void kakaoGET(MemberVO vo, Model model ) {
-		logger.info("�ְ����� �Ȼ����");
-	}*/
 
-	@RequestMapping(value = "/registerKakaomember", method = RequestMethod.POST)
-	public String kakaoGET(MemberVO vo, Model model, RedirectAttributes rttr) {
+	
+	}
+
+	//회원가입카카오톡
+	@RequestMapping(value = "/registerKakaomember",  produces="text/plain; charset=UTF-8", method = RequestMethod.POST)
+	public void kakaoGET(MemberVO vo, Model model, RedirectAttributes rttr) {
 		logger.info(""+vo);
 		service.insertKakaoMember(vo);
 		rttr.addAttribute("result", "success");
-
-		return "redirect:/member/login";
+	//	return "redirect:/member/login";
 
 	}
 
