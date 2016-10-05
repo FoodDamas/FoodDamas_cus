@@ -4,7 +4,7 @@ var homeManager = (function() {
 	var reviewList = "";
 	var menuList = "";
 	function getPosition(data, callback) {
-		//console.log("*********");
+		// console.log("*********");
 		//console.log(data);
 		//console.log("*********");
 		
@@ -52,19 +52,19 @@ var homeManager = (function() {
 	}
 
 	function getList(data, callback) {
-		console.log("------getList Data-------");
-		console.log(data);
+		//console.log("------getList Data-------");
+		//console.log(data);
 		var orderBy = data.orderBy;
-		console.log(orderBy);
+		//console.log(orderBy);
 		var page = data.page;
 		if (data.page == null) {
 			data.page = 0;
 		}
 
 		$.getJSON('http://localhost/home/'+orderBy+'/' + data.page, data, function(data) {
-			console.log("--------Get json Data-----");
-			console.log(page)
-			console.log(data);
+			//console.log("--------Get json Data-----");
+			//console.log(page)
+			//console.log(data);
 			map(data);
 
 			// 좌표값이 없는 경우
@@ -76,7 +76,7 @@ var homeManager = (function() {
 				data.lat = 127.028148;
 			}
 			if(page==0){
-				console.log("page 0입니다");
+				//console.log("page 0입니다");
 				reviewList = "";
 			}
 			// list up
@@ -99,8 +99,8 @@ var homeManager = (function() {
 						+ "m</p></div></figure></div></li>"
 			}
 			$("#list").html(reviewList);
-			console.log("order BY-----------");
-			console.log(orderBy);
+			//console.log("order BY-----------");
+			//console.log(orderBy);
 			switch(orderBy){
 				case "distance":
 					$("#list").html(reviewList);
@@ -125,14 +125,14 @@ var homeManager = (function() {
 	function getGradeList(data, callback) {
 		// console.log("------Get Data-------");
 		// console.log(data);
-		console.log(data);
+		// console.log(data);
 		if (data.page == null) {
 			data.page = 0;
 		}
 
 		$.getJSON('http://localhost/home/grade/' + data.page, data, function(data) {
 			//console.log("--------Get json Data-----");
-			console.log(data);
+			//console.log(data);
 			
 			
 			// 좌표값이 없는 경우
@@ -166,15 +166,15 @@ var homeManager = (function() {
 	}
 	
 	function getReviewList(data, callback) {
-		console.log("------Get rev Data-------");
-		console.log(data);
+		//console.log("------Get rev Data-------");
+		//console.log(data);
 		if (data.page == null) {
 			data.page = 0;
 		}
 
 		$.getJSON('http://localhost/home/review/' + data.page, data, function(data) {
-			console.log("--------Get review json Data-----");
-			console.log(data)
+			//console.log("--------Get review json Data-----");
+			//console.log(data)
 			
 			// 좌표값이 없는 경우
 			if (data == null) {
@@ -274,6 +274,20 @@ var homeManager = (function() {
 
 		// 마커를 표시할 위치와 title 객체 배열입니다
 		var positions = new Array;
+		console.log(";;;;;;;;;;;;;;;;;");
+		console.log(data.result);
+		//console.log(Object.getOwnPropertyNames(data)[0]);
+		console.log(";;;;;;;;;;;;;;;;;");
+		for (var i = 0; i < data.result.length; i++) {
+			var lat = positions.push({
+				title : data.result[i].co_name,
+				latlng : new daum.maps.LatLng(data.result[i].lat,
+						data.result[i].lng)
+			});
+		}
+		console.log(positions);
+		
+		/*
 		switch(Object.getOwnPropertyNames(data)[0]){
 			case "distance":
 				console.log("distance map");
@@ -304,7 +318,7 @@ var homeManager = (function() {
 			case "menu":
 				break;
 		}
-		
+		*/
 		
 
 		

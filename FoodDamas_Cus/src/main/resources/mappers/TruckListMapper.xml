@@ -6,37 +6,47 @@
 	<select id="review" resultType="hashmap">
 		select insa.u_id, distance,
 		sno,
-		sales_state, grade, co_name, u_profile_img, review_num, location,
+		sales_state, grade, co_name, u_profile_img, review_num, location,lat,
+		lng,
 		mdate
 		from(
-		select sales.u_id, mdate, distance, sno, sales_state,
+		select sales.u_id, mdate, distance, sno,
+		sales_state,lat, lng,
 		grade,location,
 		u_profile_img,
 		co_name from(
-		select bsales.u_id, mdate,
+		select
+		bsales.u_id, mdate,lat, lng,
 		location,
 		SQRT(pow(lat -
-		#{lat}, 2) + pow(lng - #{lng}, 2)) as distance,
+		#{lat}, 2) +
+		pow(lng - #{lng}, 2)) as distance,
 		sno,
 		sales_state from (
 		select
-		u_id, max(work_date) as mdate from
+		u_id,
+		max(work_date) as mdate from
 		tbl_ft_sales group by u_id
 		) as
 		bsales
-		inner join tbl_ft_sales as gsales
+		inner
+		join tbl_ft_sales as gsales
 		where (bsales.u_id =
-		gsales.u_id) and (bsales.mdate = gsales.work_date)
+		gsales.u_id) and
+		(bsales.mdate = gsales.work_date)
 		) as sales
 		inner join
-		tbl_ft_info as info on sales.u_id = info.u_id
+		tbl_ft_info as
+		info on sales.u_id = info.u_id
 		) as
 		insa
 		left join
-		(SELECT COUNT(*) review_num ,u_id FROM tbl_ft_review
+		(SELECT COUNT(*)
+		review_num ,u_id FROM tbl_ft_review
 		group BY
 		u_id) as
-		review on review.u_id = insa.u_id
+		review on
+		review.u_id = insa.u_id
 		order by review_num
 		desc
 		limit #{page},8
@@ -77,37 +87,47 @@
 	<select id="grade" resultType="hashmap">
 		select insa.u_id, distance,
 		sno,
-		sales_state, grade, co_name, u_profile_img, review_num, location,
+		sales_state, grade, co_name, u_profile_img, review_num, location,lat,
+		lng,
 		mdate
 		from(
-		select sales.u_id, mdate, distance, sno, sales_state,
+		select sales.u_id, mdate, distance, sno,
+		sales_state,lat, lng,
 		grade,location,
 		u_profile_img,
 		co_name from(
-		select bsales.u_id, mdate,
+		select
+		bsales.u_id, mdate,lat, lng,
 		location,
 		SQRT(pow(lat -
-		#{lat}, 2) + pow(lng - #{lng}, 2)) as distance,
+		#{lat}, 2) +
+		pow(lng - #{lng}, 2)) as distance,
 		sno,
 		sales_state from (
 		select
-		u_id, max(work_date) as mdate from
+		u_id,
+		max(work_date) as mdate from
 		tbl_ft_sales group by u_id
 		) as
 		bsales
-		inner join tbl_ft_sales as gsales
+		inner
+		join tbl_ft_sales as gsales
 		where (bsales.u_id =
-		gsales.u_id) and (bsales.mdate = gsales.work_date)
+		gsales.u_id) and
+		(bsales.mdate = gsales.work_date)
 		) as sales
 		inner join
-		tbl_ft_info as info on sales.u_id = info.u_id
+		tbl_ft_info as
+		info on sales.u_id = info.u_id
 		) as
 		insa
 		left join
-		(SELECT COUNT(*) review_num ,u_id FROM tbl_ft_review
+		(SELECT COUNT(*)
+		review_num ,u_id FROM tbl_ft_review
 		group BY
 		u_id) as
-		review on review.u_id = insa.u_id
+		review on
+		review.u_id = insa.u_id
 		order by grade
 		desc
 		limit
@@ -164,37 +184,48 @@
 
 	<select id="distance" resultType="hashmap">
 		select insa.u_id, distance,
-		sno, sales_state, grade, co_name, u_profile_img, review_num, location,
+		sno,
+		sales_state, grade, co_name, u_profile_img, review_num, location,lat,
+		lng,
 		mdate
 		from(
-		select sales.u_id, mdate, distance, sno, sales_state,
+		select sales.u_id, mdate, distance, sno,
+		sales_state,lat, lng,
 		grade,location,
 		u_profile_img,
 		co_name from(
-		select bsales.u_id, mdate,
+		select
+		bsales.u_id, mdate,lat, lng,
 		location,
 		SQRT(pow(lat -
-		#{lat}, 2) + pow(lng - #{lng}, 2)) as distance,
+		#{lat}, 2) +
+		pow(lng - #{lng}, 2)) as distance,
 		sno,
 		sales_state from (
 		select
-		u_id, max(work_date) as mdate from
+		u_id,
+		max(work_date) as mdate from
 		tbl_ft_sales group by u_id
 		) as
 		bsales
-		inner join tbl_ft_sales as gsales
+		inner
+		join tbl_ft_sales as gsales
 		where (bsales.u_id =
-		gsales.u_id) and (bsales.mdate = gsales.work_date)
+		gsales.u_id) and
+		(bsales.mdate = gsales.work_date)
 		) as sales
 		inner join
-		tbl_ft_info as info on sales.u_id = info.u_id
+		tbl_ft_info as
+		info on sales.u_id = info.u_id
 		) as
 		insa
 		left join
-		(SELECT COUNT(*) review_num ,u_id FROM tbl_ft_review
+		(SELECT COUNT(*)
+		review_num ,u_id FROM tbl_ft_review
 		group BY
 		u_id) as
-		review on review.u_id = insa.u_id
+		review on
+		review.u_id = insa.u_id
 		order by distance
 		limit
 		#{page},8
