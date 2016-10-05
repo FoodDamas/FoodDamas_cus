@@ -118,17 +118,20 @@
 								
 								var idb = "faq" + i;
 								
-								
+								var fontcolor = list[i].state_code == 10 ? "color:red" : "color:blue";
 								
 								orderlist +=  
 									
 								"<div class='panel-heading'><a data-toggle='collapse' href='" +  ida + "'>"
-								+ "[ " + list[i].co_name + " ]　" + list[i].regdate + "　 " + "<span style='color:red'>" + list[i].state_name + "</span>" + "<span class='pull-right'><i class='glyphicon glyphicon-plus'></i></span></a>"
+								+ "[ " + list[i].co_name + " ]　" + list[i].regdate + "　 " + "<span style='"+ fontcolor +"'>" + list[i].state_name + "</span>" + "<span class='pull-right'><i class='glyphicon glyphicon-plus'></i></span></a>"
 								+  "</div><div id='" + idb + "'class='panel-collapse collapse'><div class='panel-body'>"
-								+  list[i].total_price +  "</div></div>"
-									
-									
+								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 김치볶음밥<span style='float:right'>5,000</span></div>"								
+								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 볶음밥<span style='float:right'>6,000</span></div>"								
+								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 참치 볶음밥<span style='float:right'>5,000</span></div>"								
+								+  "<div style='line-height: 26px;color:red '> 총합계<span style='float:right;color:red; font-size:16px;'>16,000</span></div>"								
 								
+								+/* + list[i].total_price + */  "</div></div>"
+									
 								
 							}
 
@@ -144,7 +147,7 @@
 </script>
 <body>
 
-	<div class="nav-bar">
+	<div class="nav-bar" style="border: 1px dotted; line-height: 26px">
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
 	</div>
