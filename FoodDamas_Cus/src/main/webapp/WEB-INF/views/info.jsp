@@ -31,6 +31,8 @@
 
 
 	<%@include file="headersub.jsp"%>
+		
+
 
 
 	<div style="height: 51px;"></div>
@@ -50,6 +52,8 @@
 					<div>
 
 						<h1 class="title">
+<%-- 						<span  class="c_id11">${login.c_id}</span>
+ --%>						
 							<span itemprop="name" id="name">원조신포닭강정</span> <strong
 								class="rate-point"> <span class="rate-point" id="grade">
 									3.9 </span> <span itemprop="reviewCount" style="display: none;">48</span>
