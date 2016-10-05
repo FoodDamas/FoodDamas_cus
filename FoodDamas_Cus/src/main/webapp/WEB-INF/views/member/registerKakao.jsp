@@ -101,32 +101,28 @@ $(document).ready(function() {
 				c_phone:$(".c_phone").val(),
 				c_mail:$(".c_mail").val()
 		}
-		 registerKakao(obj);
+			registerKakao(obj);
 
 	});
-	function registerKakao(obj) {
-		
-   		$.ajax({
- 			url: local+'/member/registerKakaomember',
- 			type:"POST",
- 		//	contentType: "application/x-www-form-urlencoded; charset=UTF-8",
- 			data:obj/* ,
- 			success:function(data){
- 				if(data=="success")
+		function registerKakao(obj) {
+			
+			$.ajax({
+				url: local+'/member/registerKakaomember',
+				type: 'post',
+				data: obj,
+				success:function(data){
+					console.log(data);
+					if(data=="success")
  					{
 					window.location.replace("/member/login");
-
  						alert("회원가입을 성공하였습니다.");
  					}else {
  	 					alert("회원가입을 실패하였습니다.");
 
-					}
- 							
- 			} */
- 			
- 		});
-		
-	}
+					}				}
+			});
+			
+		}
 	
 });
 

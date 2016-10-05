@@ -151,7 +151,7 @@ px
 	var local="http://localhost";
 
 	Kakao.init('b05205951a5d98b44df1432dc785354e');
-    function loginWithKakao() {
+    function loginWithKakao() {//회원가입 버튼
         // 로그인 창을 띄웁니다.
         Kakao.Auth.login({
             success: function(authObj) {
@@ -161,22 +161,26 @@ px
                   success: function(res) {
                 	  
               		var k_id=res.id;
-            		$.ajax({
+              		console.log(k_id);
+            	 	$.ajax({
             			url: local+'/member/registerKakao',
             			type:"post",
-            			contentType : "application/json;charset=UTF-8",
-            			data:k_id,
+            			data:JSON.stringify(k_id),
+            			 contentType: 'application/json',
+            			  dataType: 'text',
+            			//dataType: 'text',
             			success:function(check){
+            			
             				if(check==""){
-            			        $("#checkId").html("<li>사용가능한 아이디입니다.</li>");
+            					window.location.replace("/member/registerKakao");
 
             				}else{
-            			        $("#checkId").html("<li>존재하는 아이디입니다.</li>");
+            					alert("이미 회원가입 하셨습니다. 카카오톡으로 로그인해주세요");
 
             				}
-            				
+					       				
             			}
-            		});
+            		}); 
                 	  
                 	  obj={
                 			  k_id: res.id,
@@ -191,7 +195,7 @@ px
               		sessionStorage.setItem('k_nick',res.properties.nickname);
               		sessionStorage.setItem('profile_img', res.properties.profile_image);
               		sessionStorage.setItem('thumb_img', res.properties.thumbnail_image);
-                	  window.location.replace("/member/registerKakao");
+                	//window.location.replace("/member/registerKakao");
                   },
                   fail: function(error) {
                     alert(JSON.stringify(error));

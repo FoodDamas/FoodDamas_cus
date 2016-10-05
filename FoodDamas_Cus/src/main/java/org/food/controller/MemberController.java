@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -48,62 +49,62 @@ public class MemberController {
 		logger.info(""+vo);
 		if(vo==null){
 			//  rttr.addFlashAttribute("result", "fail");
-		      return;		      
+			return;		      
 		}
 		model.addAttribute("memberVO", vo);
-		
+
 		if(dto.isUseCookie()){
 			int amount=60*60*24*7;
-			
+
 			Date sessinoLimit=new Date(System.currentTimeMillis()+(1000*amount));
-			
+
 			service.keepLogin(vo.getC_id(), session.getId(), sessinoLimit);
 		}
 	}
 
-	  @RequestMapping(value = "/logout", method = RequestMethod.GET)
-	  public String logout(HttpServletRequest request, 
-	      HttpServletResponse response, HttpSession session) throws Exception {
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpServletRequest request, 
+			HttpServletResponse response, HttpSession session) throws Exception {
 
-	    Object obj = session.getAttribute("login");
+		Object obj = session.getAttribute("login");
 
-	    if (obj != null) {
-	      MemberVO vo = (MemberVO) obj;
+		if (obj != null) {
+			MemberVO vo = (MemberVO) obj;
 
-	      session.removeAttribute("login");
-	      session.invalidate();
+			session.removeAttribute("login");
+			session.invalidate();
 
-	      Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
 
-	      if (loginCookie != null) {
-	        loginCookie.setPath("/");
-	        loginCookie.setMaxAge(0);
-	        response.addCookie(loginCookie);
-	        service.keepLogin(vo.getC_id(), session.getId(), new Date());
-	      }
-	    }
+			if (loginCookie != null) {
+				loginCookie.setPath("/");
+				loginCookie.setMaxAge(0);
+				response.addCookie(loginCookie);
+				service.keepLogin(vo.getC_id(), session.getId(), new Date());
+			}
+		}
 		return "login";
-	  }
+	}
 
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void registerGET( Model model) {
-		
-		
+
+
 	}
-	
+
 	@ResponseBody
 	@CrossOrigin
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String registerPOST( MemberVO vo ) {
-		
-	
+
+
 		logger.info("register POST");
-		
+
 		logger.info(""+vo);
 		/*	System.out.println(vo);
 		service.insertMember(vo);
-	*/	
+		 */	
 		return "success";
 
 	}
@@ -118,36 +119,34 @@ public class MemberController {
 	}
 
 
-//회원가입할때 있는아이디인지 체크하는부분
-	@CrossOrigin
-	@ResponseBody
-	@RequestMapping(value = "/registerKakao", method = RequestMethod.POST)
-	public void kakaoPOST(@RequestBody String k_id) {
-		System.out.println("------------------dddddddd---------------"+k_id);
-		
-	
-	/*	String k_id=service.checkKakao(vo.getK_id());
-		model.addAttribute("checkId", k_id);
-		System.out.println("----------------------------------"+k_id);
-		model.addAttribute("member", vo);*/
-	}
 
 	@CrossOrigin
 	@RequestMapping(value = "/registerKakao", method = RequestMethod.GET)
 	public void kakaoGET(MemberVO vo, Model model ) {
 
-	
 	}
+
+	//회원가입할때 있는아이디인지 체크하는부분
+	@CrossOrigin
+	@ResponseBody
+	@RequestMapping(value = "/registerKakao", method = RequestMethod.POST)
+	public String kakaoPOST(@RequestBody String k_id) {
+
+		return service.checkKakao(k_id);
+	}
+
 
 	//회원가입카카오톡
-	@RequestMapping(value = "/registerKakaomember",  produces="text/plain; charset=UTF-8", method = RequestMethod.POST)
-	public void kakaoGET(MemberVO vo, Model model, RedirectAttributes rttr) {
+	@ResponseBody
+	@CrossOrigin
+	@RequestMapping(value = "/registerKakaomember", method = RequestMethod.POST)
+	public String registerKakaomemberGET(MemberVO vo) {
 		logger.info(""+vo);
 		service.insertKakaoMember(vo);
-		rttr.addAttribute("result", "success");
-	//	return "redirect:/member/login";
 
+		return "success";
 	}
+
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET)
 	public void test(MemberVO vo, Model model ) {
