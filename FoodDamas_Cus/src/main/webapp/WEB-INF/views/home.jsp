@@ -129,7 +129,7 @@
 				<button href="#" class="tag-item tag-item selected" id="disBtn">거리순</button>
 				<button href="#" class="tag-item tag-item selected" id="graBtn">평점순</button>
 				<button href="#" class="tag-item tag-item selected" id="revBtn">리뷰순</button>
-				<button href="#" class="tag-item tag-item selected" id="menuBtn">메뉴순</button>
+				<button href="#" class="tag-item tag-item selected" id="menBtn">메뉴순</button>
 			</p>
 		</div>
 

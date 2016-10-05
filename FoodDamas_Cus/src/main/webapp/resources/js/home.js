@@ -2,10 +2,11 @@ var homeManager = (function() {
 	var truckList = "";
 	var gradeList = "";
 	var reviewList = "";
+	var menuList = "";
 	function getPosition(data, callback) {
-		console.log("*********");
-		console.log(data);
-		console.log("*********");
+		//console.log("*********");
+		//console.log(data);
+		//console.log("*********");
 		
 		
 		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다
@@ -51,15 +52,18 @@ var homeManager = (function() {
 	}
 
 	function getList(data, callback) {
-		// console.log("------Get Data-------");
-		// console.log(data);
+		console.log("------getList Data-------");
+		console.log(data);
 		var orderBy = data.orderBy;
+		console.log(orderBy);
+		var page = data.page;
 		if (data.page == null) {
 			data.page = 0;
 		}
 
 		$.getJSON('http://localhost/home/'+orderBy+'/' + data.page, data, function(data) {
 			console.log("--------Get json Data-----");
+			console.log(page)
 			console.log(data);
 			map(data);
 
@@ -71,12 +75,16 @@ var homeManager = (function() {
 				data.lng = 37.493488;
 				data.lat = 127.028148;
 			}
-			if(data.page=0){
+			if(page==0){
+				console.log("page 0입니다");
 				reviewList = "";
 			}
 			// list up
 			for (var i = 0; i < data.result.length; i++) {
 				var distance = data.result[i].distance * 10000;
+				if(data.result[i].review_num==null){
+					data.result[i].review_num=0;
+				}
 				distance = distance.toFixed(1);
 				reviewList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' style='background-image: url(img/1.jpg)'></div>"
 						+ "<div class='info'><span class='title'>"
@@ -103,9 +111,11 @@ var homeManager = (function() {
 					break;
 					
 				case "review":
+					$("#reviewList").html(reviewList);
 					break;
 					
 				case "menu":
+					$("#reviewList").html(reviewList);
 					break;
 		}
 
