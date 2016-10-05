@@ -84,7 +84,7 @@
 				var lng=data[j].relat;
 				var lat =data[j].relng;
 				// 마커 이미지의 이미지 크기 입니다
-				var imageSize = new daum.maps.Size(30, 35);
+				var imageSize = new daum.maps.Size(20, 25);
 				
 				var posi = new daum.maps.LatLng(lat,lng);
 				

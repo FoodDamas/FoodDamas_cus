@@ -152,7 +152,7 @@
 		<div class=" leer">우리청년컵밥</div>
 	</div>
 
-	<%@include file="headersub.jsp"%>
+	<%@include file="../headersub.jsp"%>
 	<div class="container-fluid">
 
 		<div class="pg-restaurant" style="padding: 0px; clear: both">

@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/order")
 public class OrderListController {
 	
 	@Inject

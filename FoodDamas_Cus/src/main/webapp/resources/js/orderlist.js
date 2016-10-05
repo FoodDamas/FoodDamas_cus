@@ -3,7 +3,7 @@
 var OrderListManager= function(){	
 	
 	function OrderList(c_id,page,callback){	
-		$.getJSON('http://localhost/orderlist/'+ c_id+"?"+"page=" + page, callback);	
+		$.getJSON('http://localhost/order/orderlist/'+ c_id+"?"+"page=" + page, callback);	
 
 	}
 	

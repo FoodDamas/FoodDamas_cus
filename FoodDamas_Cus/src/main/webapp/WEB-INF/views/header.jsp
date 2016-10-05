@@ -5,7 +5,7 @@
 
 		<div>
 		<a href="/" class="/"
-			style="line-height: 50px; margin-left: 10px; font-weight: bold;"><img src="img/food.png" style="height: 100%"></a>
+			style="line-height: 50px; margin-left: 10px; font-weight: bold;"><img src="../img/food.png" style="height: 100%"></a>
 			
 					<a class="fa fa-bars menu fa-2x " id="menu_toggle" style="top: 10px;"></a>
 			</div>
@@ -19,7 +19,7 @@
         <a href="../api1">서울시 공공API</a><i class="fa fa-user"></i>
       </li>
       <li class="nav-three">
-        <a>주문내역</a><i class="fa fa-floppy-o"></i>
+        <a href="../order/orderlist">주문내역</a><i class="fa fa-floppy-o"></i>
       </li>
       <li class="nav-four">
         <a>회원정보</a><i class="fa fa-exclamation-triangle"></i>
