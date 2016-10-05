@@ -32,8 +32,7 @@ th {
 
 td {
 	padding-left: 10px;
-	border-bottom: 1px dotted#
-	cccccc
+	border-bottom: 1px dotted #cccccc
 }
 </style>
 
@@ -81,11 +80,8 @@ td {
 
 								for (var i = 0; i < list.length; i++) {
 
-									apilist += "<table><caption></caption><tbody><colgroup><col width='110px;'></colgroup><tr>"
-
-											+ "<th style='width: 100px;''> 주차장이름</th><td>"
-											+ list[i].PARK_NAME
-											+ "</td></tr>"
+									apilist += "<div style='margin-top:10px; margin-bottom:5px; color:#eb6100'>[ " + list[i].PARK_NAME + " ]</div>"
+									        + "<table style='margin:0px;'><caption></caption><tbody><colgroup><col width='110px;'></colgroup><tr>"
 
 											+ "<th style='width: 100px;''> 주차장주소</th><td>"
 
