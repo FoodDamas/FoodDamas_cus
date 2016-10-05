@@ -285,6 +285,8 @@ console.log(total);
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
 	</div>
+<%-- 							<span  class="c_id11">${login.c_id}</span>
+ --%>	
 <span style="display: none" class="c_id">${login.c_id}</span>
 			<%@include file="headersub.jsp"%>
 	<div class="container-fluid">

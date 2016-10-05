@@ -140,7 +140,7 @@ public class MemberController {
 	@ResponseBody
 	@CrossOrigin
 	@RequestMapping(value = "/registerKakaomember", method = RequestMethod.POST)
-	public String registerKakaomemberGET(MemberVO vo) {
+	public String registerKakaomemberPOST(MemberVO vo) {
 		logger.info(""+vo);
 		service.insertKakaoMember(vo);
 
