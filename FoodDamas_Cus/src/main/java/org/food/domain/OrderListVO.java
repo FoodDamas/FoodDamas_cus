@@ -15,6 +15,7 @@ public class OrderListVO {
 	private Integer reviewstate;
 	private String u_id;
 	private String co_name;
+	private String state_name;
 	public Integer getOno() {
 		return ono;
 	}
@@ -81,13 +82,19 @@ public class OrderListVO {
 	public void setCo_name(String co_name) {
 		this.co_name = co_name;
 	}
+	public String getState_name() {
+		return state_name;
+	}
+	public void setState_name(String state_name) {
+		this.state_name = state_name;
+	}
 	
 	@Override
 	public String toString() {
 		return "OrderListVO [ono=" + ono + ", total_price=" + total_price + ", regdate=" + regdate + ", pickup_time="
 				+ pickup_time + ", c_msg=" + c_msg + ", sno=" + sno + ", c_id=" + c_id + ", state_code=" + state_code
-				+ ", reviewstate=" + reviewstate + ", u_id=" + u_id + ", co_name=" + co_name + "]";
+				+ ", reviewstate=" + reviewstate + ", u_id=" + u_id + ", co_name=" + co_name + ", state_name="
+				+ state_name + "]";
 	}
-	
 	
 }

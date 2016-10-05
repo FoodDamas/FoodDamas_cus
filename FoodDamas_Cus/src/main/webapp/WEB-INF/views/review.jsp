@@ -25,6 +25,7 @@
 <link rel='stylesheet prefetch'	href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
 
 <script src="js/review.js"></script>
+<script src="js/info.js"></script>
 
 <style>
 
@@ -42,6 +43,39 @@ $(document).ready(function() {
    // var writer = sessionStorage.getItem('u_id');   // 푸드트럭 사장 아이디
     var c_id = $(".c_id").html()
     var u_id= sessionStorage.getItem('u_id');
+   
+
+	InfoManager.InfoList(u_id, display);
+	function display(info) {
+
+		var infolist = "";
+		var infomap = "";
+
+		var data = info.list;
+		var map = info.map;
+
+		var lat = map[0].lat;
+		var lng = map[0].lng;
+
+		console.log(lng);
+		console.log(lat);
+		displayMap(lat, lng);
+
+		for (var i = 0; i < data.length; i++) {
+
+			var name = data[i].co_name
+
+			$("#name").html(name);
+			var grad = data[i].grade
+			var grade = grad.toFixed(1);
+
+			$("#grade").html(grade);
+			
+			
+			
+		}
+		
+	}
 
     
     console.log(u_id);
@@ -273,9 +307,9 @@ console.log(total);
 						</div>
 
 						<h1 class="title">
-							<span itemprop="name">원조신포닭강정</span> <strong class="rate-point">
-								<span class="rate-point" id="average"> 3.9 </span> <span
-								itemprop="reviewCount" style="display: none;">48</span>
+							<span itemprop="name" id="name">원조신포닭강정</span> <strong
+								class="rate-point"> <span class="rate-point" id="grade">
+									3.9 </span> <span itemprop="reviewCount" style="display: none;">48</span>
 							</strong>
 							<p class="branch">본점</p>
 						</h1>
