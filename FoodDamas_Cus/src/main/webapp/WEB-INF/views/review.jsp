@@ -45,21 +45,15 @@ $(document).ready(function() {
     var u_id= sessionStorage.getItem('u_id');
    
 
-	InfoManager.InfoList(u_id, display);
-	function display(info) {
+	InfoManager.InfoList(u_id, display1);
+	function display1(info) {
 
 		var infolist = "";
 		var infomap = "";
 
 		var data = info.list;
-		var map = info.map;
 
-		var lat = map[0].lat;
-		var lng = map[0].lng;
 
-		console.log(lng);
-		console.log(lat);
-		displayMap(lat, lng);
 
 		for (var i = 0; i < data.length; i++) {
 
@@ -68,6 +62,9 @@ $(document).ready(function() {
 			$("#name").html(name);
 			var grad = data[i].grade
 			var grade = grad.toFixed(1);
+			
+			
+			console.log(grade);
 
 			$("#grade").html(grade);
 			
@@ -264,7 +261,8 @@ console.log(total);
 			 ReviewManager.Insert(obj, function () {
 				   
 				 ReviewManager.ReviewList(u_id,page,display);
-			
+					InfoManager.InfoList(u_id, display1);
+
 				   alert("댓글이 등록 되었습니다");
 				   
 				   $("#content").val("");

@@ -95,10 +95,10 @@ $(document).ready(function() {
 	console.log(x);
     
    // var food = "food1";
-    var c_id = $(".loginC_id").val();
+    var c_id = "beuteu";
     console.log(c_id);
     var u_id= sessionStorage.getItem('u_id');
-    var writer = u_id;   // 푸드트럭 사장 아이디
+    var writer = "beuteu";   // 푸드트럭 사장 아이디
     
 
     var obj=[];
@@ -139,9 +139,7 @@ $(document).ready(function() {
 					+ "<span class='qnadate'>"
 					/* + list[i].reg_date + "</span><span style='"+fontcolor+"'>" + str + "</span></div>" */
 					+ list[i].reg_date + "</span></div>"
-
 					+ "<div class='qnatit'>" + list[i].q_content 
-					
 					+ "</div></div></div>"
     		   
        }
@@ -371,11 +369,11 @@ $(document).ready(function() {
 						<col width="20%">
 						<col width="80%">
 					</colgroup>
-					<tr>
+					
+					<tr style="display: none">
 						<th>푸드트럭</th>
 						<td><input class="form-control Bid c_id" readonly="readonly"></td>
 					</tr>
-
 					<tr>
 						<th>제 목</th>
 						<td><input class="form-control q_title"></td>
