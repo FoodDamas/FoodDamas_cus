@@ -24,7 +24,7 @@
         <a href="../api1">서울시 공공API</a><i class="fa fa-user"></i>
       </li>
       <li class="nav-three">
-        <a>주문내역</a><i class="fa fa-floppy-o"></i>
+        <a href="../order/orderlist">주문내역</a><i class="fa fa-floppy-o"></i>
       </li>
       <li class="nav-four">
         <a >회원정보</a><i class="fa fa-exclamation-triangle"></i>

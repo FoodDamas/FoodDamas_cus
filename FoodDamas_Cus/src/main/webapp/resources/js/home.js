@@ -85,6 +85,9 @@ var homeManager = (function() {
             if(data.result[i].review_num==null){
                data.result[i].review_num=0;
             }
+            var grade=data.result[i].grade.toFixed(1);
+            	
+     
             distance = distance.toFixed(1);
             reviewList +="<li class='restaurant-item' id='storeList' " 
                 +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
@@ -93,7 +96,7 @@ var homeManager = (function() {
                   + data.result[i].co_name + " (" 
                   + data.result[i].review_num
                   + ")</span> <strong class='point search_point'>"
-                  + data.result[i].grade
+                  + grade
                   + "</strong><p class='etc'>"
                   + data.result[i].location
                   + "</p><p class='etc'>"
