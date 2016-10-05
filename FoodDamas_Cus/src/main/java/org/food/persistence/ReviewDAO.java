@@ -9,6 +9,8 @@ public interface ReviewDAO {
 
 	public Integer pageCount(String u_id) ;
 
-	public void registerreview(ReviewVO vo) ; 
+	public void registerreview(ReviewVO vo) ; //업데이트
+	
+	public void reviewavg(ReviewVO vo) ; //인서트
 
 }

@@ -26,6 +26,8 @@
 
 	<script>
 		$(document).ready(function() {
+			
+				$(".leer").html("API");	
 
 
 			if (navigator.geolocation) {

@@ -25,6 +25,7 @@
 	<script>
 	
 	$(document).ready(function() {
+		$(".leer").html("API");	
 
 	 /* 서울시  API 부분  시작  */
 	 
@@ -182,7 +183,7 @@
 
 
 						<h1 class="title">
-							<span itemprop="name">API_산책로</span> <strong class="rate-point">
+							<span itemprop="name">산책로</span> <strong class="rate-point">
 						</h1>
 					</div>
 				</header>

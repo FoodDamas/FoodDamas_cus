@@ -7,5 +7,8 @@ import org.food.domain.OrderListVO;
 public interface OrderListDAO {
 	
 	public List<String> readlist(OrderListVO vo);
+	
+	public Integer pageCount(String c_id);
+
 
 }

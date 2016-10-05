@@ -68,7 +68,9 @@ public class ReviewController {
 		@ResponseBody
 		@RequestMapping(value = "/registerreview", method = RequestMethod.POST)
 		public void registerPost( ReviewVO vo) throws Exception {
+			
 
+			System.out.println(vo);
 			service.registerreview(vo);
 
 			logger.info("Resister POST++++++++++++++++++++++++++++++++++++++++++++++++++++");

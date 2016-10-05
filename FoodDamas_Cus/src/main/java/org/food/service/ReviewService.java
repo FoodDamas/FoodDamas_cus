@@ -10,6 +10,9 @@ public interface ReviewService {
 
 	public Integer pageCount(String u_id) ;
 
-	void registerreview(ReviewVO vo) ;
+	public void registerreview(ReviewVO vo) ;
+	
+	//public void reviewavg(ReviewVO vo) ; 
+
 
 }

@@ -69,7 +69,7 @@
 								.ready(
 										function() {
 
-											var u_id = "leek";
+										    var u_id= sessionStorage.getItem('u_id');
 
 											InfoManager.InfoList(u_id, display);
 											function display(info) {

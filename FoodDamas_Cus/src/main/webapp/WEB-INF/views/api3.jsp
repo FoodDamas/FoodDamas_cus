@@ -42,9 +42,11 @@ td {
 
 
 	<script>
+	
 		$(document)
 				.ready(
 						function() {
+							$(".leer").html("API");	
 
 							/* 서울시  API 부분  시작  */
 
@@ -139,7 +141,7 @@ td {
 
 
 						<h1 class="title">
-							<span itemprop="name">API_주차정보</span> <strong class="rate-point">
+							<span itemprop="name">주차정보</span> <strong class="rate-point">
 						</h1>
 					</div>
 				</header>

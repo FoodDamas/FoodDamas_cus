@@ -6,11 +6,9 @@ import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
-import org.food.domain.CartVO;
 import org.food.domain.OrderListVO;
 import org.food.domain.OrderVO;
-import org.food.service.CartService;
-import org.food.service.MenuService;
+import org.food.service.OrderListService;
 import org.food.service.PageMaker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,32 +26,35 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class OrderListController {
 	
 	@Inject
-	//OrderListService service;
+	OrderListService service;
 	
 	private static final Logger logger = LoggerFactory.getLogger(OrderListController.class);
 
-	
+	@CrossOrigin
 	@ResponseBody
 	@RequestMapping(value = "/orderlist/{c_id}", method = RequestMethod.GET)
-	public Map<String, Object> orderList(@PathVariable String u_id,@PathVariable String c_id) throws Exception {
+	public Map<String, Object> orderList(@PathVariable String c_id,Integer page) throws Exception {
 		List<OrderListVO> list = new ArrayList<>();
 		Map<String, Object> result = new HashMap<>();
 		
-//		int totalCount = service.pageCount(c_id);
+		int totalCount = service.pageCount(c_id);
 		OrderListVO vo = new OrderListVO();
 
 		logger.info("Single JSON ++++++++++++++++++++++++++++++++++++++++++++++++++++++");
-//		page = (page == null ? 1 : page);
-//		int curPage = page - 1;
+		page = (page == null ? 1 : page);
+		int curPage = page - 1;
 		
-//		System.out.println(totalCount);
+		System.out.println(totalCount);
+		
+		
+		vo.setC_id(c_id);
+		vo.setOno(curPage * 10);
+		
+		System.out.println(vo);
 
-//		result.put("totalCount", service.pageCount(c_id));
-//		result.put("pageMaker", new PageMaker(page, totalCount));
-		
-//		vo.setU_id(u_id);
-//		vo.setRno(curPage * 10);
-	//	result.put("list", service.readlist(vo));
+		result.put("totalCount", service.pageCount(c_id));
+		result.put("pageMaker", new PageMaker(page, totalCount));
+		result.put("list", service.readlist(vo));
 
 		return result;
 	}

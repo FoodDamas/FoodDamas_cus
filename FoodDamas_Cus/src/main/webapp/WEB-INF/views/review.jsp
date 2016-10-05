@@ -39,9 +39,12 @@
 
 $(document).ready(function() {
     
-    var writer = "beuteu"   // 푸드트럭 사장 아이디
-    var u_id ="beuteu";
-    var c_id ="beuteu";
+   // var writer = sessionStorage.getItem('u_id');   // 푸드트럭 사장 아이디
+    var c_id = $(".c_id").html()
+    var u_id= sessionStorage.getItem('u_id');
+
+    
+    console.log(u_id);
 
     var obj=[];
     var page="";
@@ -248,7 +251,7 @@ console.log(total);
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
 	</div>
-
+<span style="display: none" class="c_id">${login.c_id}</span>
 			<%@include file="headersub.jsp"%>
 	<div class="container-fluid">
 

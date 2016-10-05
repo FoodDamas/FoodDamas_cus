@@ -4,8 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.food.mapper.OrderListMapper">
 
-
-	<select id="readCart" resultType="CartVO">
+	<select id="readlist" resultType="org.food.domain.OrderListVO">
 		select ono, total_price,
 		regdate, pickup_time, c_msg, s.sno, c_id, o.state_code, reviewstate,
 		o.lng, o.lat, s.u_id, i.co_name, os.state_name
@@ -20,7 +19,9 @@
 		order by ono desc;
 	</select>
 
-
+	<select id="pageCount" resultType="java.lang.Integer">
+		select count(*) from tbl_ft_order where c_id=#{c_id}
+	</select>
 
 </mapper>
   

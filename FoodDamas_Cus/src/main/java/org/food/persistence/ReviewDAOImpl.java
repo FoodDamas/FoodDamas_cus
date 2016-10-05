@@ -36,6 +36,12 @@ public class ReviewDAOImpl implements ReviewDAO {
 		
 	}
 
+	@Override
+	public void reviewavg(ReviewVO vo) {
+		sqlsession.update("org.food.mapper.ReviewMapper.reviewavg",vo);
+		
+	}
+
 
 	
 

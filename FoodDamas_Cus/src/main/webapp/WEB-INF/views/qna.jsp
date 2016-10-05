@@ -92,10 +92,11 @@
 $(document).ready(function() {
 
     
-    var food = "food1";
-    var writer = "beuteu"   // 푸드트럭 사장 아이디
-    var u_id ="beuteu";
-    var c_id ="beuteu";
+   // var food = "food1";
+    var c_id = $(".loginC_id").val();
+    console.log(c_id);
+    var u_id= sessionStorage.getItem('u_id');
+    var writer = u_id;   // 푸드트럭 사장 아이디
     
 
     var obj=[];
@@ -198,7 +199,7 @@ $(document).ready(function() {
 		q_content : $(".q_content").val()
 		
 	};
-  
+  	console.log(obj);
 	if($(".q_title").val()=="" ){
 		alert("제목을 입력해 주세요");
 		return false;
@@ -311,6 +312,7 @@ $(document).ready(function() {
 		</script>
 	
   <%@include file="headersub.jsp"%>
+  
 <div style="height: 51px"></div>
 
 	<div class="container-fluid ">
@@ -402,13 +404,15 @@ $(document).ready(function() {
 			<div class="modal-content">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h4 class="modal-title">QNA VIEW</h4>
+					<h4 class="modal-title">QNA VIEW</h4>										
+					<input class="loginC_id" value="${login.c_id }">
+					
 				</div>
 				<div class="direct-chat-messages">
+				
 					<!-- Message. Default to the left -->
 					<div class="direct-chat-msg">
 						<div class="direct-chat-info clearfix">
-						
 						<input class="qno" type="hidden" >
 						<input class="c_id"  type="hidden">
 						
