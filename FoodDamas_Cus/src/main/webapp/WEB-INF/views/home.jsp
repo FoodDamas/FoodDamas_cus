@@ -5,6 +5,8 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <base href="resources/">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>나만의 맛집 검색</title>
