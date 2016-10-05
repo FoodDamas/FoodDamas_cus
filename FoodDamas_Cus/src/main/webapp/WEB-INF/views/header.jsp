@@ -16,7 +16,7 @@
         <a href="/home">홈</a><i class="fa fa-home"></i>
       </li>
       <li class="nav-two">
-        <a href="api1">서울시 공공API</a><i class="fa fa-user"></i>
+        <a href="../api1">서울시 공공API</a><i class="fa fa-user"></i>
       </li>
       <li class="nav-three">
         <a>주문내역</a><i class="fa fa-floppy-o"></i>
