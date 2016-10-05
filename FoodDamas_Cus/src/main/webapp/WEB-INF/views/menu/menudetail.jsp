@@ -9,6 +9,8 @@
 <head>
 <title>푸드다마스</title>
 <!-- <base href="../resources/"> -->
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
 <base href="../resources/">
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
@@ -80,6 +82,7 @@ $(document).ready(function(){
       <div class="LeeBack"><a href="javascript:history.back()"><img src="img/back.png" style="height:50% ;width: 35%"></a></div>
       <div class=" leer"></div>
    </div>
+		<%@include file="../headersub.jsp"%>
 
    <div class="cart-wrap">
       <div class="sub-title">
