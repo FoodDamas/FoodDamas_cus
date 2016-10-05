@@ -111,7 +111,7 @@
 				    mapOption = { 
 						
 				        center: new daum.maps.LatLng(aa, bb), // 지도의 중심좌표
-				        level: 4 // 지도의 확대 레벨
+				        level: 9 // 지도의 확대 레벨
 				    };
 
 				var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
