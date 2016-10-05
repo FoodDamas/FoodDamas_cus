@@ -295,9 +295,12 @@ $(document).ready(function() {
 
 		 QnaManager.Delete(obj, function () {
 
-			 QnaManager.QnaList(u_id,page,display);
-			   
+		     QnaManager.QnaList(u_id,c_id,page,display);
+		     
+			   alert("삭제 되었습니다");
+
 		 }) 
+		 
 		});
 	 
 		

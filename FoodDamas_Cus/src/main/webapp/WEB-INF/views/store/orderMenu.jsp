@@ -8,10 +8,14 @@
 <html>
 <head>
 <title>푸드다마스</title>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
 <base href="../resources/">
 
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
+<link rel="stylesheet" href="css/menuStyle.css">
+
 </head>
 
 
@@ -20,6 +24,7 @@
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
 	</div>
+			<%@include file="../headersub.jsp"%>
 
 	<div class="cart-wrap">
 		<div class="sub-title">

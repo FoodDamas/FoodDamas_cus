@@ -4,12 +4,18 @@
 <html lang="UTF-8">
 <html>
 <head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>푸드다마스</title>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+
 <base href="../resources/">
 
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
+<link rel="stylesheet" href="css/menuStyle.css">
+
 <style type="text/css">
 
 #price{
@@ -41,6 +47,7 @@
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
 	</div>
+		<%@include file="../headersub.jsp"%>
 
 	<div class="cart-wrap">
 		<div class="sub-title">
