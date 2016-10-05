@@ -9271,6 +9271,8 @@ html.in_map #location {
 html.in_map #content {
     height: 100%;
 }
+
+
 @media (min-width: 768px) {
     html.in_map #content {
         height: 500px;
