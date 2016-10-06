@@ -67,7 +67,7 @@ $(document).ready(function(){
 		<%@include file="../headersub.jsp"%>
 
 
-<div style="height: 31px"></div>
+<div style="height: 51px"></div>
 	<div class="container-fluid ">
 
 		<div class="restaurant-detail">
