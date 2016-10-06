@@ -27,7 +27,7 @@
 </head>
 <style>
 #menuList li IMG {width: 130px; height: 130px;text-align: center}
-#menuList li {border: 1px solid #cccccc; list-style:none; width: 48%;float: left; margin: 2px; text-align: center}
+#menuList li {border: 1px solid #cccccc; list-style:none; width: 170px;float: left; margin: 2px; text-align: center}
     .imgtext {color: #00a7d0; text-align: center;}
     .imgtitle {color: black; text-align: center;}
 </style>
@@ -93,7 +93,7 @@ $(document).ready(function(){
 		</div>
 	<div class="restaurant-detail row">
 
-		<div class="col-sm-8">
+		<div class="col-sm-12">
 		
 			<div id="menu" class="menu-list">
 					<div class="panel-collapse collapse in">
@@ -102,34 +102,42 @@ $(document).ready(function(){
 							</ul>
 					</div>
 			</div>
-			<div style="clear: both; ">
-            </a> <a class="btn btn-lg btn-ygy1 btn-right" style="width: 100%" href="/store/cart">장바구니</a>
+			<div style=" margin-top: 100px ">
+            <a class="btn btn-lg btn-ygy1 btn-right" style="width: 100%" href="/store/cart">장바구니</a>
 			</div>
 				
 		</div>
 	</div>
 
 
+</div>
 
 	<!-- 하단 영역 -->
-	<footer class="footer">
-		<div class="inner" style="font-size: 16px;">
+		<footer class="footer">
+			<div class="inner" style="font-size: 16px;">
 
-			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-
-			<div class="language-copyrights">
-				<p class="select-language">
-					<a href="/" class="selected">한국어</a> <a href="/">English</a>
-				</p>
-				<small>
-					<p>
-						푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
-						서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
-							2016 zzennam. All rights reserved.</span>
+				<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
+				<nav class="links-external">
+					<ul class="list-links">
+						<li><a href="/">회사소개</a></li>
+						<li><a href="/">직원내용</a></li>
+						<li><a href="/">이용약관</a></li>
+						<li><a class="only-desktop" href="/">브랜드</a></li>
+					</ul>
+				</nav>
+				<div class="language-copyrights">
+					<p class="select-language">
+						<a href="/" class="selected">한국어</a> <a href="/">English</a>
 					</p>
-				</small>
+					<small>
+						<p>
+							푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
+							서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
+								2016 zzennam. All rights reserved.</span>
+						</p>
+					</small>
+				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 </body>
 </html>

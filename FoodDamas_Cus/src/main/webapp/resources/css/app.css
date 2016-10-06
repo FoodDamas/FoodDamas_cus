@@ -5652,7 +5652,6 @@ html, body {
 }
 .container-fluid,
 .category-list {
-  background-color: #fafafa;
   padding-bottom: 15px;
 }
 .btn.disabled,
@@ -5703,7 +5702,7 @@ html, body {
 .nav-bar {
   background-color: rgb(255,204,000);
   color: #000000;
-  height: 50px 
+  height: 50px;
 }
 .nav-top {
   position: relative;

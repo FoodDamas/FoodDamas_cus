@@ -178,6 +178,7 @@
 
 
 		</div>
+		</div>
 
 		<!-- 하단 영역 -->
 		<footer class="footer">

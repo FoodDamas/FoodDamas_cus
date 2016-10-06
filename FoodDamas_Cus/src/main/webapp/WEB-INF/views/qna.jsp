@@ -322,7 +322,7 @@ $(document).ready(function() {
 				<li><a href="../../info">정 보</a></li>
 				<li><a href="../../menu/menulist">메 뉴</a></li>
 				<li><a href="../../review">리 뷰</a></li>
-				<li class="active"><a href="#">QNA</a></li>
+				<li class="active"><a href="../../qna">QNA</a></li>
 			</ul>
 		</div>
 		<div class="pg-restaurant" style="padding: 0px;">
@@ -405,7 +405,6 @@ $(document).ready(function() {
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
 					<h4 class="modal-title">QNA VIEW</h4>										
-					<input class="loginC_id" value="${login.c_id }">
 					
 				</div>
 				<div class="direct-chat-messages">
