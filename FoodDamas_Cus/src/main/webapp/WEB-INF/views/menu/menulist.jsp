@@ -26,10 +26,10 @@
 
 </head>
 <style>
-#menuList li IMG {width: 130px; height: 130px;text-align: center}
-#menuList li {border: 1px solid #cccccc; list-style:none; width: 170px;float: left; margin: 2px; text-align: center}
-    .imgtext {color: #00a7d0; text-align: center;}
-    .imgtitle {color: black; text-align: center;}
+#menuList li IMG {width: 120px; height: 110px;text-align: center}
+#menuList li {border: 1px solid #cccccc; list-style:none; width: 140px;float: left; margin: 2px; text-align: center}
+    .imgtext {   color: #00a7d0; text-align: center;}
+    .imgtitle {margin-top:6px;color: black; text-align: center;}
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="js/menu.js"></script>
