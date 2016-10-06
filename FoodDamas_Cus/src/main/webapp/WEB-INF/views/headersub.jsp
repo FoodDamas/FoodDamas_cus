@@ -26,9 +26,9 @@
       <li class="nav-three">
         <a href="../order/orderlist">주문내역</a><i class="fa fa-floppy-o"></i>
       </li>
-      <li class="nav-four">
+     <!--  <li class="nav-four">
         <a >회원정보</a><i class="fa fa-exclamation-triangle"></i>
-      </li>
+      </li> -->
       <li class="nav-five" >
         <a href="/member/login">logout</a><i class="fa fa-sign-out"></i>
       </li>
