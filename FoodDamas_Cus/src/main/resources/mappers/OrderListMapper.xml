@@ -16,7 +16,7 @@
 		left join tbl_order_state os
 		on o.state_code=os.state_code
 		where c_id=#{c_id}
-		order by ono ;
+		order by ono desc;
 	</select>
 
 	<select id="pageCount" resultType="java.lang.Integer">

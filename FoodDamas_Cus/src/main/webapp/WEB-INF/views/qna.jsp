@@ -95,7 +95,7 @@ $(document).ready(function() {
 	console.log(x);
     
    // var food = "food1";
-    var c_id = "252760107";
+    var c_id = "beuteu";
     console.log(c_id);
     var u_id= sessionStorage.getItem('u_id');
     var writer = "beuteu";   // 푸드트럭 사장 아이디
@@ -351,7 +351,7 @@ $(document).ready(function() {
 			</ul>
 		</div>
 	</div>
-<div style="width: 400px"></div>
+
 	<!--////////////////////////////////////////////////////////////////////////////////////         
 	    ///////////////////////////////////////    QNA 등록        //////////////////////////////////
 		/////////////////////////////////////////////////////////////////////////////////// -->
