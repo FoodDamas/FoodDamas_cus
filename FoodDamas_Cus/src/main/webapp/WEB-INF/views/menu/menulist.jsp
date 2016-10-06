@@ -26,8 +26,8 @@
 
 </head>
 <style>
-#menuList li IMG {width: 120px; height: 110px;text-align: center}
-#menuList li {border: 1px solid #cccccc; list-style:none; width: 140px;float: left; margin: 2px; text-align: center}
+#menuList li IMG {width: 125px; height: 110px;text-align: center}
+#menuList li {border: 1px solid #cccccc; padding:5px 0px;list-style:none; width: 48%; height:165px;   float: left; margin: 2px; text-align: center}
     .imgtext {   color: #00a7d0; text-align: center;}
     .imgtitle {margin-top:6px;color: black; text-align: center;}
 </style>
@@ -67,7 +67,7 @@ $(document).ready(function(){
 		<%@include file="../headersub.jsp"%>
 
 
-<div style="height: 51px"></div>
+<div style="height: 31px"></div>
 	<div class="container-fluid ">
 
 		<div class="restaurant-detail">
@@ -102,7 +102,7 @@ $(document).ready(function(){
 							</ul>
 					</div>
 			</div>
-			<div style=" margin-top: 100px ">
+			<div>
             <a class="btn btn-lg btn-ygy1 btn-right" style="width: 100%" href="/store/cart">장바구니</a>
 			</div>
 				

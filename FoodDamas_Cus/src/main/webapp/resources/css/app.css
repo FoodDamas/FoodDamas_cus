@@ -6302,7 +6302,7 @@ li.active .ico-ct10 {
   padding-left: 0;
 }
 
-.menu-name { font-size: 15px !important }
+.menu-name { font-size: 13px !important }
 .menu-list h4 .menu-name {
   width: 90%;
 }
@@ -6433,16 +6433,17 @@ li.active .ico-ct10 {
    line-height: 1;
    padding:3px 0 0 0;
 }
-.cart .menu-name {
-   font-size:20px !important;
+.menu-name {
+   font-size:13px !important;
    font-weight: bold  !important;
    line-height: 18px;
-   padding: 5px 12px 8px 12px;
+   padding: 5px 12px 0px 12px;
 }
-.cart .menu-info {
-   font-size:15px !important;
+.menu-info {
+   font-size:11px !important;
    line-height: 18px;
-   padding: 5px 12px 8px 12px;
+   color:#cccccc;
+   padding: 0px 12px 8px 12px;
 }
 .cart .col-xs-6 {
   padding-left: 12px;
