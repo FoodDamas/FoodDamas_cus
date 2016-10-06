@@ -47,7 +47,7 @@ var cartManager= function(){
 					window.location.replace("/store/cart");
 				}else{
 					alert("주문에 성공하였습니다. 조금만 기다려 주세요!")
-					window.location.replace("/menu/menulist");
+					window.location.replace("/store/orderMenu");
 				}
 			}
 		});

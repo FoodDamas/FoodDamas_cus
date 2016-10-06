@@ -95,7 +95,7 @@ $(document).ready(function() {
 	console.log(x);
     
    // var food = "food1";
-    var c_id = "beuteu";
+    var c_id = "252760107";
     console.log(c_id);
     var u_id= sessionStorage.getItem('u_id');
     var writer = "beuteu";   // 푸드트럭 사장 아이디
