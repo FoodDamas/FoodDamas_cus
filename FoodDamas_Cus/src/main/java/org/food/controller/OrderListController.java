@@ -40,7 +40,7 @@ public class OrderListController {
 		int totalCount = service.pageCount(c_id);
 		OrderListVO vo = new OrderListVO();
 
-		logger.info("Single JSON ++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		logger.info("Single JSON ++++++++++++++324324324324324234324++++++++++++++++++++++++++++++++++++++++");
 		page = (page == null ? 1 : page);
 		int curPage = page - 1;
 		
@@ -55,7 +55,7 @@ public class OrderListController {
 		result.put("totalCount", service.pageCount(c_id));
 		result.put("pageMaker", new PageMaker(page, totalCount));
 		result.put("list", service.readlist(vo));
-
+		System.out.println("------------------------------------------"+result);
 		return result;
 	}
 	

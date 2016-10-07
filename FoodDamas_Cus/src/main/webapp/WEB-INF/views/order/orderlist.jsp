@@ -110,9 +110,9 @@
 								+ "[ " + list[i].co_name + " ]　" + list[i].regdate + "　 " + "<span style='"+ fontcolor +"'>" + list[i].state_name + "</span>" + "<span class='pull-right'><i class='glyphicon glyphicon-plus'></i></span></a>"
 								+  "</div><div id='" + idb + "'class='panel-collapse collapse'><div class='panel-body'>"
 								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 떡볶이<span style='float:right'> X 1개</span><span style='float:right'>3,000</span></div>"								
-								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 순대<span style='float:right'> X 2개</span><span style='float:right'>3,000</span></div>"								
+								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 순대<span style='float:right'> X 1개</span><span style='float:right'>3,000</span></div>"								
 								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 어묵<span style='float:right'> X 1개</span><span style='float:right'>1,000</span></div>"								
-								+  "<div style='line-height: 26px;color:red '> 총합계<span style='float:right;color:red; font-size:16px;'>10,000</span></div>"								
+								+  "<div style='line-height: 26px;color:red '> 총합계<span style='float:right;color:red; font-size:16px;'>7,000</span></div>"								
 								
 								+/* + list[i].total_price + */  "</div></div>"
 									
