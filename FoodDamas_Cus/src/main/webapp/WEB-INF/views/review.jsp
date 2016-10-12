@@ -263,7 +263,7 @@ console.log(total);
 				 ReviewManager.ReviewList(u_id,page,display);
 					InfoManager.InfoList(u_id, display1);
 
-				   alert("댓글이 등록 되었습니다");
+				   alert("리뷰이 등록 되었습니다");
 				   
 				   $("#content").val("");
 			  
@@ -307,9 +307,9 @@ console.log(total);
 						</div>
 
 						<h1 class="title">
-							<span itemprop="name" id="name">원조신포닭강정</span> <strong
+							<span itemprop="name" id="name"></span> <strong
 								class="rate-point"> <span class="rate-point" id="grade">
-									3.9 </span> <span itemprop="reviewCount" style="display: none;">48</span>
+									 </span> <span itemprop="reviewCount" style="display: none;">48</span>
 							</strong>
 							<p class="branch">본점</p>
 						</h1>
