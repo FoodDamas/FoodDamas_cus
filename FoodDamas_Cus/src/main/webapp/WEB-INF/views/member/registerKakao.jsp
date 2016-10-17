@@ -112,14 +112,20 @@ $(document).ready(function() {
 				data: obj,
 				success:function(data){
 					console.log(data);
+					
+					
+					
 					if(data=="success")
  					{
-					window.location.replace("/member/login");
+						console.log("--------------------------");
  						alert("회원가입을 성공하였습니다.");
+						window.location.replace("/member/login")
  					}else {
- 	 					alert("회원가입을 실패하였습니다.");
+ 	 					//alert("회원가입을 실패하였습니다.");
 
-					}				}
+					}				 
+					
+				}
 			});
 			
 		}

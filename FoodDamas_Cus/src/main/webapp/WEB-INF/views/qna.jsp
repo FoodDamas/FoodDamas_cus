@@ -215,7 +215,7 @@ $(document).ready(function() {
 		   
 	     QnaManager.QnaList(u_id,c_id,page,display);
 	
-		   alert("댓글이 등록 되었습니다");
+		   alert("질문이 등록 되었습니다");
 	  
 		}); 
 	 
