@@ -5,14 +5,16 @@
 
 var menuManager = function() {
     //list뿌려주는 곳
+	var local="http://192.168.0.42/";
+
 	function menuListAll(u_id, callback){
-        $.getJSON('http://localhost/menu/all/'+u_id, callback);
+        $.getJSON(local+'menu/all/'+u_id, callback);
     }
 	
 	//tbl_cart에 값 집어넣기
     function menucart(obj,callback){
     	$.ajax({
-    		url : 'http://localhost/store/menucart',
+    		url : local+'store/menucart',
     		type : "POST",
     		data : obj,
     		success : callback

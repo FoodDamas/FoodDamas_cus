@@ -2,20 +2,21 @@
 //즉시실행함수
 var QnaManager= function(){	
 	
-	
+	var local="http://192.168.0.42/";
+
 	function QnaList(u_id,c_id,page,callback){	
-		var qnajson =$.getJSON('http://localhost/qna/'+ u_id+"/"+ c_id+"?"+"page=" + page, callback);	
+		var qnajson =$.getJSON(local+'/qna/'+ u_id+"/"+ c_id+"?"+"page=" + page, callback);	
 
 	}
 	
 	function AnswerList(qno,callback){	
-        var answerjson =$.getJSON('http://localhost/answer/'+ qno , callback);	
+        var answerjson =$.getJSON(local+'answer/'+ qno , callback);	
 	}
 	
 	
 	function Insert(obj, callback){
 		$.ajax({
-			url: 'http://localhost/registerqna',
+			url: local+'registerqna',
 			type:"post",
 			data:obj,
 			success:callback
@@ -25,7 +26,7 @@ var QnaManager= function(){
 	
 	function Delete(obj, callback){
 		$.ajax({
-			url: 'http://localhost/deleteqna',
+			url: local+'deleteqna',
 			type:"get",
 			data:obj,
 			success:callback

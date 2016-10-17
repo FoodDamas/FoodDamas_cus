@@ -17,19 +17,19 @@
 
 <script src="http://s.codepen.io/assets/libs/modernizr.js"
    type="text/javascript"></script>
+<!-- 911ffa91ef92e4018ca8e381432dccea -->
       <!-- d76d3b667738eb709c0fdad4f29b259e -->
-      <!-- d76d3b667738eb709c0fdad4f29b259e -->
-      <!-- d76d3b667738eb709c0fdad4f29b259e -->
+      <!-- 07803719751f68ea187b3847f10d30e8 -->
 <script type="text/javascript"
-   src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e"></script>
+   src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8"></script>
 <script type="text/javascript"
-   src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=LIBRARY"></script>
+   src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=LIBRARY"></script>
 <!-- services 라이브러리 불러오기 -->
 <script type="text/javascript"
-   src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=services"></script>
+   src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services"></script>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript"
-   src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=services,clusterer,drawing"></script>
+   src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services,clusterer,drawing"></script>
 
 
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
@@ -215,7 +215,7 @@
         orderBy.page=dP;
         orderBy.orderBy="distance";
         homeManager.getPosition(orderBy);
-        
+        console.log("-------------------------");
         // 생성자 써야될것 같음
           function getList(data, callback){
            

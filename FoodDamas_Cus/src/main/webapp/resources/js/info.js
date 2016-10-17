@@ -1,13 +1,12 @@
 
 //즉시실행함수
 var InfoManager= function(){	
-	
-	console.log("111111111111111");
+	var local="http://192.168.0.42/";
+
 
 	function InfoList(u_id,callback){	
-		var infojson =$.getJSON('http://localhost/info/'+ u_id, callback);	
+		var infojson =$.getJSON(local+'info/'+ u_id, callback);	
 		
-		console.log("22222222222");
 
 	}
 	

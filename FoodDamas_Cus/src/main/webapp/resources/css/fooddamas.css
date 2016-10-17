@@ -2020,8 +2020,6 @@ a:hover {
 	src: url(/assets/eot/SpoqaHanSans-Regular.eot);
 	src: url(/assets/eot/SpoqaHanSans-Regular.eot?#iefix)
 		format("embedded-opentype"),
-		url(/assets/woff/SpoqaHanSans-Regular.woff) format("woff"),
-		url(/assets/ttf/NanumGothic-Regular.ttf) format("truetype"),
 		url(/assets/svg/SpoqaHanSans-Regular.svg#svgFontName) format("svg")
 }
 
@@ -2032,8 +2030,7 @@ a:hover {
 	src: url(/assets/eot/SpoqaHanSans-Thin.eot);
 	src: url(/assets/eot/SpoqaHanSans-Thin.eot?#iefix)
 		format("embedded-opentype"), url(/assets/woff/SpoqaHanSans-Thin.woff)
-		format("woff"), url(/assets/ttf/NanumGothic-Thin.ttf)
-		format("truetype"), url(/assets/svg/SpoqaHanSans-Thin.svg#svgFontName)
+		format("truetype"), url(/assets/svg/SpoqaHanSans-Thin.svg#svgFontName) */
 		format("svg")
 }
 
@@ -2043,8 +2040,7 @@ a:hover {
 	font-style: normal;
 	src: url(/assets/eot/SpoqaHanSans-Bold.eot);
 	src: url(/assets/eot/SpoqaHanSans-Bold.eot?#iefix)
-		format("embedded-opentype"), url(/assets/woff/SpoqaHanSans-Bold.woff)
-		format("woff"), url(/assets/ttf/NanumGothic-Bold.ttf)
+	
 		format("truetype"), url(/assets/svg/SpoqaHanSans-Bold.svg#svgFontName)
 		format("svg")
 }

@@ -1,12 +1,9 @@
 
 //즉시실행함수
 var ApiManager= function(){	
-	console.log("zz");
-
+ 
 	function ApiCount(callback){	//카운트 가져오는 부분
 		$.getJSON('http://openapi.seoul.go.kr:8088/41724c556c62657534335764474f62/json/PublicParkingAvaliable/1/1000', callback);	
-	
-		console.log("zz");
 
 	}
 	

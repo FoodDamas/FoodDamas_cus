@@ -1,3 +1,4 @@
+
 function checkPassword() {
     var password=$(".c_pw").val();
     var confirmPassword=$(".confirmC_pw").val();
@@ -15,10 +16,11 @@ function checkPassword() {
 }
 function idCheck() {
     var c_id=$(".c_id").val();
+	var local="http://192.168.0.42/";
 
     if(c_id!=""){
     		$.ajax({
-    			url: 'http://localhost/member/checkId',
+    			url: local+'member/checkId',
     			type:"post",
     			contentType : "application/json;charset=UTF-8",
     			data:c_id,
@@ -41,7 +43,7 @@ jQuery(document).ready(function() {
 	//등록
 	
 	
-	var local="http://localhost";
+	var local="http://192.168.0.42/";
 	var obj="";
 
 

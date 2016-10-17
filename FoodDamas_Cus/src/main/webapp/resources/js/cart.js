@@ -2,15 +2,16 @@
 
 //즉시실행함수
 var cartManager= function(){	
-	
+	var local="http://192.168.0.42/";
+
 	
 	function cartList(c_id,callback){	
 
-		var qnajson =$.getJSON('http://localhost/store/cartList/'+ c_id, callback);	}
+		var qnajson =$.getJSON(local+'store/cartList/'+ c_id, callback);	}
 	
 	function quantity(obj, callback){
 		$.ajax({
-			url: 'http://localhost/store/quantity',
+			url: local+'store/quantity',
 			headers: { 
 			      "Content-Type": "application/json",
 			      "X-HTTP-Method-Override": "PUT" },
@@ -22,7 +23,7 @@ var cartManager= function(){
 	
 	function deleteCart(cno, callback){
 		$.ajax({
-			url: 'http://localhost/store/deleteCart',
+			url: local+'store/deleteCart',
 			type:"delete",
 			headers: { 
 			      "Content-Type": "application/json",
@@ -36,7 +37,7 @@ var cartManager= function(){
 		console.log("---------------------");
 		console.log(obj);
 		$.ajax({
-			url: 'http://localhost/order/insertOrder',
+			url: local+'order/insertOrder',
 			type:"post",
 			data:JSON.stringify(obj),
 			 contentType: 'application/json',
