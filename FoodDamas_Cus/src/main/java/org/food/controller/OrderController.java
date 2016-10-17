@@ -29,7 +29,7 @@ public class OrderController {
 
 	private static final Logger logger = LoggerFactory.getLogger(OrderController.class);
 	
-	@RequestMapping(value="/orderList")
+	@RequestMapping(value="/orderlist")
 	public void orderListGET(){
 		logger.info("mypage orderList......");
 	}
