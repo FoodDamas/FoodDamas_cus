@@ -49,7 +49,7 @@ $(document).ready(function(){
 		var list = data.list;
 		for(var i=0; i<list.length; i++){
 			menuList +="<a href='/menu/menudetail?mno="+list[i].mno+"'><li>"
-				+"<img src='http://192.168.0.19/displayFile?fileName="+list[i].m_img+"'>"
+				+"<img src='http://14.32.7.115:4040/displayFile?fileName="+list[i].m_img+"'>"
 			    +"<div class='imgtitle'><Strong>"+list[i].m_name+"</Strong></br></div>"
 			    +"<div class='radi-box imgtext'>"+list[i].m_price+"</div></br>"
 			 	+"</li></a>";
