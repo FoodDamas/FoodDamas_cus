@@ -102,7 +102,7 @@ $(document).ready(function(){
 					<!-- <a class="btn " style="float: right; font-size: 16px; font-weight: bold">X</a>  -->
 					<div style="clear: both">
 						<div style="width: 20%; float: left; margin-top: 5px;">
-							<img src="http://192.168.0.19/displayFile?fileName=${view.m_img}"
+							<img src="	http://14.32.7.115:4040/displayFile?fileName=${view.m_img}"
 								style="width: 100%;">
 						</div>
 						<div style="width: 76%; float: right;">

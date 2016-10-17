@@ -77,7 +77,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	var local="http://localhost";
+	var local="http://192.168.0.23";
 	var k_id= sessionStorage.getItem('k_id');
 	var k_nick= sessionStorage.getItem('k_nick');
 	var profile_img= sessionStorage.getItem('profile_img');

@@ -5,7 +5,7 @@
 
 var menuManager = function() {
     //list뿌려주는 곳
-	var local="http://192.168.0.42/";
+	var local="http://14.32.7.115:4449/";
 
 	function menuListAll(u_id, callback){
         $.getJSON(local+'menu/all/'+u_id, callback);

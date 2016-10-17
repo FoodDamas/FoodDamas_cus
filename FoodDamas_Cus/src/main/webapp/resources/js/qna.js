@@ -2,7 +2,7 @@
 //즉시실행함수
 var QnaManager= function(){	
 	
-	var local="http://192.168.0.42/";
+	var local="http://14.32.7.115:4449/";
 
 	function QnaList(u_id,c_id,page,callback){	
 		var qnajson =$.getJSON(local+'/qna/'+ u_id+"/"+ c_id+"?"+"page=" + page, callback);	

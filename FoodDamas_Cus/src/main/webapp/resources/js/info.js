@@ -1,7 +1,7 @@
 
 //즉시실행함수
 var InfoManager= function(){	
-	var local="http://192.168.0.42/";
+	var local="http://14.32.7.115:4449/";
 
 
 	function InfoList(u_id,callback){	

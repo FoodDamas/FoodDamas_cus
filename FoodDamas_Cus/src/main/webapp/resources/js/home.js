@@ -3,7 +3,7 @@ var homeManager = (function() {
    var gradeList = "";
    var reviewList = "";
    var menuList = "";
-	var local="http://192.168.0.42/";
+	var local="http://14.32.7.115:4449/";
 
    function getPosition(data, callback) {
       //console.log("*********");
@@ -84,7 +84,7 @@ var homeManager = (function() {
             distance = distance.toFixed(1);
             reviewList +="<li class='restaurant-item' id='storeList' " 
                 +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
-            	  +"<div class='thumb' style='background-image: url(http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
+            	  +"<div class='thumb' style='background-image: url(http://14.32.7.115:4040/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.result[i].co_name + " (" 
                   + data.result[i].review_num
@@ -215,7 +215,7 @@ var homeManager = (function() {
             var distance = data.review[i].distance * 10000;
             distance = distance.toFixed(1);
             truckList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' "
-            	  +"style='background-image: url(http://192.168.0.19/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
+            	  +"style='background-image: url(	http://14.32.7.115:4040/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
                   + "<div class='info'><span class='title'>"
                   + data.review[i].co_name + " (" 
                   + data.review[i].review_num
