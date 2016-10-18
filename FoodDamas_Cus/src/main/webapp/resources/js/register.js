@@ -16,7 +16,7 @@ function checkPassword() {
 }
 function idCheck() {
     var c_id=$(".c_id").val();
-	var local="http://192.168.0.42/";
+	var local="http://14.32.7.115:4449/";
 
     if(c_id!=""){
     		$.ajax({

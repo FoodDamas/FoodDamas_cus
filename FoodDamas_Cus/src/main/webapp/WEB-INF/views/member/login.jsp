@@ -148,7 +148,7 @@ px
 
 	<script type='text/javascript'>
 	var obj="";
-	var local="http://192.168.0.23";
+	var local="http://14.32.7.115:4449/";
 
 	Kakao.init('b05205951a5d98b44df1432dc785354e');
     function loginWithKakao() {//회원가입 버튼
