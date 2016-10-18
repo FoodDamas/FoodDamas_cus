@@ -65,7 +65,8 @@ $(document).ready(function(){
 		console.log(obj);
 		//menucart로 가서 obj를 집어넣어준다
 		menuManager.menucart(obj,function(){
-			 window.location = "http://localhost/menu/menulist";
+			 window.location = "http://14.32.7.115:4449/menu/menulist";
+			 
 		});
 		
 	});
