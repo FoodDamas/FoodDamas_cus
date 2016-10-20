@@ -3,7 +3,8 @@ var homeManager = (function() {
    var gradeList = "";
    var reviewList = "";
    var menuList = "";
-	var local="http://14.32.7.115:4449/";
+var local="http://14.32.7.115:4449/";
+   //var local="http://localhost/";
 
    function getPosition(data, callback) {
       //console.log("*********");

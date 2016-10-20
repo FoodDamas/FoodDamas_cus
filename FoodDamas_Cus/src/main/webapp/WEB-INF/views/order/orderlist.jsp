@@ -63,23 +63,97 @@
 	font-size: 13px;
 	font-weight: normal;
 }
+h1, p, h2, button {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 100;
+	letter-spacing: 0.5px;
+}
+
+h1 {
+	font-size: 40px;
+	text-align: center;
+	color: #666666;
+	margin: 0 0 30px 0;
+}
+
+h2 {
+	font-size: 34px;
+	text-align: center;
+	color: #666666;
+	margin: 0 0 30px 0;
+}
+
+p {
+	color: #666666;
+	margin: 30px auto;
+	text-align: center;
+	font-size: 16px;
+}
+
+button {
+	background: #89BDD3;
+	border: 0;
+	border-radius: 4px;
+	padding: 7px 15px;
+	font-size: 16px;
+	color: #FFFFFF;
+	cursor: pointer;
+
+	&:focus {
+		outline: none;
+	}
+
+	&:hover {
+		background: lighten(#89BDD3, 10%);
+	}
+}
+
+.popup {
+	background: rgba(100, 100, 100, 0.6);
+	position: fixed;
+	display: none;
+	z-index: 5000;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+
+	> div {
+		border-radius: 10px;
+		position: fixed;
+		background: #FFFFFF;
+		box-shadow: 0px 0px 15px 0px rgba(#000000, 0.3);
+		padding: 30px 15px;
+		/* Width of popup can be changed */
+		width: 70%;
+		max-width: 600px;
+		z-index: 5001;
+		@include transform(translate(-50%, -50%));
+  		left: 50%;
+	   top: 50%;
+		text-align: center;
+		border: 5px solid #9AD3DE;
+	}
+}
 </style>
 
 <script>
+function popup(data) {
+/* 	$.ajax({
+		url: local+'registerqna',
+		type:"post",
+		data:obj,
+		success:callback
+	}); */
+	
+	$(".popup").show();
+}
+
+
 	$(document).ready(function() {
-		
-		    $('.collapse').on('show.bs.collapse', function() {
-		        var id = $(this).attr('id');
-		        $('a[href="#' + id + '"]').closest('.panel-heading').addClass('active-faq');
-		        $('a[href="#' + id + '"] .panel-title span').html('<i class="glyphicon glyphicon-minus"></i>');
-		    });
-		    $('.collapse').on('hide.bs.collapse', function() {
-		        var id = $(this).attr('id');
-		        $('a[href="#' + id + '"]').closest('.panel-heading').removeClass('active-faq');
-		        $('a[href="#' + id + '"] .panel-title span').html('<i class="glyphicon glyphicon-plus"></i>');
-		    });
-						var u_id = "beuteu";
-						var c_id = "252760107";
+		var c_id=$(".c_id").text();
+
+
 						var obj = [];
 						var page = "";
 						var paging = "";
@@ -106,7 +180,7 @@
 								
 								orderlist +=  
 									
-								"<div class='panel-heading'><a data-toggle='collapse' href='" +  ida + "'>"
+								"<div class='panel-heading' onclick='popup("+ list[i].ono +")'>"
 								+ "[ " + list[i].co_name + " ]　" + list[i].regdate + "　 " + "<span style='"+ fontcolor +"'>" + list[i].state_name + "</span>" + "<span class='pull-right'><i class='glyphicon glyphicon-plus'></i></span></a>"
 								+  "</div><div id='" + idb + "'class='panel-collapse collapse'><div class='panel-body'>"
 								+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 떡볶이<span style='float:right'> X 1개</span><span style='float:right'>3,000</span></div>"								
@@ -127,7 +201,7 @@
 					});
 </script>
 <body>
-
+ 
 	<div class="nav-bar" style="border: 1px dotted; line-height: 26px">
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
@@ -135,6 +209,7 @@
 
 	<%@include file="../headersub.jsp"%>
 	<div class="container-fluid">
+						<span  class="c_id" hidden>${login.c_id}</span>
 
 		<div class="pg-restaurant" style="padding: 0px; clear: both">
 			<section class="restaurant-detail">
@@ -145,20 +220,28 @@
 				</header>
 			</section>
 		</div>
+		
 
 		<div style="height: 50px;"></div>
 
+<div class="container">
+	<button data-js="open">Open popup</button>
+</div>
 
+<div class="popup">
+<div style="background: #ffffff; margin: 30px auto; width: 94%; border-radius:5px; height: 200px">
+
+<button name="close">Close popup</button>
+
+</div>
+	
+</div>
 
 		<div class="panel panel-default panel-faq" id=orderlist>
 			
 			
 			
 		</div>
-
-
-
-	
 
 
 
@@ -171,9 +254,8 @@
 
 </div>
 
-
 		<!-- 하단 영역 -->
-		<footer class="footer">
+		<!-- <footer class="footer">
 			<div class="inner" style="font-size: 16px;">
 
 				<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
@@ -198,6 +280,7 @@
 					</small>
 				</div>
 			</div>
-		</footer>
+		</footer> -->
+
 </body>
 </html>

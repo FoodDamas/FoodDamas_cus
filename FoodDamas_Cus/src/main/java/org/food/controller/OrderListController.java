@@ -64,6 +64,11 @@ public class OrderListController {
 		
 	}
 	
+	/*@RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
+	public List<> menudetail()throws Exception{
+		
+	}*/
+	
 
 
 

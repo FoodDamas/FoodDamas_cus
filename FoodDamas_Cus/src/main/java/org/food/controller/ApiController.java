@@ -83,6 +83,11 @@ public class ApiController {
 	}
 	
 	
+	@RequestMapping(value = "/api4", method = RequestMethod.GET)
+	public void list4(Model model, Integer page) throws Exception {
+		logger.info("AJAX Get +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		
+	}
 	
 	
 	

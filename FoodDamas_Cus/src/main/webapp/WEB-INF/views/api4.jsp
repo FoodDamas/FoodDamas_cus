@@ -14,9 +14,10 @@
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/menuStyle.css">
+
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=ddecf6bf572bbacdeb670a2ae1f4b445"></script>
-<script type="text/javascript" src="js/api2.js"></script>
+<script type="text/javascript" src="js/api4.js"></script>
 </head>
 
 <body>
@@ -25,7 +26,6 @@
 	<script>
 	
 	$(document).ready(function() {
-		$(".leer").html("API");	
 
 	 /* 서울시  API 부분  시작  */
 	 
@@ -36,8 +36,10 @@
 	// ApiManager.ApiList(display+i+j);
 	ApiManager.ApiCount(displayCount);
 		function displayCount(data) {
+			console.log(data);
+			
 						var infolist = "";
-						var total = data.GeoInfoWalkwayWGS.list_total_count;
+						var total = data.GeoInfoLawnWGS.list_total_count;
 						var totalPage=Math.ceil(total/1000);
 						console.log(totalPage);
 						for(var i=1; i<totalPage+1; i++){
@@ -58,13 +60,13 @@
 					}
 		var position=[];
 		function display(data) {
-			var list= data.GeoInfoWalkwayWGS.row;
+			var list= data.GeoInfoLawnWGS.row;
 			
 			console.log(list);
-			console.log(data);
 
 			for(var i =0 ; i<list.length; i++){
 				position.push({
+					title:list[i].HNR_NAM,
 					latlng : new daum.maps.LatLng(list[i].LAT, list[i].LNG)
 				});
  		//console.log(position);
@@ -73,9 +75,6 @@
 		}
 	
 	});
-	
-	
-	
 	
 	 /* GEOLOCATION 현재 위치 가져오는것  */
 
@@ -112,21 +111,21 @@
 				    mapOption = { 
 						
 				        center: new daum.maps.LatLng(aa, bb), // 지도의 중심좌표
-				        level: 9 // 지도의 확대 레벨
+				        level: 8// 지도의 확대 레벨
 				    };
 
 				var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 				
 
 				// 마커 이미지의 이미지 주소입니다
-				var imageSrc = "img/walk.png"; 
+				var imageSrc = "img/restroom.png"; 
 
 
 					for(var j=0; j<positionAll[0].length; j++){
 	
 
 				    // 마커 이미지의 이미지 크기 입니다
-				var imageSize = new daum.maps.Size(20, 25);
+				    var imageSize = new daum.maps.Size(24, 24); 
 				    
 				    // 마커 이미지를 생성합니다    
 				    var markerImage = new daum.maps.MarkerImage(imageSrc, imageSize); 
@@ -155,13 +154,33 @@
 	 }
 
 </script>
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#myModal').modal('show');
+    });
+</script>
+
+<div class="modal fade" id="myModal">
+  <div class="modal-header">
+    <a class="close" data-dismiss="modal">×</a>
+    <h3>Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <a href="#" class="btn">Close</a>
+    <a href="#" class="btn btn-primary">Save changes</a>
+  </div>
+</div>
 
 	<ul style="display: none">
 		<li>위도:<span id="latitude"></span></li>
 		<li>경도:<span id="longitude"></span></li>
 	</ul>
 
-		<div class="nav-bar">
+	
+	<div class="nav-bar">
 		<div class="LeeBack">← 뒤로</div>
 		<div class=" leer">우리청년컵밥</div>
 	</div>
@@ -171,27 +190,15 @@
 
 		<div class="restaurant-detail">
 			<ul class="nav nav-tabs">
-				<li ><a href="../../api1">공용화장실</a></li>
-				<li  class="active"><a href="../../api2">산책로</a></li>
+				<li ><a href="../../api1">화장실정보</a></li>
+				<li><a href="../../api2">산책로</a></li>
 				<li><a href="../../api3">주차정보</a></li>
-				<li ><a href="../../api4">잔디밭</a></li>
-				
+				<li class="active"><a href="../../api3">잔디밭</a></li>
+				<li class="active"><a href="../../api3">잔디밭</a></li>
+				<li class="active"><a href="../../api3">잔디밭</a></li>
+				<li class="active"><a href="../../api3">잔디밭</a></li>
 			</ul>
 		</div>
-		<div class="pg-restaurant" style="padding: 0px;">
-			<section class="restaurant-detail" style="padding: 0px">
-				<header style="min-height: 0px; padding-bottom: 0px">
-					<div>
-
-
-						<h1 class="title">
-							<span itemprop="name">산책로</span> <strong class="rate-point">
-						</h1>
-					</div>
-				</header>
-			</section>
-		</div>
-
 		<div id="map" style="width: 100%; height: 350px;"></div>
 		<div id="after"></div>
 

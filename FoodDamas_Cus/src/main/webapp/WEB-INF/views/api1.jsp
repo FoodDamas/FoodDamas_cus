@@ -147,6 +147,8 @@
 				<li  class="active"><a href="../../api1">공용화장실</a></li>
 				<li><a href="../../api2">산책로</a></li>
 				<li><a href="../../api3">주차정보</a></li>
+				<li ><a href="../../api4">잔디밭</a></li>
+				
 			</ul>
 		</div>
 		<div class="pg-restaurant" style="padding: 0px;">

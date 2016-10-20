@@ -57,9 +57,9 @@ public class HomeController {
    public Map<String, Object> gradeList(@PathVariable Integer page, double lat, double lng, String orderBy) throws Exception {
       System.out.println(orderBy);
       logger.info("grade connected....");
-      System.out.println("page: " + page);
-      System.out.println("lat: " + lat);
-      System.out.println("lng: " + lng);
+      logger.info("page: " + page);
+      logger.info("lat: " + lat);
+      logger.info("lng: " + lng);
       Map<String, Object> result = new HashMap<>();
       PositionVO vo = new PositionVO();
 

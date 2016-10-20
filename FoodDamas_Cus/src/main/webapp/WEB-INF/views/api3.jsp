@@ -16,11 +16,48 @@
 <link rel="stylesheet" href="css/menuStyle.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel='stylesheet prefetch'
+	href='http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css'>
 <script type="text/javascript"
 	src="//apis.daum.net/maps/maps3.js?apikey=ddecf6bf572bbacdeb670a2ae1f4b445"></script>
 <script type="text/javascript" src="js/api3.js"></script>
 
 <style>
+.re_name {
+	margin-left: 6px;
+}
+#write {
+	display: none;
+}
+.faq-cat-content {
+	margin-top: 25px;
+}
+.faq-cat-tabs li a {
+	padding: 15px 10px 15px 10px;
+	background-color: #ffffff;
+	border: 1px solid #dddddd;
+	color: #777777;
+}
+.nav-tabs li a:focus, .panel-heading a:focus {
+	outline: none;
+}
+.panel-heading a, .panel-heading a:hover, .panel-heading a:focus {
+	text-decoration: none;
+	color: #777777;
+}
+.faq-cat-content .panel-heading:hover {
+	background-color: #efefef;
+}
+.active-faq {
+	border-left: 5px solid #888888;
+}
+.panel-faq .panel-heading .panel-title span {
+	font-size: 13px;
+	font-weight: normal;
+}
+
 table {
 	font-size: 11px;
 	width: 100%;
@@ -46,6 +83,19 @@ td {
 		$(document)
 				.ready(
 						function() {
+							
+
+						    $('.collapse').on('show.bs.collapse', function() {
+						        var id = $(this).attr('id');
+						        $('a[href="#' + id + '"]').closest('.panel-heading').addClass('active-faq');
+						        $('a[href="#' + id + '"] .panel-title span').html('<i class="glyphicon glyphicon-minus"></i>');
+						    });
+						    $('.collapse').on('hide.bs.collapse', function() {
+						        var id = $(this).attr('id');
+						        $('a[href="#' + id + '"]').closest('.panel-heading').removeClass('active-faq');
+						        $('a[href="#' + id + '"] .panel-title span').html('<i class="glyphicon glyphicon-plus"></i>');
+						    });
+							
 							$(".leer").html("API");	
 
 							/* 서울시  API 부분  시작  */
@@ -81,30 +131,36 @@ td {
 								var apilist = ""
 
 								for (var i = 0; i < list.length; i++) {
-
-									apilist += "<div style='margin-top:10px; margin-bottom:5px; color:#eb6100'>[ " + list[i].PARK_NAME + " ]</div>"
-									        + "<table style='margin:0px;'><caption></caption><tbody><colgroup><col width='110px;'></colgroup><tr>"
-
-											+ "<th style='width: 100px;''> 주차장주소</th><td>"
-
-											+ list[i].PARK_ADDRESS
-											+ "</td></tr>"
-											+ "<th style='width: 100px;''>총 주차수</th><td>"
-
-											+ list[i].MAX_PARKING_CNT
-											+ "</td></tr>"
-											+ "<th style='width: 100px;''> 가능주차수</th><td>"
-
-											+ list[i].PARKING_CNT
-											+ "</td></tr>"
-											+ "<th style='width: 100px;''> 전화번호</th><td>"
-
-											+ list[i].TEL_NO + "</td></tr>"
-
-											+ "</tbody></table>"
-
-								}
-								;
+									var ida = "#"+ "faq" + i;
+									var busy=list[i].PARKING_CNT/list[i].MAX_PARKING_CNT*100;
+									console.log(busy);
+									console.log(ida);
+									var color;
+									if(busy<30){
+										color="green";
+									}else if (busy<60){
+										color="orange";
+									}else if(busy<=100){
+										color="red";
+									}else{
+										
+									}
+									
+									var idb = "faq" + i;
+									
+									apilist += 
+										
+										"<div class='panel-heading'><a data-toggle='collapse' href='" +  ida + "'><span class='colorBusy' style='font-size:25px;color:"+color+"'>■</span>"
+										+  list[i].PARK_NAME    + "<span class='pull-right'><i class='glyphicon glyphicon-plus'></i></span></a>"
+										+  "</div><div id='" + idb + "'class='panel-collapse collapse'><div class='panel-body'>"
+										+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 주소<span style='float:right'>" + list[i].PARK_ADDRESS + "</span></div>"								
+										+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 총주차수<span style='float:right'>" + list[i].MAX_PARKING_CNT + "</span></div>"								
+										+  "<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> 주차가능수<span style='float:right'>" + list[i].PARKING_CNT + "</span></div>"								
+										
+										+/* + list[i].total_price + */  "</div></div>"
+										
+									
+								};
 
 								$("#apilist").html(apilist);
 							}
@@ -132,23 +188,33 @@ td {
 				<li ><a href="../../api1">공용화장실</a></li>
 				<li><a href="../../api2">산책로</a></li>
 				<li  class="active"><a href="../../api3">주차정보</a></li>
+				<li ><a href="../../api4">잔디밭</a></li>
+				
 			</ul>
 		</div>
-		<div class="pg-restaurant" style="padding: 0px;">
-			<section class="restaurant-detail" style="padding: 0px">
-				<header style="min-height: 0px; padding-bottom: 0px">
-					<div>
-
-
-						<h1 class="title">
-							<span itemprop="name">주차정보</span> <strong class="rate-point">
-						</h1>
-					</div>
+		<div class="pg-restaurant" style="padding: 0px; clear: both">
+			<section class="restaurant-detail">
+				<header>
+					<h1 class="title">
+						<span itemprop="name">주차정보</span>
+					
+					</h1>
+						<div style="text-align: right">
+						<span class='colorBusy' style='font-size:12px;'>혼잡도 : </span>
+						<span class='colorBusy' style='font-size:12px;color:green'>■ 30% </span>
+						<span class='colorBusy' style='font-size:12px;color:orange'>■ 60%</span>
+						<span class='colorBusy' style='font-size:12px;color:red'>■ 100%</span></div>
 				</header>
 			</section>
 		</div>
 
-		<div id="apilist"></div>
+		<div style="height: 60px;"></div>
+
+<div class="panel panel-default panel-faq" id="apilist">
+			
+			
+			
+		</div>
 
 
 	</div>

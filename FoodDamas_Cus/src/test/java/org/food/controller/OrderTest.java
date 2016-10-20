@@ -5,9 +5,11 @@ import static org.junit.Assert.*;
 import javax.inject.Inject;
 
 import org.food.domain.CartVO;
+import org.food.domain.OrderDetailVO;
 import org.food.domain.OrderVO;
 import org.food.persistence.CartDAO;
 import org.food.persistence.OrderDAO;
+import org.food.persistence.OrderDetailDAO;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -20,6 +22,17 @@ public class OrderTest {
 	
 	@Inject
 	OrderDAO dao;
+	
+	@Inject
+	OrderDetailDAO ddao;
+	
+	@Test
+	public void orderDetail(){
+		OrderDetailVO vo=new OrderDetailVO();
+		vo.setOno(61);
+		
+		System.out.println(ddao.readDetail(61));
+	}
 	
 	@Test
 	public void test() {
