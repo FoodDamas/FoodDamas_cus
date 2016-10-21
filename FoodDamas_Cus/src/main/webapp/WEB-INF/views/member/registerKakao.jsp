@@ -120,7 +120,7 @@ $(document).ready(function() {
  					{
 						console.log("--------------------------");
  						alert("회원가입을 성공하였습니다.");
-						window.location.replace("/member/login")
+						window.location.replace("/member/login");
  					}else {
  	 					//alert("회원가입을 실패하였습니다.");
 

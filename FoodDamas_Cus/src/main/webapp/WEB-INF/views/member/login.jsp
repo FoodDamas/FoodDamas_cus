@@ -150,7 +150,7 @@ px
 	var obj="";
 	var local="http://14.32.7.115:4449/";
 
-	Kakao.init('9ba6fb4a06639e5355896160f8227533');
+	Kakao.init('0a60b3e942cc9474118d125896e44e01');
     function loginWithKakao() {//회원가입 버튼
         // 로그인 창을 띄웁니다.
         Kakao.Auth.login({
