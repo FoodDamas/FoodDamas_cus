@@ -9,9 +9,9 @@ import org.junit.Test;
 
 public class MariaDBConnectionTest {
 	private static final String DRIVER = "org.mariadb.jdbc.Driver";
-	private static final String URL = "jdbc:mariadb://192.168.0.19:3308/foodtruck";
-	private static final String USER = "food"; // db 접속 id
-	private static final String PW = "food"; // db 접속 password
+	private static final String URL = "jdbc:mariadb://14.32.7.115:4446/foodtruck";
+	private static final String USER = "food"; // db ì ‘ì†� id
+	private static final String PW = "food"; // db ì ‘ì†� password
 
 	@Test
 	public void test() throws Exception {
