@@ -7,7 +7,8 @@ var cartManager= function(){
 	
 	function cartList(c_id,callback){	
 
-		var qnajson =$.getJSON(local+'store/cartList/'+ c_id, callback);	}
+		var qnajson =$.getJSON(local+'store/cartList/'+ c_id, callback);	
+		}
 	
 	function quantity(obj, callback){
 		$.ajax({

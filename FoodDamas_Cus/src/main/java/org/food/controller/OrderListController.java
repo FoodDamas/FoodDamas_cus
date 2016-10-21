@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import javax.inject.Inject;
 
+import org.food.domain.OrderDetailVO;
 import org.food.domain.OrderListVO;
 import org.food.domain.OrderVO;
 import org.food.service.OrderListService;
@@ -16,8 +17,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
@@ -64,10 +67,19 @@ public class OrderListController {
 		
 	}
 	
-	/*@RequestMapping(value = "/orderDetail", method = RequestMethod.GET)
-	public List<> menudetail()throws Exception{
-		
-	}*/
+	
+	//OrderDetail
+	@CrossOrigin
+	@ResponseBody
+	@RequestMapping(value = "/orderDetail", method = RequestMethod.POST)
+	public List<OrderDetailVO> orderDetail(@RequestParam(value="ono")Integer ono)throws Exception{
+		System.out.println("오더디테일 ~~~~~~~~~~~~~~~~~~~~`");
+		System.out.println(ono);
+		List<OrderDetailVO> detailList=service.readDetail(ono);
+		System.out.println(detailList);
+		return detailList;
+	
+	}
 	
 
 

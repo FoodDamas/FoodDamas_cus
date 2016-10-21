@@ -77,7 +77,8 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	var local="http://192.168.0.23";
+	var local="http://14.32.7.115:4449/";
+	
 	var k_id= sessionStorage.getItem('k_id');
 	var k_nick= sessionStorage.getItem('k_nick');
 	var profile_img= sessionStorage.getItem('profile_img');
@@ -107,7 +108,7 @@ $(document).ready(function() {
 		function registerKakao(obj) {
 			
 			$.ajax({
-				url: local+'/member/registerKakaomember',
+				url: local+'member/registerKakaomember',
 				type: 'post',
 				data: obj,
 				success:function(data){

@@ -139,12 +139,31 @@ button {
 
 <script>
 function popup(data) {
-/* 	$.ajax({
-		url: local+'registerqna',
-		type:"post",
-		data:obj,
-		success:callback
-	}); */
+	var local="http://14.32.7.115:4449/";
+var ono=data;
+var list;
+console.log(ono);
+console.log("-------ff----");
+	$.ajax({
+		url: local+'order/orderDetail?ono='+ono,
+		type:"POST",
+		success:function(detail){
+			console.log(detail);
+			var length=detail.length;
+		
+			
+			for(var i=0; i<length ;i++){
+				list+="<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> "
+				+detail[i].m_name+"<span style='float:right'> X "+detail[i].quantity+"</span><span style='float:right'>"+detail[i].m_price+"</span></div>";
+				$(".popupDetail").html(list);
+			}
+			
+		}
+	, error:function(xhr,option,error){
+		alert(xhr.status); //오류코드
+		alert(error); //오류내용
+		}
+	});
 	
 	$(".popup").show();
 }
@@ -229,7 +248,7 @@ function popup(data) {
 </div>
 
 <div class="popup">
-<div style="background: #ffffff; margin: 30px auto; width: 94%; border-radius:5px; height: 200px">
+<div style="background: #ffffff; margin: 30px auto; width: 94%; border-radius:5px; height: 200px" class="popupDetail">
 
 <button name="close">Close popup</button>
 
