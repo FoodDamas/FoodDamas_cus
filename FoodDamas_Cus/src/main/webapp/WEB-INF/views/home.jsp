@@ -20,18 +20,18 @@
 <script src="http://s.codepen.io/assets/libs/modernizr.js"
 	type="text/javascript"></script>
 <!-- 911ffa91ef92e4018ca8e381432dccea -->
-<!-- d76d3b667738eb709c0fdad4f29b259e -->
+<!-- 07803719751f68ea187b3847f10d30e8 -->
 <!-- 07803719751f68ea187b3847f10d30e8 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8"></script>
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=LIBRARY"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=LIBRARY"></script>
 <!-- services 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services"></script>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=d76d3b667738eb709c0fdad4f29b259e&libraries=services,clusterer,drawing"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services,clusterer,drawing"></script>
 
 
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
@@ -128,33 +128,8 @@
 	</article>
 	</main>
 
-	<!-- 하단 영역 -->
-	<footer class="footer">
-		<div class="inner" style="font-size: 16px;">
+				<%@include file="footersub.jsp"%>
 
-			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-			<nav class="links-external">
-				<ul class="list-links">
-					<li><a href="/">회사소개</a></li>
-					<li><a href="/">직원내용</a></li>
-					<li><a href="/">이용약관</a></li>
-					<li><a class="only-desktop" href="/">브랜드</a></li>
-				</ul>
-			</nav>
-			<div class="language-copyrights">
-				<p class="select-language">
-					<a href="/" class="selected">한국어</a> <a href="/">English</a>
-				</p>
-				<small>
-					<p>
-						푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
-						서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
-							2016 zzennam. All rights reserved.</span>
-					</p>
-				</small>
-			</div>
-		</div>
-	</footer>
 
 	<!--이가영-->
 

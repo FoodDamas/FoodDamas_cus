@@ -3,17 +3,12 @@
 <!DOCTYPE html>
 <html lang="UTF-8">
 		<header class="header">
-
 	<div class="nav-bar">
-		<div class="LeeBack"><a href="javascript:history.back()">← 뒤로</a></div>
-		<div class="leer"><a href="../../home"></a></div>
-		
-		
-			<a class="fa fa-bars menu fa-2x" id="menu_toggle" style="top: 10px;"></a>
+		<a href="../../home" class="fa fa-home menu fa-2x"  style="left:20px; top:13px" ></a>
+		<div class="leer"></div>
+			<a class="fa fa-bars menu fa-2x" id="menu_toggle" style="top: 13px;"></a>
 	</div>
 	
-
-			
  <nav id="side-menu">
         <a class="fa fa-close" id="close"></a>
         <ul>

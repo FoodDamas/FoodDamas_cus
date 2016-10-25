@@ -36,10 +36,10 @@
 	var k_id='${checkId}';
 	console.log(k_id);
 	if(k_id!=""){
-		//alert('이미 회원가입을 하였습니다.');
+		alert('이미 회원가입을 하였습니다.');
  		window.location.replace("/member/login");
 	}else{
-		//alert('이름, 핸드폰, 메일주소를 작성해주세요');
+		alert('이름, 핸드폰, 메일주소를 작성해주세요');
 	}
 		
 </script>
@@ -122,7 +122,7 @@ $(document).ready(function() {
  						alert("회원가입을 성공하였습니다.");
 						window.location.replace("/member/login");
  					}else {
- 	 					//alert("회원가입을 실패하였습니다.");
+ 	 					alert("회원가입을 실패하였습니다.");
 
 					}				 
 					

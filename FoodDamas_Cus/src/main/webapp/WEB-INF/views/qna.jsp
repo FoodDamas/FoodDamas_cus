@@ -1,4 +1,3 @@
-<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -12,7 +11,6 @@
 <title>나만의 맛집 검색</title>
 <!-- 메뉴 -->
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
-<link rel="stylesheet" href="css/menuStyle.css">
 <!-- 메뉴 -->
 
 
@@ -20,10 +18,9 @@
 <link rel="stylesheet" media="screen" href="css/app.css">
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">
 <link rel="stylesheet" media="screen" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/menuStyle.css">
 
 
-<link rel="stylesheet" media="screen" href="css/fooddamas.css">
-<link rel="stylesheet" href="css/dropbox.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
@@ -95,7 +92,7 @@ $(document).ready(function() {
 	console.log(x);
     
    // var food = "food1";
-    var c_id = "beuteu";
+    var c_id = $(".c_id").html();
     console.log(c_id);
     var u_id= sessionStorage.getItem('u_id');
     var writer = "beuteu";   // 푸드트럭 사장 아이디
@@ -201,10 +198,10 @@ $(document).ready(function() {
 	};
   	console.log(obj);
 	if($(".q_title").val()=="" ){
-//		alert("제목을 입력해 주세요");
+		alert("제목을 입력해 주세요");
 		return false;
 	}else if($(".q_content").val()==""){
-	//	alert("내용을 입력해 주세요");
+		alert("내용을 입력해 주세요");
 		return false;
 	}else{
 	$(".q_title").val("");
@@ -214,7 +211,7 @@ $(document).ready(function() {
 		   
 	     QnaManager.QnaList(u_id,c_id,page,display);
 	
-		//   alert("질문이 등록 되었습니다");
+		   alert("질문이 등록 되었습니다");
 	  
 		}); 
 	}
@@ -278,13 +275,13 @@ $(document).ready(function() {
 
 		
 	 $(".delete").on("click", function() {
-		 /* 
+		 
 			if (
 					confirm("정말 삭제하시겠습니까??") == true){    //확인
 			}else{   //취소
 			    return;
 			}
- */		 
+ 	 
  		obj = {
 			       qno : $(".qno").val(),
 			      c_id : $(".c_id").val()
@@ -295,7 +292,7 @@ $(document).ready(function() {
 
 		     QnaManager.QnaList(u_id,c_id,page,display);
 		     
-			   //alert("삭제 되었습니다");
+			   alert("삭제 되었습니다");
 
 		 }) 
 		 
@@ -322,6 +319,8 @@ $(document).ready(function() {
 				<li class="active"><a href="../../qna">QNA</a></li>
 			</ul>
 		</div>
+		<span class="c_id" hidden>${login.c_id}</span>
+		
 		<div class="pg-restaurant" style="padding: 0px;">
 			<section class="restaurant-detail" style="padding: 0px">
 				<header style="min-height: 0px; padding-bottom: 0px">
@@ -349,9 +348,9 @@ $(document).ready(function() {
 		</div>
 	</div>
 
-	<!--////////////////////////////////////////////////////////////////////////////////////         
-	    ///////////////////////////////////////    QNA 등록        //////////////////////////////////
-		/////////////////////////////////////////////////////////////////////////////////// -->
+
+			<%@include file="footersub.jsp"%>
+
 
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
@@ -440,33 +439,7 @@ $(document).ready(function() {
 		</div>
 	</div>
 
-	<!-- 하단 영역 -->
-	 <footer class="footer">
-		<div class="inner" style="font-size: 16px;">
 
-			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-			<nav class="links-external">
-				<ul class="list-links">
-					<li><a href="/">회사소개</a></li>
-					<li><a href="/">직원내용</a></li>
-					<li><a href="/">이용약관</a></li>
-					<li><a class="only-desktop" href="/">브랜드</a></li>
-				</ul>
-			</nav>
-			<div class="language-copyrights">
-				<p class="select-language">
-					<a href="/" class="selected">한국어</a> <a href="/">English</a>
-				</p>
-				<small>
-					<p>
-						푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
-						서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
-							2016 zzennam. All rights reserved.</span>
-					</p>
-				</small>
-			</div>
-		</div>
-	</footer>
 
 </body>
 </html>

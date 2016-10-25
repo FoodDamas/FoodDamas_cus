@@ -221,8 +221,49 @@ console.log(total);
 		
 			if (c_id=="")
 				{
-				console.log("아이디없음");
+					window.location="http://14.32.7.115:4449/member/login";
 				}
+			else{
+				for (var i = 0 ; star.length; i++){
+					
+					if(star[i].checked == true){
+					var check = star[i].value
+					$("#check").val(check);
+					break;
+						
+					}
+					
+				}
+
+					obj = {
+							
+							c_id : c_id,
+							u_id : u_id,
+							grade : $("#check").val(),
+							content : $("#content").val()
+							
+					}
+				
+				if($("#star").val()=="" ){
+					alert("제목을 입력해 주세요");
+					return false;
+				}else if($("#content").val()==""){
+					alert("내용을 입력해 주세요");
+					return false;
+				}
+				console.log(obj);
+				 ReviewManager.Insert(obj, function () {
+					   
+					 ReviewManager.ReviewList(u_id,page,display);
+						InfoManager.InfoList(u_id, display1);
+
+					   alert("리뷰이 등록 되었습니다");
+					   
+					   $("#content").val("");
+				  
+					}); 
+				 
+			}
 			
 		/* 	console.log(star[0].checked);
 			console.log(star[1].checked);
@@ -230,52 +271,7 @@ console.log(total);
 			console.log(star[3].checked);
 			console.log(star[4].checked); */
 			
- 			for (var i = 0 ; star.length; i++){
-				
-				if(star[i].checked == true){
-				var check = star[i].value
-				$("#check").val(check);
-				break;
-					
-				}
-				
-			}
-
-				obj = {
-						
-						c_id : c_id,
-						u_id : u_id,
-						grade : $("#check").val(),
-						content : $("#content").val()
-						
-				}
-			
-			
-		
-			
-			console.log(obj);
-
-			
-			
-			if($("#star").val()=="" ){
-				//alert("제목을 입력해 주세요");
-				return false;
-			}else if($("#content").val()==""){
-				//alert("내용을 입력해 주세요");
-				return false;
-			}
-			console.log(obj);
-			 ReviewManager.Insert(obj, function () {
-				   
-				 ReviewManager.ReviewList(u_id,page,display);
-					InfoManager.InfoList(u_id, display1);
-
-				  // alert("리뷰이 등록 되었습니다");
-				   
-				   $("#content").val("");
-			  
-				}); 
-			 
+ 	
 			
 		})
 
@@ -338,7 +334,7 @@ console.log(total);
 
 <form id="ratingsForm">
     <div class="stars">
-        <input type="radio" name="star" class="star-1" id="star-1"  value="1" />
+        <input type="radio" name="star" class="star-1" id="star-1"  value="1" checked="checked" />
         <label class="star-1" for="star-1">1</label>
         <input type="radio" name="star" class="star-2" id="star-2"  value="2"/>
         <label class="star-2" for="star-2">2</label>
@@ -375,33 +371,8 @@ console.log(total);
 		</ul>
 	</div>
 
+			<%@include file="footersub.jsp"%>
 
-	<!-- 하단 영역 -->
-	<footer class="footer">
-		<div class="inner" style="font-size: 16px;">
-
-			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-			<nav class="links-external">
-				<ul class="list-links">
-					<li><a href="/">회사소개</a></li>
-					<li><a href="/">직원내용</a></li>
-					<li><a href="/">이용약관</a></li>
-					<li><a class="only-desktop" href="/">브랜드</a></li>
-				</ul>
-			</nav>
-			<div class="language-copyrights">
-				<p class="select-language">
-					<a href="/" class="selected">한국어</a> <a href="/">English</a>
-				</p>
-				<small>
-					<p>
-						푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
-						서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
-							2016 zzennam. All rights reserved.</span>
-					</p>
-				</small>
-			</div>
-		</div>
-	</footer>
+	
 </body>
 </html>
