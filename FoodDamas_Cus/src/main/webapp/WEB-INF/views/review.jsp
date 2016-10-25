@@ -39,7 +39,7 @@
 <script>
 
 $(document).ready(function() {
-    
+ 
    // var writer = sessionStorage.getItem('u_id');   // 푸드트럭 사장 아이디
     var c_id = $(".c_id").html()
     var u_id= sessionStorage.getItem('u_id');
@@ -216,12 +216,19 @@ console.log(total);
 		
 		$("#create").on("click" , function name() {
 			var star = document.getElementsByName('star');
+		console.log(c_id);
+		console.log("----------------");
+		
+			if (c_id=="")
+				{
+				console.log("아이디없음");
+				}
 			
-			console.log(star[0].checked);
+		/* 	console.log(star[0].checked);
 			console.log(star[1].checked);
 			console.log(star[2].checked);
 			console.log(star[3].checked);
-			console.log(star[4].checked);
+			console.log(star[4].checked); */
 			
  			for (var i = 0 ; star.length; i++){
 				
@@ -251,10 +258,10 @@ console.log(total);
 			
 			
 			if($("#star").val()=="" ){
-				alert("제목을 입력해 주세요");
+				//alert("제목을 입력해 주세요");
 				return false;
 			}else if($("#content").val()==""){
-				alert("내용을 입력해 주세요");
+				//alert("내용을 입력해 주세요");
 				return false;
 			}
 			console.log(obj);
@@ -263,7 +270,7 @@ console.log(total);
 				 ReviewManager.ReviewList(u_id,page,display);
 					InfoManager.InfoList(u_id, display1);
 
-				   alert("리뷰이 등록 되었습니다");
+				  // alert("리뷰이 등록 되었습니다");
 				   
 				   $("#content").val("");
 			  
@@ -305,6 +312,7 @@ console.log(total);
 							<button class="btn-type-icon favorite wannago_btn "></button>
 							<p class="wannago_txt">평점쓰기</p>
 						</div>
+						
 
 						<h1 class="title">
 							<span itemprop="name" id="name"></span> <strong
@@ -344,8 +352,6 @@ console.log(total);
     </div>
 </form>
 <div style="height: 5px;"></div>
-
-				
 				<textarea style="height: 45px; float: left; width: 80%; padding: 5px; font-size: 14px;" id="content"></textarea>
 				<a class="btn btn-lg btn-ygy1 btn-right" style="width: 20%; border-radius: 0px;" id="create">등록</a>
 		</div>

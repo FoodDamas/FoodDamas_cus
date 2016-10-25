@@ -194,9 +194,6 @@
 				<li><a href="../../api2">산책로</a></li>
 				<li><a href="../../api3">주차정보</a></li>
 				<li class="active"><a href="../../api3">잔디밭</a></li>
-				<li class="active"><a href="../../api3">잔디밭</a></li>
-				<li class="active"><a href="../../api3">잔디밭</a></li>
-				<li class="active"><a href="../../api3">잔디밭</a></li>
 			</ul>
 		</div>
 		<div id="map" style="width: 100%; height: 350px;"></div>

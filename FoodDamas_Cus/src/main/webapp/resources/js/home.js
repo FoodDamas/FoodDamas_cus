@@ -2,7 +2,6 @@ var homeManager = (function() {
    var truckList = "";
    var gradeList = "";
    var reviewList = "";
-   var menuList = "";
 var local="http://14.32.7.115:4449/";
    //var local="http://localhost/";
 
@@ -71,7 +70,7 @@ var local="http://14.32.7.115:4449/";
          }
          if(page==0){
             console.log("page 0입니다");
-            reviewList = "";
+            truckList = "";
          }
          // list up
          for (var i = 0; i < data.result.length; i++) {
@@ -80,10 +79,9 @@ var local="http://14.32.7.115:4449/";
                data.result[i].review_num=0;
             }
             var grade=data.result[i].grade.toFixed(1);
-            	
      
             distance = distance.toFixed(1);
-            reviewList +="<li class='restaurant-item' id='storeList' " 
+            truckList +="<li class='restaurant-item' id='storeList' " 
                 +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
             	  +"<div class='thumb' style='background-image: url(http://14.32.7.115:4040/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
                   + "<div class='info'><span class='title'>"
@@ -130,107 +128,25 @@ var local="http://14.32.7.115:4449/";
          console.log(orderBy);
          switch(orderBy){
             case "distance":
-               $("#list").html(reviewList);
+               $("#list").html(truckList);
                break;
                
             case "grade":
-               $("#gradeList").html(reviewList);
+               $("#gradeList").html(truckList);
                break;
                
             case "review":
-               $("#reviewList").html(reviewList);
+               $("#reviewList").html(truckList);
                break;
                
-            case "menu":
-               $("#reviewList").html(reviewList);
-               break;
+       
       }
 
       });
    }
    
-   function getGradeList(data, callback) {
-      // console.log("------Get Data-------");
-      // console.log(data);
-      console.log(data);
-      if (data.page == null) {
-         data.page = 0;
-      }
-
-      $.getJSON(local+'home/grade/' + data.page, data, function(data) {
-         //console.log("--------Get json Data-----");
-         console.log(data);
-         
-         
-         // 좌표값이 없는 경우
-         if (data == null) {
-            console.log("No data");
-            var data = new Object();
-            data.page = 0;
-            data.lng = 37.493488;
-            data.lat = 127.028148;
-         }
-         // list up
-         for (var i = 0; i < data.grade.length; i++) {
-            var distance = data.grade[i].distance * 10000;
-            distance = distance.toFixed(1);
-            gradeList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' style='background-image: url(img/1.jpg)'></div>"
-                  + "<div class='info'><span class='title'>"
-                  + data.grade[i].co_name + " (" 
-                  + data.grade[i].review_num
-                  + ")</span> <strong class='point search_point'>"
-                  + data.grade[i].grade
-                  + "</strong><p class='etc'>"
-                  + data.grade[i].location
-                  + "</p><p class='etc'>"
-                  + distance
-                  + "m</p></div></figure></div></li>"
-         }
-         $("#gradeList").html(gradeList);
-
-         
-      });
-   }
    
-   function getReviewList(data, callback) {
-      console.log("------Get rev Data-------");
-      console.log(data);
-      if (data.page == null) {
-         data.page = 0;
-      }
-
-      $.getJSON(local+'home/review/' + data.page, data, function(data) {
-         console.log("--------Get review json Data-----");
-         console.log(data)
-         
-         // 좌표값이 없는 경우
-         if (data == null) {
-            console.log("No data");
-            var data = new Object();
-            data.page = 0;
-            data.lng = 37.493488;
-            data.lat = 127.028148;
-         }
-         // list up
-         for (var i = 0; i < data.review.length; i++) {
-            var distance = data.review[i].distance * 10000;
-            distance = distance.toFixed(1);
-            truckList += "<li class='restaurant-item'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'><div class='thumb' "
-            	  +"style='background-image: url(	http://14.32.7.115:4040/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
-                  + "<div class='info'><span class='title'>"
-                  + data.review[i].co_name + " (" 
-                  + data.review[i].review_num
-                  + ")</span> <strong class='point search_point'>"
-                  + data.review[i].grade
-                  + "</strong><p class='etc'>"
-                  + data.review[i].location
-                  + "</p><p class='etc'>"
-                  + distance
-                  + "m</p></div></figure></div></li>"
-         }
-         $("#reviewList").html(truckList);
-      });
-   }
+  
    
    function map(data, callback) {
        console.log("----map data-----");

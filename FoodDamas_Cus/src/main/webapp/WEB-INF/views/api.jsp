@@ -74,8 +74,6 @@
 	
 	 /* GEOLOCATION 현재 위치 가져오는것  */
 
-	
-
 	 /* 다음 API 시작  */
 	function map(positionAll)
 	 {
@@ -88,8 +86,6 @@
 		                $('#latitude').html(pos.coords.latitude);   // 위도
 		                $('#longitude').html(pos.coords.longitude); // 경도
 		                getList();
-		             
-		                
 		            });
 		        } else {
 		            alert("이 브라우저에서는 Geolocation이 지원되지 않습니다.")

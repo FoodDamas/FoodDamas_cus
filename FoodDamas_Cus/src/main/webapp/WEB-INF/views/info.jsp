@@ -5,10 +5,11 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<html><head>
+<html>
+<head>
 <title>푸드다마스</title>
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel='stylesheet'
+	href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
 
 <base href="../resources/">
 <link rel="stylesheet" media="screen" href="css/app.css">
@@ -24,20 +25,13 @@
 	src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false">
 	
 </script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js'></script>
+<script
+	src='https://cdnjs.cloudflare.com/ajax/libs/classie/1.0.1/classie.min.js'></script>
 <script src="js/info.js"></script>
 <body>
-
-
-
 	<%@include file="headersub.jsp"%>
-		
-
-
-
 	<div style="height: 51px;"></div>
 	<div class="container-fluid">
-
 		<div class="restaurant-detail">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="../../info">정 보</a></li>
@@ -50,30 +44,23 @@
 			<section class="restaurant-detail">
 				<header>
 					<div>
-
 						<h1 class="title">
-<%-- 						<span  class="c_id11">${login.c_id}</span>
- --%>						
-							<span itemprop="name" id="name"></span> <strong
-								class="rate-point"> <span class="rate-point" id="grade">
-									 </span> <span itemprop="reviewCount" style="display: none;">48</span>
+							<span itemprop="name" id="name"></span> <strong	class="rate-point"> <span class="rate-point" id="grade">
+							</span> <span itemprop="reviewCount" style="display: none;">48</span>
 							</strong>
 							<p class="branch">본점</p>
 						</h1>
 					</div>
-
-
 				</header>
 
-
 				<div>
-
 					<script>
 						$(document)
 								.ready(
 										function() {
 
-										    var u_id= sessionStorage.getItem('u_id');
+											var u_id = sessionStorage
+													.getItem('u_id');
 
 											InfoManager.InfoList(u_id, display);
 											function display(info) {
@@ -98,7 +85,6 @@
 													$("#name").html(name);
 													var grad = data[i].grade
 													var grade = grad.toFixed(1);
-
 													$("#grade").html(grade);
 
 													infolist +=
@@ -155,7 +141,7 @@
 
 								// Info open
 								var infowindow = new google.maps.InfoWindow({
-									content : "Hello World!"
+									content : $("#name").html()
 								});
 
 								google.maps.event.addListener(marker, 'click',
@@ -176,36 +162,35 @@
 
 			</section>
 
-
 		</div>
-		</div>
+	</div>
 
-		<!-- 하단 영역 -->
-		<footer class="footer">
-			<div class="inner" style="font-size: 16px;">
+	<!-- 하단 영역 -->
+	<footer class="footer">
+		<div class="inner" style="font-size: 16px;">
 
-				<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-				<nav class="links-external">
-					<ul class="list-links">
-						<li><a href="/">회사소개</a></li>
-						<li><a href="/">직원내용</a></li>
-						<li><a href="/">이용약관</a></li>
-						<li><a class="only-desktop" href="/">브랜드</a></li>
-					</ul>
-				</nav>
-				<div class="language-copyrights">
-					<p class="select-language">
-						<a href="/" class="selected">한국어</a> <a href="/">English</a>
+			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
+			<nav class="links-external">
+				<ul class="list-links">
+					<li><a href="/">회사소개</a></li>
+					<li><a href="/">직원내용</a></li>
+					<li><a href="/">이용약관</a></li>
+					<li><a class="only-desktop" href="/">브랜드</a></li>
+				</ul>
+			</nav>
+			<div class="language-copyrights">
+				<p class="select-language">
+					<a href="/" class="selected">한국어</a> <a href="/">English</a>
+				</p>
+				<small>
+					<p>
+						푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
+						서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
+							2016 zzennam. All rights reserved.</span>
 					</p>
-					<small>
-						<p>
-							푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
-							서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
-								2016 zzennam. All rights reserved.</span>
-						</p>
-					</small>
-				</div>
+				</small>
 			</div>
-		</footer>
+		</div>
+	</footer>
 </body>
 </html>

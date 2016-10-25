@@ -141,7 +141,7 @@ button {
 function popup(data) {
 	var local="http://14.32.7.115:4449/";
 var ono=data;
-var list;
+var list="";
 console.log(ono);
 console.log("-------ff----");
 	$.ajax({
@@ -150,7 +150,6 @@ console.log("-------ff----");
 		success:function(detail){
 			console.log(detail);
 			var length=detail.length;
-		
 			
 			for(var i=0; i<length ;i++){
 				list+="<div style='border-bottom:1px dotted #cccccc;line-height: 26px '> "
@@ -243,38 +242,29 @@ console.log("-------ff----");
 
 		<div style="height: 50px;"></div>
 
-<div class="container">
-	<button data-js="open">Open popup</button>
-</div>
-
 <div class="popup">
-<div style="background: #ffffff; margin: 30px auto; width: 94%; border-radius:5px; height: 200px" class="popupDetail">
+<div style="background: #ffffff; margin: 10px auto; width: 94%; border-radius:5px; height:auto; padding:2px 20px 20px 20px;" >
+<h3>주문리스트</h3>
 
-<button name="close">Close popup</button>
+<div class="popupDetail"></div>
+
+
+<button style="margin-top: 10px;" onclick="location.reload();">X</button>
 
 </div>
 	
 </div>
 
-		<div class="panel panel-default panel-faq" id=orderlist>
-			
-			
-			
-		</div>
-
-
-
+		<div class="panel panel-default panel-faq" id=orderlist></div>
 		<div class="box-footer clearfix">
-			<ul id="paging-comment"
-				class="pagination pagination-sm no-margin pull-right">
+			<ul id="paging-comment"	class="pagination pagination-sm no-margin pull-right">
 			</ul>
 		</div>
-
-
 </div>
 
 		<!-- 하단 영역 -->
-		<!-- <footer class="footer">
+		
+		 <footer class="footer">
 			<div class="inner" style="font-size: 16px;">
 
 				<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
@@ -299,7 +289,7 @@ console.log("-------ff----");
 					</small>
 				</div>
 			</div>
-		</footer> -->
+		</footer> 
 
 </body>
 </html>

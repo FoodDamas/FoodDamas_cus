@@ -99,7 +99,7 @@ $(document).ready(function() {
     console.log(c_id);
     var u_id= sessionStorage.getItem('u_id');
     var writer = "beuteu";   // 푸드트럭 사장 아이디
-    
+    console.log($(".cid").html());
 
     var obj=[];
     var page="";
@@ -201,12 +201,11 @@ $(document).ready(function() {
 	};
   	console.log(obj);
 	if($(".q_title").val()=="" ){
-		alert("제목을 입력해 주세요");
+//		alert("제목을 입력해 주세요");
 		return false;
 	}else if($(".q_content").val()==""){
-		alert("내용을 입력해 주세요");
+	//	alert("내용을 입력해 주세요");
 		return false;
-	
 	}else{
 	$(".q_title").val("");
 	$(".q_content").val("");
@@ -215,14 +214,11 @@ $(document).ready(function() {
 		   
 	     QnaManager.QnaList(u_id,c_id,page,display);
 	
-		   alert("질문이 등록 되었습니다");
+		//   alert("질문이 등록 되었습니다");
 	  
 		}); 
-	 
-	 
 	}
 	});
-	
 	 $(".view").on("click",".pop" ,function(){  //.view 뿌려지느 클래스  .pop 해당 클래스
 		 
 		 $this=$(this);
@@ -282,13 +278,14 @@ $(document).ready(function() {
 
 		
 	 $(".delete").on("click", function() {
-		 
-			if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+		 /* 
+			if (
+					confirm("정말 삭제하시겠습니까??") == true){    //확인
 			}else{   //취소
 			    return;
 			}
-
-		 obj = {
+ */		 
+ 		obj = {
 			       qno : $(".qno").val(),
 			      c_id : $(".c_id").val()
 			      
@@ -298,7 +295,7 @@ $(document).ready(function() {
 
 		     QnaManager.QnaList(u_id,c_id,page,display);
 		     
-			   alert("삭제 되었습니다");
+			   //alert("삭제 되었습니다");
 
 		 }) 
 		 
