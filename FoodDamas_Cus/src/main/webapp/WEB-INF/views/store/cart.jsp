@@ -88,35 +88,8 @@
 	<input value="${login.c_id}" id= 'c_id' hidden>
 
 	<!-- 하단 영역 -->
-	<footer class="footer">
-		<div class="inner" style="font-size: 16px;">
+				<%@include file="../footersub.jsp"%>
 
-			<div style="color: #ffffff; margin-bottom: 15px;">푸드다마스</div>
-			<nav class="links-external">
-				<ul class="list-links">
-					<li><a href="/">회사소개</a></li>
-					<li><a href="/">직원내용</a></li>
-					<li><a href="/">이용약관</a></li>
-					<li><a class="only-desktop" href="/">브랜드</a></li>
-				</ul>
-			</nav>
-			<div class="language-copyrights">
-				<p class="select-language">
-					<a href="/" class="selected">한국어</a> <a href="/">English</a>
-				</p>
-				<small>
-					<p>
-						푸드다마스 대표이사: 이성현 | 사업자 등록번호: 000-00-0000 <br class="only-mobile">
-						서울특별시 강남구 역삼동 12, 8층<br> <span class="copyrights">©
-							2016 zzennam. All rights reserved.</span>
-					</p>
-				</small>
-			</div>
-		</div>
-		
-
-
-	</footer>
 	<script type="text/javascript">
 	
 

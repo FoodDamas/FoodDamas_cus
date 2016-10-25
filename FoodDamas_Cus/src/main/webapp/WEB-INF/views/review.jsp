@@ -221,6 +221,7 @@ console.log(total);
 		
 			if (c_id=="")
 				{
+					alert("로그인이 필요합니다.");
 					window.location="http://14.32.7.115:4449/member/login";
 				}
 			else{

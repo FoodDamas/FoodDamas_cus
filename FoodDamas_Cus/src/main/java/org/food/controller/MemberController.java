@@ -1,6 +1,5 @@
 package org.food.controller;
 
-import java.awt.List;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -32,7 +31,7 @@ import org.springframework.web.util.WebUtils;
 @Controller
 @RequestMapping("/member")
 public class MemberController {
-	//ALTER TABLE tbl_customer convert to charset utf8; �ѱ� �ȵ���
+	//ALTER TABLE tbl_customer convert to charset utf8; ï¿½Ñ±ï¿½ ï¿½Èµï¿½î°¥ï¿½ï¿½
 	@Inject
 	MemberService service;
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -83,7 +82,7 @@ public class MemberController {
 				service.keepLogin(vo.getC_id(), session.getId(), new Date());
 			}
 		}
-		return "login";
+		return "member/login";
 	}
 
 
@@ -112,7 +111,7 @@ public class MemberController {
 
 	@ResponseBody
 	@RequestMapping(value = "/checkId", method = RequestMethod.POST)
-	public String checkIdPOST(@RequestBody String c_id) {//requestBody�� vo���ƴҋ�
+	public String checkIdPOST(@RequestBody String c_id) {//requestBodyï¿½ï¿½ voï¿½ï¿½ï¿½Æ´Ò‹ï¿½
 		logger.info(""+service.checkId(c_id));
 		return service.checkId(c_id);
 
@@ -126,7 +125,7 @@ public class MemberController {
 
 	}
 
-	//회원가입할때 있는아이디인지 체크하는부분
+	//íšŒì›�ê°€ìž…í• ë•Œ ìžˆëŠ”ì•„ì�´ë””ì�¸ì§€ ì²´í�¬í•˜ëŠ”ë¶€ë¶„
 	@CrossOrigin
 	@ResponseBody
 	@RequestMapping(value = "/registerKakao", method = RequestMethod.POST)
@@ -136,7 +135,7 @@ public class MemberController {
 	}
 
 
-	//회원가입카카오톡
+	//íšŒì›�ê°€ìž…ì¹´ì¹´ì˜¤í†¡
 	@ResponseBody
 	@CrossOrigin
 	@RequestMapping(value = "/registerKakaomember", method = RequestMethod.POST)

@@ -1,4 +1,3 @@
-<%@ page session="false"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -20,18 +19,18 @@
 <script src="http://s.codepen.io/assets/libs/modernizr.js"
 	type="text/javascript"></script>
 <!-- 911ffa91ef92e4018ca8e381432dccea -->
-<!-- 07803719751f68ea187b3847f10d30e8 -->
-<!-- 07803719751f68ea187b3847f10d30e8 -->
+<!-- 911ffa91ef92e4018ca8e381432dccea -->
+<!-- 911ffa91ef92e4018ca8e381432dccea -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=911ffa91ef92e4018ca8e381432dccea"></script>
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=LIBRARY"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=911ffa91ef92e4018ca8e381432dccea&libraries=LIBRARY"></script>
 <!-- services 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=911ffa91ef92e4018ca8e381432dccea&libraries=services"></script>
 <!-- services와 clusterer, drawing 라이브러리 불러오기 -->
 <script type="text/javascript"
-	src="//apis.daum.net/maps/maps3.js?apikey=07803719751f68ea187b3847f10d30e8&libraries=services,clusterer,drawing"></script>
+	src="//apis.daum.net/maps/maps3.js?apikey=911ffa91ef92e4018ca8e381432dccea&libraries=services,clusterer,drawing"></script>
 
 
 <link rel="stylesheet" media="screen" href="css/fooddamas.css">

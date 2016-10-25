@@ -93,7 +93,7 @@ td {
 						    $('.collapse').on('hide.bs.collapse', function() {
 						        var id = $(this).attr('id');
 						        $('a[href="#' + id + '"]').closest('.panel-heading').removeClass('active-faq');
-						        $('a[href="#' + id + '"] .panel-title span').html('<i class="glyphicon glyphicon-plus"></i>');
+						        $('a[href="#' + id + '"] .panel-title span').html("<i class='glyphicon glyphicon-plus fa-2x' style='font-size:40px'>더보기</i>");
 						    });
 							
 							$(".leer").html("API");	
@@ -199,7 +199,7 @@ td {
 						<span itemprop="name">주차정보</span>
 					
 					</h1>
-						<div style="text-align: right">
+						<div style="text-align: right; margin-bottom: 10px">
 						<span class='colorBusy' style='font-size:12px;'>혼잡도 : </span>
 						<span class='colorBusy' style='font-size:12px;color:green'>■ 30% </span>
 						<span class='colorBusy' style='font-size:12px;color:orange'>■ 60%</span>

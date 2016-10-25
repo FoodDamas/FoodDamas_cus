@@ -5,7 +5,7 @@ table {
 }
 
 th {
-	font-family: "NanumGothic", "Nanum Gothic", "nanumgothic", "나눔고딕";
+	font-family: "NanumGothic", "Nanum Gothic", "nanumgothic", "ë‚˜ëˆ”ê³ ë”•";
 	background-color: #F5F5F6;
 	border-bottom-width: 1px;
 	text-align: center !important;
@@ -5920,7 +5920,7 @@ td, th {
 }
 
 .glyphicon-plus:before {
-	content: "\2b"
+	content: "더 보기"
 }
 
 .glyphicon-euro:before {
