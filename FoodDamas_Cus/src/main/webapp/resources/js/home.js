@@ -72,26 +72,38 @@ var local="http://14.32.7.115:4449/";
          }
          // list up
          for (var i = 0; i < data.result.length; i++) {
-            var distance = data.result[i].distance * 10000;
-            if(data.result[i].review_num==null){
-               data.result[i].review_num=0;
-            }
+        	var state=data.result[i].sales_state;
+        	var distance;
+        	var co_name;
+        	  if(data.result[i].review_num==null){
+                  data.result[i].review_num=0;
+               }
+        	if(state==false){
+        		distance = "<p class='etc' style='color:red'>영업종료</p>"   
+        		co_name="<span class='title' style='text-decoration:line-through'>"
+                  + data.result[i].co_name + " (" 
+                  + data.result[i].review_num
+                  + ")</span> ";
+        	}else{
+        		co_name="<span class='title' >"
+                    + data.result[i].co_name + " (" 
+                    + data.result[i].review_num
+                    + ")</span> ";
+        		 distance = data.result[i].distance * 10000;
+                 distance = "<p class='etc'>"
+                 + distance.toFixed(1) + " M</p>"
+        	}
+          
             var grade=data.result[i].grade.toFixed(1);
      
-            distance = distance.toFixed(1);
             truckList +="<li class='restaurant-item' id='storeList' " 
                 +"data-co_name='"+data.result[i].co_name+"' data-sno='"+data.result[i].sno+"' data-u_id='"+data.result[i].u_id+"'><div class='popular_restaurant_inner_wrap'><figure class='restaurant-item'>"
             	  +"<div class='thumb' style='background-image: url(http://14.32.7.115:4040/displayProfile?fileName="+ data.result[i].u_profile_img+")'></div>"
-                  + "<div class='info'><span class='title'>"
-                  + data.result[i].co_name + " (" 
-                  + data.result[i].review_num
-                  + ")</span> <strong class='point search_point'>"
+                  + "<div class='info'>"+co_name+"<strong class='point search_point'>"
                   + grade
                   + "</strong><p class='etc'>"
                   + data.result[i].location
-                  + "</p><p class='etc'>"
-                  + distance
-                  + "m</p></div></figure></div></li>"
+                  + "</p>"+distance+"</div></figure></div></li>"
          }
          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
          ///////////////////////////////////////////이가영이가영이가영이가영이가영이가영///////////////////////////////////////////////////////

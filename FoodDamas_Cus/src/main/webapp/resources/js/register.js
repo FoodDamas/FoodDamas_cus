@@ -14,9 +14,11 @@ function checkPassword() {
         $("#checkPasswordText").html("<li>password가 같습니다.</li>");
     }
 }
+var state;// idcheck confirm
 function idCheck() {
     var c_id=$(".c_id").val();
 	var local="http://14.32.7.115:4449/";
+	
 
     if(c_id!=""){
     		$.ajax({
@@ -26,9 +28,12 @@ function idCheck() {
     			data:c_id,
     			success:function(check){
     				if(check==""){
+    					state=true;
+
     			        $("#checkId").html("<li>사용가능한 아이디입니다.</li>");
 
     				}else{
+    					state=false;
     			        $("#checkId").html("<li>존재하는 아이디입니다.</li>");
 
     				}
@@ -49,8 +54,7 @@ jQuery(document).ready(function() {
 	var obj="";
 
 
-    $('.page-container form').submit(function(){
-    	console.log("클릭");
+    $('.register').on("click",function(){
         var c_id=$(".c_id").val();
         var c_name=$(".c_name").val();
         var c_pw=$(".c_pw").val();
@@ -104,10 +108,15 @@ jQuery(document).ready(function() {
             });
             return false;
         }
+        if(state==false){
+        	alert("이미 존재하는 아이디입니다.");
+        	
+              return false;
+
+        }
          if(c_pw!==confirmC_pw){
-            $(this).find('.error').fadeOut('fast', function(){
             	alert("비밀번호가 다릅니다.")
-            });
+          
             return false;
 
         }
@@ -120,29 +129,25 @@ jQuery(document).ready(function() {
  				c_phone: c_phone,
  				c_mail:c_mail
  		}
+    
          registerMember(obj);
-         
-         
+
          function registerMember(obj) {
-       		$.ajax({
-     			url: local+'/member/register',
+      		$.ajax({
+     			url: local+'member/registerPOST',
      			type:"POST",
      			data:obj,
-     			success: function(){
-     				console.log("0000000000000000000000000000000000");
-/* 					console.log("dld???????222222222222222222222222222??????/");
-					 window.location = local+"member/login";
+     			success: function(data){
+     				 window.location = local+"member/login";
 
      				if(data=="success")
      					{
-     					console.log("dld?????????????/");
-
      						alert("회원가입을 성공하였습니다.");
      					}else {
      	 					alert("회원가입을 실패하였습니다.");
 
     					}
-*/     							
+     							
      			}
      			
      		});

@@ -26,7 +26,7 @@
 <body>
 
 <div class="page-container">
-    <h1>Register</h1>
+    <h1>회원가입</h1>
      <form>
         <input type="text" name="c_id" class="c_id" placeholder="아이디" onkeyup="idCheck()">
        	<ul id="checkId" style="margin-top: 10px;"> </ul>
@@ -37,16 +37,17 @@
         <input type="text" name="c_phone" class="c_phone" placeholder="핸드폰">
         <input type="email" name="c_mail" class="c_mail" placeholder="메일">
 
-        <button class = "register">Sign me in</button>
         <div class="error"><span>+</span></div>
     </form>
-    <div class="connect">
+            <button class = "register">가입하기</button>
+    
+<!--     <div class="connect">
         <p>Or connect with:</p>
         <p>
             <a class="facebook" href=""></a>
             <a class="twitter" href=""></a>
         </p>
-    </div>
+    </div> -->
 </div>
 
 <!-- Javascript -->
