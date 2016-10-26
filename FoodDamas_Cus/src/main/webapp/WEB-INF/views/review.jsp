@@ -39,7 +39,7 @@
 <script>
 
 $(document).ready(function() {
- 
+ 	var local="http://14.32.7.115:4449/";
    // var writer = sessionStorage.getItem('u_id');   // 푸드트럭 사장 아이디
     var c_id = $(".c_id").html()
     var u_id= sessionStorage.getItem('u_id');
@@ -222,7 +222,7 @@ console.log(total);
 			if (c_id=="")
 				{
 					alert("로그인이 필요합니다.");
-					window.location="http://14.32.7.115:4449/member/login";
+					window.location=local+"member/login";
 				}
 			else{
 				for (var i = 0 ; star.length; i++){

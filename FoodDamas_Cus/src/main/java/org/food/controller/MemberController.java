@@ -95,16 +95,15 @@ public class MemberController {
 	@ResponseBody
 	@CrossOrigin
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String registerPOST( MemberVO vo ) {
+	public void registerPOST(MemberVO vo ) {
 
 
 		logger.info("register POST");
 
-		logger.info(""+vo);
-		/*	System.out.println(vo);
+		System.out.println(vo);
 		service.insertMember(vo);
-		 */	
-		return "success";
+		 
+	//	return "success";
 
 	}
 

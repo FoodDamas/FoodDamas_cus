@@ -178,7 +178,6 @@
       order by
       grade
       desc
-      limit #{page},8
       ) as total
    </select>
 

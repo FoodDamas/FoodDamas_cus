@@ -128,17 +128,21 @@ jQuery(document).ready(function() {
      			url: local+'/member/register',
      			type:"POST",
      			data:obj,
-     			success:function(data){
+     			success: function(){
+     				console.log("0000000000000000000000000000000000");
+/* 					console.log("dld???????222222222222222222222222222??????/");
+					 window.location = local+"member/login";
+
      				if(data=="success")
      					{
-    					window.location.replace("/member/login");
+     					console.log("dld?????????????/");
 
      						alert("회원가입을 성공하였습니다.");
      					}else {
      	 					alert("회원가입을 실패하였습니다.");
 
     					}
-     							
+*/     							
      			}
      			
      		});

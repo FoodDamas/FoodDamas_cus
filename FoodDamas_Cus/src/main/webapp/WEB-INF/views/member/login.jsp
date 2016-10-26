@@ -120,22 +120,24 @@ px
 			</div>
 		</form>
 		<!-- 로그인 카카오 -->
+	<!--
+ 		안드로이드에서 안되서 우선주석
 		<button id="custom-login-btn" class="loginKakao">Login Kakao</button>
-		
+ -->		
 		<div class="connect">
 			<a style="display: inline; text-decoration: none"
 				href="/member/register"><p class="register">register Member</p></a>
-
+<!--
+		  		안드로이드에서 안되서 우선주석
+		 
 			<a id="custom-login-btn"
 				style="display: inline; text-decoration: none"
 				href="javascript:loginWithKakao()">
 				<p class="register" style="font-size: 19px; margin-top: 10px">register
 					KaKao</p>
 			</a>
-
-			<p>
-				<a class="facebook" href=""></a> <a class="twitter" href=""></a>
-			</p>
+ -->
+			
 		</div>
 	</div>
 	<input id="aaaa" type="hidden" name="result" value="${param.result }" />

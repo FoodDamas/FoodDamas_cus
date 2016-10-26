@@ -176,8 +176,7 @@ td {
 	</ul>
 
 		<div class="nav-bar">
-		<div class="LeeBack">← 뒤로</div>
-		<div class=" leer">우리청년컵밥</div>
+	
 	</div>
 
 			<%@include file="headersub.jsp"%>

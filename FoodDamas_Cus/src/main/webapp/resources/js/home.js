@@ -40,8 +40,6 @@ var local="http://14.32.7.115:4449/";
        positionData.page = data.page;      
        positionData.orderBy = data.orderBy; 
        getList(positionData);
-      
-
    }
 
    function getList(data, callback) {
@@ -55,10 +53,11 @@ var local="http://14.32.7.115:4449/";
       }
 
       $.getJSON(local+'home/'+orderBy+'/' + data.page, data, function(data) {
-         console.log("--------Get json Data-----");
-         console.log(page)
+    	 console.log("--------Get json Data-----");
+         console.log("page는 ");
+         console.log(page);
          console.log(data);
-         map(data);
+         //map(data);
 
          // 좌표값이 없는 경우
          if (data == null) {
@@ -69,7 +68,6 @@ var local="http://14.32.7.115:4449/";
             data.lat = 127.028148;
          }
          if(page==0){
-            console.log("page 0입니다");
             truckList = "";
          }
          // list up
@@ -95,29 +93,54 @@ var local="http://14.32.7.115:4449/";
                   + distance
                   + "m</p></div></figure></div></li>"
          }
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+         ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
          ///////////////////////////////////////////이가영이가영이가영이가영이가영이가영///////////////////////////////////////////////////////
          ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-         
-          $("#list").on("click","#storeList", function() {
-            
+        
+          $("#list").on("click","#storeList", function() {        	  
             var $this=$(this);
             var u_id=$this.attr("data-u_id");
             var sno=$this.attr("data-sno");
             var co_name=$this.attr("data-co_name");
             sessionStorage.setItem('sno', sno);
             sessionStorage.setItem('co_name', co_name);
-
             sessionStorage.setItem('u_id', u_id);//세션생성_Leeek
             var obj={
                   u_id: u_id,
                   sno: sno
             };
-            
             window.location.replace(local+"menu/menulist");
-
          });
-         
+          
+          $("#gradeList").on("click","#storeList", function() {        	  
+              var $this=$(this);
+              var u_id=$this.attr("data-u_id");
+              var sno=$this.attr("data-sno");
+              var co_name=$this.attr("data-co_name");
+              sessionStorage.setItem('sno', sno);
+              sessionStorage.setItem('co_name', co_name);
+              sessionStorage.setItem('u_id', u_id);//세션생성_Leeek
+              var obj={
+                    u_id: u_id,
+                    sno: sno
+              };
+              window.location.replace(local+"menu/menulist");
+           });
+          
+          $("#reviewList").on("click","#storeList", function() {        	  
+              var $this=$(this);
+              var u_id=$this.attr("data-u_id");
+              var sno=$this.attr("data-sno");
+              var co_name=$this.attr("data-co_name");
+              sessionStorage.setItem('sno', sno);
+              sessionStorage.setItem('co_name', co_name);
+              sessionStorage.setItem('u_id', u_id);//세션생성_Leeek
+              var obj={
+                    u_id: u_id,
+                    sno: sno
+              };
+              window.location.replace(local+"menu/menulist");
+           });
 
            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
             ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

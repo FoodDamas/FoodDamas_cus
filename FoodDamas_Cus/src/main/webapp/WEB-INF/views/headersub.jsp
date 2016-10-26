@@ -35,6 +35,8 @@ a:visited {text-decoration: none; color: #333333;}
 	
 	
 </nav>
+</header>
+
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 <script >
 console.log($(".cid").html());
