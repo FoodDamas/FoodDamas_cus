@@ -6,10 +6,6 @@ var local="http://14.32.7.115:4449/";
    //var local="http://localhost/";
 
    function getPosition(data, callback) {
-      //console.log("*********");
-      //console.log(data);
-      //console.log("*********");
-      
       console.log("------------------------");
       // HTML5의 geolocation으로 사용할 수 있는지 확인합니다
 /*      if (navigator.geolocation) {
